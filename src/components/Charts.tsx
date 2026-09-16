@@ -11,6 +11,7 @@ import {
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 import type { Analysis } from "../core/types";
+import { profileLine as line } from "./profile-series";
 echarts.use([
   LineChart,
   ScatterChart,
@@ -44,16 +45,6 @@ export function ProfileChart({
         result.profile.ground +
         result.inputs.observerHeight +
         result.inputs.groundOffset;
-    const line = (name: string, color: string, data: (number | null)[][]) => ({
-      name,
-      type: "line" as const,
-      showSymbol: false,
-      lineStyle: { width: 2, color },
-      itemStyle: { color },
-      sampling: "lttb" as const,
-      data,
-      connectNulls: false,
-    });
     const series = isHorizon
       ? [
           line(

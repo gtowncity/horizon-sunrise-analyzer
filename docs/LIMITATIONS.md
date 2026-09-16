@@ -10,4 +10,4 @@
 - Chart tangent uses the small-angle drop control model for explanation; numeric results use the trigonometric model.
 - No clouds, extinction, observer obstruction, transient objects or actual atmospheric measurements are included.
 
-These are reasons for retaining the honest research version 0.8.0 rather than asserting a scientifically complete 1.0.
+These are reasons for retaining the honest research version 0.8.1 rather than asserting a scientifically complete 1.0.
