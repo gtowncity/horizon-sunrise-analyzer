@@ -1,0 +1,9 @@
+node_modules/
+dist/
+_local_audit/
+test-results/
+playwright-report/
+.env*
+!.env.example
+*.log
+.DS_Store
