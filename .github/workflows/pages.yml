@@ -24,6 +24,8 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      - run: node scripts/retain-pages-assets.mjs
+        if: github.event_name != 'pull_request'
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
       - run: npm audit --audit-level=high

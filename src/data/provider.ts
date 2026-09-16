@@ -1,6 +1,11 @@
 import { fromArrayBuffer } from "geotiff";
 import { unzipSync } from "fflate";
-import type { Model, ProgressFn, TileRecord } from "../core/types";
+import type {
+  Model,
+  ProgressFn,
+  TileRecord,
+  PerformanceStats,
+} from "../core/types";
 import { tileId, tileOrigin } from "../core/geo";
 import { bilinear, gridCoordinates } from "../core/raster";
 import type { CacheEntry, TileCache } from "./cache";
@@ -22,6 +27,8 @@ export type RasterTile = {
 };
 export interface ElevationProvider {
   records: Map<string, TileRecord>;
+  stats?: PerformanceStats;
+  batch?<T>(work: () => Promise<T>): Promise<T>;
   sampleMany(
     points: readonly [number, number][],
     model: Model,
@@ -60,13 +67,27 @@ export async function officialZip(
   id: string,
   onProgress: ProgressFn = () => {},
 ): Promise<CacheEntry> {
+  const started = performance.now();
   const [x, y] = tileOrigin(id),
     dataset = model === "dgm1" ? "dgm1" : "dom20dom";
   const body = `SRID=25832;POLYGON((${x + 499} ${y + 499},${x + 501} ${y + 499},${x + 501} ${y + 501},${x + 499} ${y + 501},${x + 499} ${y + 499}))`;
-  const r = await request(
-    `${CATALOG}/zip/start/${dataset}/${crypto.randomUUID()}`,
-    { method: "POST", body },
-  );
+  let r: Response;
+  try {
+    r = await request(
+      `${CATALOG}/zip/start/${dataset}/${crypto.randomUUID()}`,
+      { method: "POST", body },
+    );
+  } catch (error) {
+    // The official start endpoint occasionally returns a transient HTTP 400
+    // even for a valid tile. One fresh job attempt; persistent errors still fail.
+    if (!(error instanceof Error) || !error.message.includes("HTTP 400"))
+      throw error;
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+    r = await request(
+      `${CATALOG}/zip/start/${dataset}/${crypto.randomUUID()}`,
+      { method: "POST", body },
+    );
+  }
   let job = (await r.json()) as {
     status: string;
     url: string;
@@ -92,8 +113,10 @@ export async function officialZip(
     throw new Error(
       `ZIP-Dienst: ${job.status}. ${job.message ?? "Bitte später erneut versuchen."}`,
     );
+  const transferStart = performance.now();
   const zipped = await request(officialURL(job.url));
   const packed = new Uint8Array(await zipped.arrayBuffer());
+  const transferMs = performance.now() - transferStart;
   if (packed.byteLength > 150 * 1024 * 1024)
     throw new Error("ZIP überschreitet das Größenlimit von 150 MB");
   const expected = model === "dgm1" ? `${id}.tif` : `32${id}_20_DOM.tif`;
@@ -124,11 +147,13 @@ export async function officialZip(
       downloadedAt: new Date().toISOString(),
       modified: zipped.headers.get("last-modified") ?? undefined,
       sha256,
+      archiveBytes: packed.byteLength,
+      transferMs,
+      serviceMs: transferStart - started,
     },
   };
 }
-export async function decodeTile(entry: CacheEntry): Promise<RasterTile> {
-  const start = performance.now();
+export async function openTile(entry: CacheEntry) {
   let image;
   try {
     image = await (await fromArrayBuffer(entry.data)).getImage();
@@ -167,13 +192,11 @@ export async function decodeTile(entry: CacheEntry): Promise<RasterTile> {
     );
   if (id !== entry.metadata.id)
     throw new Error("GeoTIFF-Lage passt nicht zur Kachel-ID");
-  const raster = await image.readRasters({ samples: [0], interleave: true });
-  const values = Float32Array.from(raster);
   const record = {
     ...entry.metadata,
     crs: 25832,
     resolution: expected,
-    decodeMs: performance.now() - start,
+    decodeMs: 0,
   };
   return {
     id,
@@ -184,8 +207,18 @@ export async function decodeTile(entry: CacheEntry): Promise<RasterTile> {
     width: image.getWidth(),
     height: image.getHeight(),
     nodata: image.getGDALNoData(),
-    values,
+    image,
     record,
+  };
+}
+export async function decodeTile(entry: CacheEntry): Promise<RasterTile> {
+  const started = performance.now();
+  const { image, ...tile } = await openTile(entry);
+  const raster = await image.readRasters({ samples: [0], interleave: true });
+  return {
+    ...tile,
+    values: Float32Array.from(raster),
+    record: { ...tile.record, decodeMs: performance.now() - started },
   };
 }
 export class BavarianProvider implements ElevationProvider {

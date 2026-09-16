@@ -1,3 +1,4 @@
+// Frozen scientific baseline from commit 625dc2618c74aa67c5c826279a9785cc25d2c592. Import paths only adapted.
 import type {
   Analysis,
   Inputs,
@@ -5,8 +6,8 @@ import type {
   Sample,
   ProgressFn,
   HorizonPoint,
-} from "./types";
-import type { ElevationProvider } from "../data/provider";
+} from "../../src/core/types";
+import type { ElevationProvider } from "../../src/data/provider";
 import {
   apparentAngle,
   curvatureDrop,
@@ -14,14 +15,14 @@ import {
   normalRadius,
   tileId,
   toUTM,
-} from "./geo";
+} from "../../src/core/geo";
 import {
   diskMargin,
   solarContact,
   standardSunrise,
   sun,
   localDay,
-} from "./solar";
+} from "../../src/core/solar";
 export function validateInputs(i: Inputs) {
   localDay(i.date, i.timezone);
   if (
@@ -76,17 +77,13 @@ export async function profile(
 ): Promise<Profile> {
   const origin = toUTM(i.observer);
   const h0 = ground ?? (await provider.sampleMany([origin], "dgm1"))[0];
-  const geometryStart = performance.now();
   const radius = normalRadius(i.observer.lat, azimuth),
     count = Math.ceil(i.distance / i.step);
   const locations = Array.from({ length: count + 1 }, (_, j) =>
     destination(i.observer, azimuth, Math.min(j * i.step, i.distance)),
   );
   const xy = locations.map((p) => toUTM(p));
-  if (provider.stats)
-    provider.stats.geometryMs += performance.now() - geometryStart;
   const terrain = await provider.sampleMany(xy, "dgm1");
-  let mathStart = performance.now();
   const eye = h0 + i.groundOffset + i.observerHeight;
   const samples: Sample[] = locations.map((p, j) => {
     const distance = Math.min(j * i.step, i.distance);
@@ -124,14 +121,11 @@ export async function profile(
     }
   const distances = [...extraDistances].sort((a, b) => a - b);
   const extra = distances.map((d) => destination(i.observer, azimuth, d));
-  if (provider.stats)
-    provider.stats.profileMathMs += performance.now() - mathStart;
   if (extra.length) {
     const heights = await provider.sampleMany(
       extra.map((p) => toUTM(p)),
       "dgm1",
     );
-    mathStart = performance.now();
     extra.forEach((p, j) =>
       samples.push({
         ...p,
@@ -149,8 +143,6 @@ export async function profile(
       }),
     );
     samples.sort((a, b) => a.distance - b.distance);
-    if (provider.stats)
-      provider.stats.profileMathMs += performance.now() - mathStart;
   }
   const blocker = horizonMaximum(samples);
   let surfaceBlocker: Sample | undefined;
@@ -168,7 +160,6 @@ export async function profile(
       indices.map((j) => toUTM(samples[j])),
       "dom20",
     );
-    mathStart = performance.now();
     for (let n = 0; n < indices.length; n++) {
       const s = samples[indices[n]];
       s.surface = surface[n];
@@ -178,8 +169,6 @@ export async function profile(
         : -90;
     }
     surfaceBlocker = horizonMaximum(samples, true);
-    if (provider.stats)
-      provider.stats.profileMathMs += performance.now() - mathStart;
   }
   const target = samples.at(-1)!;
   const before = samples.slice(1, -1);
@@ -202,51 +191,6 @@ export async function profile(
     targetVisible,
     radius,
   };
-}
-/** Bounded waves coalesce file/block reads without retaining the whole fan's
- * full sample objects. Array order, rays and all profile maths stay unchanged. */
-async function horizonProfiles(
-  provider: ElevationProvider,
-  i: Inputs,
-  azimuths: number[],
-  ground: number,
-  progress: ProgressFn,
-  stage: string,
-) {
-  const out: HorizonPoint[] = [];
-  const wave = provider.batch
-    ? Math.max(
-        1,
-        Math.min(
-          24,
-          Math.floor(160000 / (Math.ceil(i.distance / i.step) + 194)),
-        ),
-      )
-    : 1;
-  for (let start = 0; start < azimuths.length; start += wave) {
-    progress({
-      stage,
-      fraction: start / azimuths.length,
-      detail: `Sichtlinien ${start + 1}–${Math.min(start + wave, azimuths.length)} / ${azimuths.length}`,
-    });
-    const work = () =>
-      Promise.all(
-        azimuths.slice(start, start + wave).map(async (azimuth) => {
-          const pr = await profile(provider, i, azimuth, ground);
-          const b =
-            i.model === "dom20"
-              ? (pr.surfaceBlocker ?? pr.blocker)
-              : pr.blocker;
-          return {
-            azimuth,
-            angle: i.model === "dom20" ? (b.surfaceAngle ?? b.angle) : b.angle,
-            blocker: b,
-          };
-        }),
-      );
-    out.push(...(await (provider.batch ? provider.batch(work) : work())));
-  }
-  return out;
 }
 export async function analyze(
   provider: ElevationProvider,
@@ -275,19 +219,7 @@ export async function analyze(
     );
   let p: Profile;
   const horizon: HorizonPoint[] = [];
-  const timedSolar = <T>(work: () => T): T => {
-    const began = performance.now();
-    try {
-      return work();
-    } finally {
-      if (provider.stats) provider.stats.solarMs += performance.now() - began;
-    }
-  };
-  const contactSearch = (...args: Parameters<typeof solarContact>) =>
-    timedSolar(() => solarContact(...args));
-  const standard = timedSolar(() =>
-    standardSunrise(i.date, i.timezone, i.observer),
-  );
+  const standard = standardSunrise(i.date, i.timezone, i.observer);
   let contact: Analysis["contact"];
   const sensitivity: NonNullable<Analysis["sensitivity"]> = [];
   if (i.mode === "los") {
@@ -304,21 +236,24 @@ export async function analyze(
     const min = center - i.fanHalfWidth,
       max = center + i.fanHalfWidth;
     const n = Math.ceil((max - min) / i.azimuthStep);
-    const ground = (await provider.sampleMany([toUTM(i.observer)], "dgm1"))[0];
-    const azimuths = Array.from(
-      { length: n + 1 },
-      (_, j) => min + ((max - min) * j) / n,
-    );
-    horizon.push(
-      ...(await horizonProfiles(
-        provider,
-        i,
-        azimuths,
-        ground,
-        progress,
-        "Horizonte berechnen",
-      )),
-    );
+    let ground: number | undefined;
+    for (let j = 0; j <= n; j++) {
+      const az = min + ((max - min) * j) / n;
+      progress({
+        stage: "Horizont",
+        fraction: j / n,
+        detail: `Azimut ${az.toFixed(2)}° (${j + 1}/${n + 1})`,
+      });
+      const pr = await profile(provider, i, az, ground);
+      ground = pr.ground;
+      const b =
+        i.model === "dom20" ? (pr.surfaceBlocker ?? pr.blocker) : pr.blocker;
+      horizon.push({
+        azimuth: az,
+        angle: i.model === "dom20" ? (b.surfaceAngle ?? b.angle) : b.angle,
+        blocker: b,
+      });
+    }
     // Search only when the complete disk stays inside the calculated fan.
     let windowStart = Date.parse(standard) - 1800000,
       windowEnd = Date.parse(standard) + 7200000;
@@ -339,7 +274,7 @@ export async function analyze(
     });
     if (windowEnd <= windowStart)
       throw new Error("Azimutfächer zu klein für Kontaktfenster");
-    contact = contactSearch(
+    contact = solarContact(
       i.observer,
       i.atmosphere,
       horizon,
@@ -352,24 +287,27 @@ export async function analyze(
       const refineEnd = Math.min(max, contact.limbAzimuth + 0.5);
       const refineStep = Math.max(0.01, Math.min(0.02, i.azimuthStep / 4));
       const count = Math.ceil((refineEnd - refineStart) / refineStep);
-      const fineAzimuths: number[] = [];
       for (let j = 0; j <= count; j++) {
         const az = refineStart + ((refineEnd - refineStart) * j) / count;
         if (horizon.some((h) => Math.abs(h.azimuth - az) < 1e-8)) continue;
-        fineAzimuths.push(az);
+        progress({
+          stage: "Horizont verfeinern",
+          fraction: j / count,
+          detail: `Kontaktregion ${az.toFixed(3)}°`,
+        });
+        const pr = await profile(provider, i, az, ground),
+          b =
+            i.model === "dom20"
+              ? (pr.surfaceBlocker ?? pr.blocker)
+              : pr.blocker;
+        horizon.push({
+          azimuth: az,
+          angle: i.model === "dom20" ? (b.surfaceAngle ?? b.angle) : b.angle,
+          blocker: b,
+        });
       }
-      horizon.push(
-        ...(await horizonProfiles(
-          provider,
-          i,
-          fineAzimuths,
-          ground,
-          progress,
-          "Kontaktregion verfeinern",
-        )),
-      );
       horizon.sort((a, b) => a.azimuth - b.azimuth);
-      contact = contactSearch(
+      contact = solarContact(
         i.observer,
         i.atmosphere,
         horizon,
@@ -396,7 +334,7 @@ export async function analyze(
       for (const shift of [-0.1, 0.1]) {
         const shifted = horizon.map((h) => ({ ...h, angle: h.angle + shift }));
         try {
-          const c = contactSearch(
+          const c = solarContact(
             i.observer,
             i.atmosphere,
             shifted,
@@ -434,7 +372,7 @@ export async function analyze(
   progress({ stage: "Fertig", fraction: 1, detail: "Analyse abgeschlossen" });
   return {
     schema: "hsa-1",
-    version: "0.9.0",
+    version: "0.8.1",
     commit,
     timestamp: new Date().toISOString(),
     inputs: structuredClone(i),
@@ -445,9 +383,6 @@ export async function analyze(
     tiles: [...provider.records.values()],
     warnings,
     elapsedMs: performance.now() - start,
-    performance: provider.stats
-      ? { ...provider.stats, totalMs: performance.now() - start }
-      : undefined,
     sensitivity,
   };
 }

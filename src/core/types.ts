@@ -15,6 +15,38 @@ export type TileRecord = {
   crs?: number;
   resolution?: number;
   decodeMs?: number;
+  archiveBytes?: number;
+  transferMs?: number;
+  serviceMs?: number;
+};
+export type PerformanceStats = {
+  samplePoints: number;
+  tileRequests: number;
+  uniqueTiles: number;
+  fileOpens: number;
+  fileCacheHits: number;
+  persistentHits: number;
+  downloads: number;
+  archiveBytes: number;
+  extractedBytes: number;
+  cacheReadBytes: number;
+  blocksDecoded: number;
+  blockHits: number;
+  blockEvictions: number;
+  fileEvictions: number;
+  fullRasterDecodes: number;
+  cacheReadMs: number;
+  cacheWriteMs: number;
+  downloadServiceMs: number;
+  decodeMs: number;
+  planningMs: number;
+  interpolationMs: number;
+  geometryMs: number;
+  profileMathMs: number;
+  solarMs: number;
+  peakFileBytes: number;
+  peakBlockBytes: number;
+  cacheWriteFailures: number;
 };
 export type Atmosphere = {
   k: number;
@@ -80,6 +112,7 @@ export type Contact = {
   bracketMs: number;
 };
 export type Analysis = {
+  algorithm?: string;
   schema: "hsa-1";
   version: string;
   commit: string;
@@ -92,6 +125,11 @@ export type Analysis = {
   tiles: TileRecord[];
   warnings: string[];
   elapsedMs: number;
+  performance?: PerformanceStats & {
+    totalMs: number;
+    resultCacheHit?: boolean;
+    originalElapsedMs?: number;
+  };
   sensitivity?: {
     parameter: string;
     value: number;
@@ -104,5 +142,6 @@ export type Progress = {
   fraction: number;
   detail: string;
   tile?: TileRecord;
+  performance?: PerformanceStats;
 };
 export type ProgressFn = (p: Progress) => void;

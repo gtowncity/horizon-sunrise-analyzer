@@ -1,5 +1,7 @@
 # Deployment
 
+Pages deployment retains one preceding generation of immutable JS/CSS chunks, including worker and decoder imports, for already-open tabs. Only the newly built HTML is served to new visits. The bounded retention script reads the published asset manifest (or bootstraps its Vite dependency graph on first use); failure to preserve that graph stops deployment. This does not reload any open user tab.
+
 Target: https://gtowncity.github.io/horizon-sunrise-analyzer/ . The public GitHub repository has Pages configured to build_type=workflow. The relative Vite base supports repository subpaths. Do not deploy the source root or private audit; only dist is uploaded.
 
 The workflow runs npm ci, lint, typecheck, unit tests, production build, Chromium desktop/mobile E2E and npm audit before deploying. Pull requests validate without deploying. Verified official action majors on 2026-09-16: checkout v6, setup-node v7, configure-pages v5, upload-pages-artifact v4, deploy-pages v4.

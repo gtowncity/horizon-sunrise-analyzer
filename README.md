@@ -16,7 +16,7 @@ A static browser workbench for terrain horizons and solar-disk contact using off
 
 ## Scientific status
 
-**0.8.1 research release.** Models are implemented and tested; this is not a claim of physically exact first-visibility times. Angular/spatial sampling, partial DOM coverage, finite distance, geoid effects and atmosphere remain limitations. Numerical solver resolution is not observational accuracy. See [validation](docs/VALIDATION.md) and [uncertainties](docs/UNCERTAINTIES.md).
+**0.9.0 research release.** Models are implemented and tested; this is not a claim of physically exact first-visibility times. Angular/spatial sampling, partial DOM coverage, finite distance, geoid effects and atmosphere remain limitations. Numerical solver resolution is not observational accuracy. See [validation](docs/VALIDATION.md) and [uncertainties](docs/UNCERTAINTIES.md).
 
 ## Run and test
 

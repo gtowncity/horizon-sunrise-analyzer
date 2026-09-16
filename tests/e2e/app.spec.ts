@@ -48,6 +48,10 @@ test("complete deterministic sightline, sunrise, export and responsive workflow"
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "JSON exportieren" }).click();
   expect((await download).suggestedFilename()).toBe("horizon-analysis.json");
+  await page.getByRole("button", { name: "Analyse starten" }).click();
+  await expect(
+    page.getByText(/Gespeichertes Ergebnis – gleiche Eingaben/),
+  ).toBeVisible();
   await page
     .getByRole("button", { name: "Sonnenaufgang", exact: true })
     .click();
@@ -77,6 +81,12 @@ test("invalid input and cancellation have clear states", async ({ page }) => {
   await expect(page.getByRole("alert")).toContainText("Standort");
   await page.getByLabel("Breite ° N", { exact: true }).fill("48.2");
   await page.getByRole("button", { name: "Analyse starten" }).click();
+  await page.getByRole("button", { name: "Analyse abbrechen" }).click();
+  await expect(page.getByRole("alert")).toContainText("abgebrochen");
+  await page.getByRole("button", { name: "Analyse starten" }).click();
+  await expect(
+    page.getByRole("button", { name: "Analyse abbrechen" }),
+  ).toBeVisible();
   await page.getByRole("button", { name: "Analyse abbrechen" }).click();
   await expect(page.getByRole("alert")).toContainText("abgebrochen");
 });

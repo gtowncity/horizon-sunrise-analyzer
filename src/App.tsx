@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type {
   Analysis,
   Inputs,
@@ -78,6 +78,16 @@ export function App() {
     [select, setSelect] = useState<"observer" | "target">("observer"),
     [theme, setTheme] = useState("light");
   const worker = useRef<Worker | null>(null);
+  const startedAt = useRef(0);
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
+  useEffect(() => {
+    if (!busy) return;
+    const timer = window.setInterval(
+      () => setElapsedSeconds((performance.now() - startedAt.current) / 1000),
+      500,
+    );
+    return () => window.clearInterval(timer);
+  }, [busy]);
   const set = <K extends keyof Inputs>(key: K, value: Inputs[K]) => {
     setInputs((i) => ({ ...i, [key]: value }));
     setResult(undefined);
@@ -107,6 +117,8 @@ export function App() {
       type: "module",
     });
     worker.current = w;
+    startedAt.current = performance.now();
+    setElapsedSeconds(0);
     setBusy(true);
     setError("");
     setResult(undefined);
@@ -119,7 +131,10 @@ export function App() {
     w.onmessage = (e) => {
       const d = e.data;
       if (d.type === "progress") {
-        setProgress(d.progress);
+        setProgress((old) => ({
+          ...d.progress,
+          performance: d.progress.performance ?? old?.performance,
+        }));
         if (d.progress.tile)
           setTiles((old) => [
             ...old.filter(
@@ -154,6 +169,9 @@ export function App() {
   };
   const upload = async (files: FileList | null) => {
     if (!files) return;
+    startedAt.current = performance.now();
+    setElapsedSeconds(0);
+    setProgress(undefined);
     setBusy(true);
     setError("");
     try {
@@ -235,7 +253,7 @@ export function App() {
         </a>
         <div className="top-meta">
           <span>BAYERN · DGM1 / DOM20</span>
-          <span className="version">0.8.1 · Forschungsstand</span>
+          <span className="version">0.9.0 · Forschungsstand</span>
           <button
             onClick={() => setTheme((t) => (t === "light" ? "dark" : "light"))}
             aria-label="Farbschema wechseln"
@@ -641,10 +659,19 @@ export function App() {
             <section className="progress-box" role="status" aria-live="polite">
               <strong>{progress.stage}</strong>
               <span>{progress.detail}</span>
-              <progress max={1} value={progress.fraction} />
+              <progress
+                max={1}
+                value={
+                  progress.fraction > 0 && progress.fraction < 1
+                    ? progress.fraction
+                    : undefined
+                }
+              />
               <small>
-                Große Korridore können mehrere Minuten und viele MB benötigen.
-                Bereits geladene Kacheln werden wiederverwendet.
+                {Math.floor(elapsedSeconds / 60)} min{" "}
+                {Math.floor(elapsedSeconds % 60)} s vergangen
+                {progress.performance &&
+                  ` · ${(progress.performance.archiveBytes / 1e6).toFixed(1)} MB ZIP-Daten neu geladen · ${progress.performance.uniqueTiles} Quelldateien verwendet`}
               </small>
             </section>
           )}
@@ -656,6 +683,13 @@ export function App() {
           {notice && (
             <div className="notice" role="status">
               {notice}
+            </div>
+          )}
+          {result?.performance && (
+            <div className="notice" role="status">
+              {result.performance.resultCacheHit
+                ? "Gespeichertes Ergebnis – gleiche Eingaben und Softwareversion; Quelldateien im lokalen Cache geprüft."
+                : `Berechnung abgeschlossen in ${(result.elapsedMs / 1000).toFixed(1)} s · ${(result.performance.archiveBytes / 1e6).toFixed(1)} MB ZIP-Daten neu geladen.`}
             </div>
           )}
           <section className="metrics">
@@ -837,6 +871,7 @@ export function App() {
                         ephemeris: "Astronomy Engine 2.1.19",
                         contact: result.contact,
                         elapsedMs: result.elapsedMs,
+                        performance: result.performance,
                       },
                       null,
                       2,
@@ -900,7 +935,7 @@ export function App() {
                   {(
                     shownTiles.reduce((s, t) => s + t.bytes, 0) / 1048576
                   ).toFixed(1)}{" "}
-                  MB unkomprimierte Archivdateien
+                  MiB GeoTIFF-Dateien (nach ZIP-Extraktion)
                 </span>
               </h3>
               <div className="table-scroll">

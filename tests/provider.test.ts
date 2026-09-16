@@ -6,6 +6,7 @@ import {
   BavarianProvider,
   decodeTile,
   officialZip,
+  importGeoTIFF,
 } from "../src/data/provider";
 import { fixtureTIFF } from "./fixtures";
 import type { TileRecord, Model } from "../src/core/types";
@@ -18,6 +19,51 @@ const metadata = (id: string, model: Model = "dgm1"): TileRecord => ({
   downloadedAt: "2026-01-01T00:00:00Z",
 });
 describe("actual GeoTIFF decoding and cache", () => {
+  it("retains exact local import values and provenance for native-block sampling", async () => {
+    const { BatchedProvider } = await import("../src/data/batched-provider");
+    const cache = new MemoryCache();
+    const record = await importGeoTIFF(
+      new File([fixtureTIFF("600_5400")], "local.tif"),
+      "dgm1",
+      cache,
+    );
+    expect(record.state).toBe("Local");
+    expect(record.sha256).toHaveLength(64);
+    const points: [number, number][] = [[600500.25, 5400500.25]];
+    expect(await new BatchedProvider(cache).sampleMany(points, "dgm1")).toEqual(
+      await new BavarianProvider(cache).sampleMany(points, "dgm1"),
+    );
+  });
+  it("retries a transient start HTTP 400 once with a new job ID", async () => {
+    vi.useFakeTimers();
+    const archive = zipSync({
+      "600_5400.tif": new Uint8Array(fixtureTIFF("600_5400")),
+    });
+    const responses = [
+      new Response("temporary", { status: 400 }),
+      new Response(
+        JSON.stringify({
+          status: "FINISHED_OK",
+          url: "https://geodaten.bayern.de/odd_zip/test/tile.zip",
+        }),
+      ),
+      new Response(archive),
+    ];
+    const mock = vi
+      .spyOn(globalThis, "fetch")
+      .mockImplementation(async () => responses.shift()!);
+    try {
+      const pending = officialZip("dgm1", "600_5400");
+      await vi.runAllTimersAsync();
+      const result = await pending;
+      expect(mock).toHaveBeenCalledTimes(3);
+      expect(mock.mock.calls[0][0]).not.toBe(mock.mock.calls[1][0]);
+      expect(result.metadata.archiveBytes).toBe(archive.byteLength);
+    } finally {
+      vi.useRealTimers();
+      mock.mockRestore();
+    }
+  });
   it("retains polling URL through null URLs and partially written status JSON", async () => {
     vi.useFakeTimers();
     const archive = zipSync({

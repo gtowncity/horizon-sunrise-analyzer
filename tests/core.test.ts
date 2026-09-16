@@ -180,6 +180,12 @@ describe("curvature and atmospheric separation", () => {
   });
 });
 describe("horizon, disk and time", () => {
+  it("equal maxima preserve the first original sample", () => {
+    const a = sample(10, 1),
+      b = sample(20, 1);
+    expect(horizonMaximum([a, b])).toBe(a);
+    expect(horizonMaximum([b, a])).toBe(b);
+  });
   it("maximum is angle, not absolute altitude", () =>
     expect(
       horizonMaximum([sample(10, 1), { ...sample(1000, 0.5), terrain: 1000 }])
