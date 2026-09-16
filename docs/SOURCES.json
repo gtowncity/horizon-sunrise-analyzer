@@ -1,0 +1,114 @@
+[
+  {
+    "title": "BVV DGM1 data notes",
+    "operator": "Bayerische Vermessungsverwaltung",
+    "url": "https://www.geodaten.bayern.de/odd/m/3/html/datenhinweise/datenhinweise_dgm.html",
+    "accessed": "2026-09-16",
+    "statement": "1 m terrain, airborne laser scanning, DHHN2016"
+  },
+  {
+    "title": "BVV DGM product",
+    "operator": "LDBV",
+    "url": "https://www.ldbv.bayern.de/produkte/landschaftsinformationen/gelaende.html",
+    "accessed": "2026-09-16",
+    "statement": "DGM1 height accuracy better than ±0.2 m; product specification is not a local error guarantee"
+  },
+  {
+    "title": "BVV DOM product",
+    "operator": "LDBV",
+    "url": "https://www.ldbv.bayern.de/produkte/landschaftsinformationen/dom.html",
+    "accessed": "2026-09-16",
+    "statement": "0.2 m surface raster from dense aerial-image correlation; stated positional/height accuracy 0.4–0.6 m"
+  },
+  {
+    "title": "Official machine-readable catalog",
+    "operator": "BVV",
+    "url": "https://geodaten.bayern.de/opengeodata/json/opengeodata_datensaetze.json",
+    "accessed": "2026-09-16",
+    "statement": "EPSG:25832, 1 km tiles, CC BY 4.0, DGM1 ~4 MB, DOM20 ~30–50 MB"
+  },
+  {
+    "title": "Official download application",
+    "operator": "BVV",
+    "url": "https://geodaten.bayern.de/opengeodata/opendatadetail.js",
+    "accessed": "2026-09-16",
+    "statement": "poly2metalink ZIP start/status/download workflow"
+  },
+  {
+    "title": "Elevation REST API",
+    "operator": "BVV",
+    "url": "https://geoservices.bayern.de/bvvapi/od/hoehen/openapi.json",
+    "accessed": "2026-09-16",
+    "statement": "DHHN2016, 4000 points/request; CORS preflight failed in this environment"
+  },
+  {
+    "title": "Solar calculation details",
+    "operator": "NOAA GML",
+    "url": "https://gml.noaa.gov/grad/solcalc/calcdetails.html",
+    "accessed": "2026-09-16",
+    "statement": "Meeus-based comparison and piecewise atmospheric refraction; no longer actively maintained"
+  },
+  {
+    "title": "NOAA reference calculator source",
+    "operator": "NOAA GML",
+    "url": "https://gml.noaa.gov/grad/solcalc/main.js",
+    "accessed": "2026-09-16",
+    "statement": "Independent numerical crosscheck downloaded during validation"
+  },
+  {
+    "title": "USNO API documentation",
+    "operator": "US Naval Observatory",
+    "url": "https://aa.usno.navy.mil/data/api",
+    "accessed": "2026-09-16",
+    "statement": "Independent minute-resolution rise/set API"
+  },
+  {
+    "title": "Astronomy Engine",
+    "operator": "Don Cross",
+    "url": "https://github.com/cosinekitty/astronomy",
+    "accessed": "2026-09-16",
+    "statement": "MIT, truncated VSOP87, target angular accuracy ±1 arcminute, upstream NOVAS/JPL checks"
+  },
+  {
+    "title": "GeoTIFF.js",
+    "operator": "GeoTIFF.js contributors",
+    "url": "https://geotiffjs.github.io/geotiff.js/",
+    "accessed": "2026-09-16",
+    "statement": "Browser decoding and georeferencing API"
+  },
+  {
+    "title": "GeographicLib JavaScript",
+    "operator": "Charles Karney and contributors",
+    "url": "https://github.com/geographiclib/geographiclib-js",
+    "accessed": "2026-09-16",
+    "statement": "Ellipsoidal direct and inverse geodesics"
+  },
+  {
+    "title": "GitHub Pages custom workflows",
+    "operator": "GitHub",
+    "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages",
+    "accessed": "2026-09-16",
+    "statement": "checkout@v6, configure-pages@v5, upload-pages-artifact@v4, deploy-pages@v4"
+  },
+  {
+    "title": "setup-node",
+    "operator": "GitHub",
+    "url": "https://github.com/actions/setup-node",
+    "accessed": "2026-09-16",
+    "statement": "setup-node@v7 verified in official README"
+  },
+  {
+    "title": "OSM tile usage",
+    "operator": "OpenStreetMap Foundation",
+    "url": "https://operations.osmfoundation.org/policies/tiles/",
+    "accessed": "2026-09-16",
+    "statement": "Visible attribution, browser caching, no bulk tile downloads"
+  },
+  {
+    "title": "Bavarian vertical reference",
+    "operator": "LDBV",
+    "url": "https://www.ldbv.bayern.de/vermessung/satellitenpositionierung/raumbezug.html",
+    "accessed": "2026-09-16",
+    "statement": "DHHN2016 normal heights differ from GRS80 ellipsoidal heights"
+  }
+]

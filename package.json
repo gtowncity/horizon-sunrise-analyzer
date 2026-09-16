@@ -1,6 +1,6 @@
 {
   "name": "horizon-sunrise-analyzer",
-  "version": "0.1.0",
+  "version": "0.8.0",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -39,6 +39,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "fake-indexeddb": "^6.2.5",
     "jsdom": "^30.0.1",
+    "prettier": "^3.9.7",
     "tsx": "^4.23.13",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.0",

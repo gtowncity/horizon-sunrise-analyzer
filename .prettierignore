@@ -1,0 +1,4 @@
+node_modules
+dist
+_local_audit
+package-lock.json
