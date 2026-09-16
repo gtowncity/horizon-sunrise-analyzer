@@ -1,0 +1,20 @@
+export type Position = { lat: number; lon: number };
+export type Model = 'dgm1' | 'dom20';
+export type DataState = 'Downloaded' | 'Cached' | 'Local' | 'Loading' | 'Failed';
+export type TileRecord = { id: string; model: Model; source: string; state: DataState; bytes: number; downloadedAt: string; etag?: string; modified?: string; sha256?: string; crs?: number; resolution?: number; decodeMs?: number };
+export type Atmosphere = { k: number; solarRefraction: boolean; pressure: number; temperature: number };
+export type Inputs = {
+  observer: Position; observerHeight: number; azimuth: number; distance: number;
+  step: number; model: Model; domMode: 'critical' | 'full';
+  date: string; timezone: string; atmosphere: Atmosphere;
+  mode: 'los' | 'sunrise'; azimuthStep: number; fanHalfWidth: number;
+  proxy: string; groundOffset: number; positionUncertainty: number;
+};
+export type Sample = Position & { distance: number; terrain: number; surface?: number; excess?: number; angle: number; surfaceAngle?: number; drop: number; tile: string };
+export type Profile = { azimuth: number; ground: number; samples: Sample[]; blocker: Sample; surfaceBlocker?: Sample; surfaceComplete: boolean; targetVisible: boolean; radius: number };
+export type HorizonPoint = { azimuth: number; angle: number; blocker: Sample };
+export type SolarPosition = { azimuth: number; altitude: number; apparentAltitude: number; radius: number; distanceAU: number; declination: number };
+export type Contact = { time: string; azimuth: number; altitude: number; limbAzimuth: number; limbAltitude: number; margin: number; iterations: number; bracketMs: number };
+export type Analysis = { schema: 'hsa-1'; version: string; commit: string; timestamp: string; inputs: Inputs; profile: Profile; horizon: HorizonPoint[]; standardSunrise?: string; contact?: Contact; tiles: TileRecord[]; warnings: string[]; elapsedMs: number; sensitivity?: { parameter: string; value: number; time?: string; deltaSeconds?: number }[] };
+export type Progress = { stage: string; fraction: number; detail: string; tile?: TileRecord };
+export type ProgressFn = (p: Progress) => void;
