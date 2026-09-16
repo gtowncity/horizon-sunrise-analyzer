@@ -434,7 +434,7 @@ export async function analyze(
   progress({ stage: "Fertig", fraction: 1, detail: "Analyse abgeschlossen" });
   return {
     schema: "hsa-1",
-    version: "0.9.0",
+    version: "0.9.1",
     commit,
     timestamp: new Date().toISOString(),
     inputs: structuredClone(i),

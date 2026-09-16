@@ -253,7 +253,7 @@ export function App() {
         </a>
         <div className="top-meta">
           <span>BAYERN · DGM1 / DOM20</span>
-          <span className="version">0.9.0 · Forschungsstand</span>
+          <span className="version">0.9.1 · Forschungsstand</span>
           <button
             onClick={() => setTheme((t) => (t === "light" ? "dark" : "light"))}
             aria-label="Farbschema wechseln"

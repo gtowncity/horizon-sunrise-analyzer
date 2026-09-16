@@ -1,5 +1,9 @@
 # Scientific changelog
 
+## 0.9.1 — 2026-09-16
+
+Store newly persisted original TIFFs as Blobs to avoid large ArrayBuffer structured-clone writes. Legacy entries remain compatible with already-open tabs; subsequent imports by legacy tabs take precedence over stale Blob shadows. Recover one lost official source per analysis using a fresh download and an identical SHA-256 check instead of immediately aborting. Missing local imports are never replaced by official data, changed sources are rejected, and permanent storage failure remains bounded with the actual storage error shown. Raster resolution, sampling and scientific calculations are unchanged. This fixes recoverable cache loss; it cannot guarantee completion when browser storage remains full or unavailable.
+
 ## 0.9.0 — 2026-09-16
 
 Grouped native-block queries across bounded waves of rays, preserving native resolution, interpolation neighbours, spatial/angular refinement and solar calculations. Added bounded source/block caches, exact-input result reuse with source validation, performance diagnostics and phase/elapsed-time reporting. A transient ZIP-start HTTP 400 receives one bounded retry. Exact reference-engine comparisons and bounded private real-data measurements accompany this release. The 0.8.1 chart correction remains. This is a performance release, not scientific 1.0 or a stronger physical accuracy claim.

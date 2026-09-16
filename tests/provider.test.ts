@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { zipSync } from "fflate";
 import "fake-indexeddb/auto";
+import { openDB } from "idb";
 import { BrowserCache, MemoryCache } from "../src/data/cache";
 import {
   BavarianProvider,
@@ -19,6 +20,36 @@ const metadata = (id: string, model: Model = "dgm1"): TileRecord => ({
   downloadedAt: "2026-01-01T00:00:00Z",
 });
 describe("actual GeoTIFF decoding and cache", () => {
+  it("reads Blob sources and detects legacy-tab replacements without modifying legacy entries", async () => {
+    const cache = new BrowserCache();
+    await cache.clear();
+    const db = await openDB("horizon-elevation-v1", 1);
+    const key = "dgm1:600_5400",
+      a = {
+        data: new Uint8Array([1]).buffer,
+        metadata: { ...metadata("600_5400"), sha256: "a" },
+      },
+      b = {
+        data: new Uint8Array([2]).buffer,
+        metadata: { ...metadata("600_5400"), sha256: "b" },
+      },
+      c = {
+        data: new Uint8Array([3]).buffer,
+        metadata: { ...metadata("600_5400"), sha256: "c" },
+      };
+    await db.put("tiles", a, key);
+    await cache.put(key, b);
+    expect((await db.get("tiles", key)).metadata.sha256).toBe("a");
+    expect((await db.get("tiles", "@source-blob:" + key)).blob).toBeInstanceOf(
+      Blob,
+    );
+    expect(new Uint8Array((await cache.get(key))!.data)[0]).toBe(2);
+    await db.put("tiles", c, key);
+    expect(new Uint8Array((await cache.get(key))!.data)[0]).toBe(3);
+    await cache.clear();
+    expect(await cache.get(key)).toBeUndefined();
+    db.close();
+  });
   it("retains exact local import values and provenance for native-block sampling", async () => {
     const { BatchedProvider } = await import("../src/data/batched-provider");
     const cache = new MemoryCache();

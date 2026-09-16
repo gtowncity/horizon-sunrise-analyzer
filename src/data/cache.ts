@@ -14,10 +14,40 @@ export class BrowserCache implements TileCache {
     },
   });
   async get(key: string) {
-    return (await this.db).get("tiles", key) as Promise<CacheEntry | undefined>;
+    const db = await this.db;
+    const legacy = (await db.get("tiles", key)) as CacheEntry | undefined;
+    const stored = (await db.get("tiles", "@source-blob:" + key)) as
+      { blob: Blob; metadata: TileRecord; legacyIdentity: string } | undefined;
+    if (stored && stored.legacyIdentity === this.identity(legacy))
+      return {
+        data: await stored.blob.arrayBuffer(),
+        metadata: stored.metadata,
+      };
+    return legacy;
+  }
+  private identity(entry: CacheEntry | undefined) {
+    return entry
+      ? JSON.stringify([
+          entry.metadata.sha256,
+          entry.metadata.downloadedAt,
+          entry.metadata.source,
+        ])
+      : "absent";
   }
   async put(key: string, value: CacheEntry) {
-    await (await this.db).put("tiles", value, key);
+    const db = await this.db;
+    const legacy = (await db.get("tiles", key)) as CacheEntry | undefined;
+    // Blob-backed storage avoids large ArrayBuffer structured-clone writes.
+    // Separate keys keep existing tabs' legacy ArrayBuffer entries compatible.
+    await db.put(
+      "tiles",
+      {
+        blob: new Blob([value.data]),
+        metadata: value.metadata,
+        legacyIdentity: this.identity(legacy),
+      },
+      "@source-blob:" + key,
+    );
   }
   async clear() {
     await (await this.db).clear("tiles");

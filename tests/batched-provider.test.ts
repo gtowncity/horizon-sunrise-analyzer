@@ -46,6 +46,93 @@ const metadata = (id: string): TileRecord => ({
   downloadedAt: "2026-09-16",
 });
 describe("batched native raster access", () => {
+  it("recovers a lost persisted source without changing heights", async () => {
+    const cache = new MemoryCache();
+    let downloads = 0;
+    const p = new BatchedProvider(
+      cache,
+      () => {},
+      async (_m, id) => {
+        downloads++;
+        return {
+          data: fixtureTIFF(id),
+          metadata: { ...metadata(id), state: "Downloaded" },
+        };
+      },
+      2,
+      4 * 1024 * 1024,
+    );
+    const first = await p.sampleMany([[600500, 5400500]], "dgm1");
+    cache.values.delete("dgm1:600_5400");
+    await p.sampleMany([[601500, 5400500]], "dgm1");
+    expect(await p.sampleMany([[600500, 5400500]], "dgm1")).toEqual(first);
+    expect(downloads).toBe(3);
+    await p.sampleMany([[601500, 5400500]], "dgm1");
+    await p.sampleMany([[600500, 5400500]], "dgm1");
+    expect(downloads).toBe(3);
+  });
+  it("bounds recovery when persistence permanently fails and reports the cause", async () => {
+    let downloads = 0;
+    const cache = {
+      async get() {
+        return undefined;
+      },
+      async put() {
+        throw new DOMException("full", "QuotaExceededError");
+      },
+      async clear() {},
+    };
+    const p = new BatchedProvider(
+      cache,
+      () => {},
+      async (_m, id) => {
+        downloads++;
+        return {
+          data: fixtureTIFF(id),
+          metadata: { ...metadata(id), state: "Downloaded" },
+        };
+      },
+      2,
+      4 * 1024 * 1024,
+    );
+    for (const x of [600500, 601500, 600500, 601500])
+      await p.sampleMany([[x, 5400500]], "dgm1");
+    await expect(p.sampleMany([[600500, 5400500]], "dgm1")).rejects.toThrow(
+      "QuotaExceededError",
+    );
+    expect(downloads).toBe(4);
+  });
+  it.each(["changed", "local"])(
+    "does not silently substitute a %s source",
+    async (kind) => {
+      const cache = new MemoryCache();
+      let downloads = 0;
+      const p = new BatchedProvider(
+        cache,
+        () => {},
+        async (_m, id) => {
+          downloads++;
+          return {
+            data: fixtureTIFF(id),
+            metadata: {
+              ...metadata(id),
+              state: kind === "local" ? "Local" : "Downloaded",
+              sha256: downloads > 2 ? "changed" : "original",
+            },
+          };
+        },
+        2,
+        4 * 1024 * 1024,
+      );
+      await p.sampleMany([[600500, 5400500]], "dgm1");
+      cache.values.delete("dgm1:600_5400");
+      await p.sampleMany([[601500, 5400500]], "dgm1");
+      await expect(p.sampleMany([[600500, 5400500]], "dgm1")).rejects.toThrow(
+        kind === "local" ? "erneut importieren" : "geändert",
+      );
+      expect(downloads).toBe(kind === "local" ? 2 : 3);
+    },
+  );
   it("reads exact native pixels across internal blocks and partial edge blocks", async () => {
     const cache = new MemoryCache();
     await cache.put("dgm1:600_5400", {

@@ -64,11 +64,14 @@ export class BatchedProvider implements ElevationProvider {
   private queue: Request[] = [];
   private running = false;
   private lastProgress = 0;
+  private recovered = new Set<string>();
+  private storageErrors = new Map<string, string>();
   constructor(
     private cache: TileCache,
     private progress: ProgressFn = () => {},
     private load = officialZip,
     private concurrency = 2,
+    private fileBudget = 192 * 1024 * 1024,
   ) {
     if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 2)
       throw new Error("Parallelität muss 1 oder 2 sein");
@@ -149,12 +152,27 @@ export class BatchedProvider implements ElevationProvider {
         },
       };
     } else {
-      // Retrying failed persistent writes would redownload the same files in
-      // every wave. Fail clearly before that can become an unbounded loop.
-      if (this.records.has(key))
-        throw new Error(
-          "Originaldatei nicht mehr im Cache. Speicherplatz freigeben oder kleinere Analyse wählen; wiederholter Download wurde verhindert.",
-        );
+      const previous = this.records.get(key);
+      if (previous) {
+        if (previous.state === "Local")
+          throw new Error(
+            `Lokale Datei ${id} ist nicht mehr verfügbar. Bitte erneut importieren; sie wird nicht durch amtliche Daten ersetzt.`,
+          );
+        if (!previous.sha256)
+          throw new Error(
+            `Quelldatei ${id} fehlt; ohne Prüfsumme ist eine sichere Wiederherstellung nicht möglich.`,
+          );
+        if (this.recovered.has(key))
+          throw new Error(
+            `Browser-Speicherung für ${id} bleibt nicht verfügbar (${this.storageErrors.get(key) ?? "Datei erneut verloren"}). Eine geprüfte Wiederherstellung wurde bereits versucht. Freien Browser-/Datenträgerspeicher prüfen; die Qualitätsparameter müssen nicht reduziert werden.`,
+          );
+        this.recovered.add(key);
+        this.progress({
+          stage: "Datei wiederherstellen",
+          fraction: 0,
+          detail: `${model.toUpperCase()} ${id} erneut laden und Original-Prüfsumme prüfen`,
+        });
+      }
       const loading: TileRecord = {
         id,
         model,
@@ -186,16 +204,24 @@ export class BatchedProvider implements ElevationProvider {
       this.stats.downloads++;
       this.stats.archiveBytes += entry.metadata.archiveBytes ?? 0;
       this.stats.extractedBytes += entry.data.byteLength;
+      if (previous && entry.metadata.sha256 !== previous.sha256)
+        throw new Error(
+          `Quelldatei ${id} hat sich geändert. Analyse neu starten, damit keine unterschiedlichen Datenstände vermischt werden.`,
+        );
       started = performance.now();
       try {
         await this.cache.put(key, entry);
-      } catch {
+      } catch (error) {
         this.stats.cacheWriteFailures++;
+        const reason =
+          error instanceof Error
+            ? `${error.name}: ${error.message}`
+            : String(error);
+        this.storageErrors.set(key, reason);
         this.progress({
           stage: "Cache",
           fraction: 0,
-          detail:
-            "Originaldatei konnte nicht gespeichert werden. Falls sie später erneut benötigt wird, stoppt die Analyse statt sie endlos neu zu laden.",
+          detail: `Originaldatei konnte nicht gespeichert werden (${reason}). Bei erneutem Bedarf wird einmal eine geprüfte Wiederherstellung versucht.`,
         });
       }
       this.stats.cacheWriteMs += performance.now() - started;
@@ -205,7 +231,7 @@ export class BatchedProvider implements ElevationProvider {
     this.records.set(key, tile.record);
     this.stats.uniqueTiles = this.records.size;
     while (
-      this.fileBytes + entry.data.byteLength > 192 * 1024 * 1024 &&
+      this.fileBytes + entry.data.byteLength > this.fileBudget &&
       this.files.size
     ) {
       const first = this.files.keys().next().value!;
