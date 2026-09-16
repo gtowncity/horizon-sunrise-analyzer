@@ -9,7 +9,7 @@ const currentAssets = (await readdir("dist/assets")).filter((n) =>
 );
 const response = await fetch(new URL("asset-generations.json", base), {
   cache: "no-store",
-  signal: AbortSignal.timeout(15000),
+  signal: globalThis.AbortSignal.timeout(15000),
 });
 let queue;
 let crawl = false;
@@ -21,7 +21,7 @@ if (response.ok) {
   // Bootstrap the first manifest from the existing Vite-generated graph.
   const index = await fetch(new URL("index.html", base), {
     cache: "no-store",
-    signal: AbortSignal.timeout(15000),
+    signal: globalThis.AbortSignal.timeout(15000),
   });
   if (!index.ok)
     throw new Error(`Published index unavailable: ${index.status}`);
@@ -43,7 +43,7 @@ for (let j = 0; j < queue.length; j++) {
     content = await readFile(`dist/assets/${name}`);
   } catch {
     const r = await fetch(new URL(`assets/${name}`, base), {
-      signal: AbortSignal.timeout(15000),
+      signal: globalThis.AbortSignal.timeout(15000),
     });
     if (!r.ok)
       throw new Error(`Previous chunk unavailable: ${name}: ${r.status}`);
