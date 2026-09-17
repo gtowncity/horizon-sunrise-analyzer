@@ -978,7 +978,7 @@ export function App() {
             </p>
             <p>
               Ephemeriden: Astronomy Engine · Karte: OpenStreetMap · Quellcode:
-              MIT
+              <a href="./LICENSE.txt">Rechte vorbehalten</a>
             </p>
           </footer>
         </main>

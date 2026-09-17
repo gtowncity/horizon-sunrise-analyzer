@@ -38,6 +38,6 @@ Push main to validate and deploy with the included [Pages workflow](.github/work
 
 ## Data and licensing
 
-Datenquelle: [Bayerische Vermessungsverwaltung – www.geodaten.bayern.de](https://geodaten.bayern.de/opengeodata/) ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)). Displayed angles/profiles are derived calculations. Basemap © OpenStreetMap contributors. Code: [MIT](LICENSE). [Source register](docs/SOURCES.json), [dependency licenses](docs/DEPENDENCY_LICENSES.md).
+Datenquelle: [Bayerische Vermessungsverwaltung – www.geodaten.bayern.de](https://geodaten.bayern.de/opengeodata/) ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)). Displayed angles/profiles are derived calculations. Basemap © OpenStreetMap contributors. Code: [Rights reserved; prior MIT permissions preserved](LICENSE). [Source register](docs/SOURCES.json), [dependency licenses](docs/DEPENDENCY_LICENSES.md).
 
 Private local reference coordinates, downloads and raw audit reports belong in the ignored `_local_audit/` and are not part of this public repository.
