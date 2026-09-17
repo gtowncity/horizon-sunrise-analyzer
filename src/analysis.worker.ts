@@ -8,6 +8,7 @@ declare const __ALGORITHM__: string;
 self.onmessage = async (
   e: MessageEvent<{ inputs: Inputs } | { file: File; model: "dgm1" | "dom20" }>,
 ) => {
+  let provider: BatchedProvider | undefined;
   try {
     const cache = new BrowserCache(__ALGORITHM__);
     if ("file" in e.data) {
@@ -44,7 +45,14 @@ self.onmessage = async (
       self.postMessage({ type: "result", result });
       return;
     }
-    const provider = new BatchedProvider(cache, progress);
+    // Leave capacity for the UI; small/terrain-only jobs do not need a pool.
+    const decoderWorkers =
+      e.data.inputs.model === "dom20" && e.data.inputs.distance >= 1000
+        ? Math.min(4, Math.max(0, (navigator.hardwareConcurrency || 2) - 1))
+        : 0;
+    provider = new BatchedProvider(cache, progress, undefined, 2, undefined, {
+      decoderWorkers,
+    });
     const result = await analyze(provider, e.data.inputs, progress, __COMMIT__);
     result.algorithm = __ALGORITHM__;
     if (provider.stats.cacheWriteFailures)
@@ -67,5 +75,7 @@ self.onmessage = async (
       message:
         error instanceof Error ? error.message : "Unbekannter Analysefehler",
     });
+  } finally {
+    provider?.dispose();
   }
 };

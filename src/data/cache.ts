@@ -1,8 +1,13 @@
 import { openDB } from "idb";
 import type { TileRecord, Analysis, Inputs } from "../core/types";
 export type CacheEntry = { data: ArrayBuffer; metadata: TileRecord };
+export type ReadableCacheEntry = {
+  data: ArrayBuffer | Blob;
+  metadata: TileRecord;
+};
 export interface TileCache {
   get(key: string): Promise<CacheEntry | undefined>;
+  getSource?(key: string): Promise<ReadableCacheEntry | undefined>;
   put(key: string, entry: CacheEntry): Promise<void>;
   clear(): Promise<void>;
 }
@@ -14,13 +19,24 @@ export class BrowserCache implements TileCache {
     },
   });
   async get(key: string) {
+    const entry = await this.getSource(key);
+    if (!entry) return undefined;
+    return {
+      data:
+        entry.data instanceof Blob
+          ? await entry.data.arrayBuffer()
+          : entry.data,
+      metadata: entry.metadata,
+    };
+  }
+  async getSource(key: string): Promise<ReadableCacheEntry | undefined> {
     const db = await this.db;
     const legacy = (await db.get("tiles", key)) as CacheEntry | undefined;
     const stored = (await db.get("tiles", "@source-blob:" + key)) as
       { blob: Blob; metadata: TileRecord; legacyIdentity: string } | undefined;
     if (stored && stored.legacyIdentity === this.identity(legacy))
       return {
-        data: await stored.blob.arrayBuffer(),
+        data: stored.blob,
         metadata: stored.metadata,
       };
     return legacy;

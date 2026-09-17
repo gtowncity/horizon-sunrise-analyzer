@@ -10,7 +10,7 @@ import type { ElevationProvider } from "../data/provider";
 import {
   apparentAngle,
   curvatureDrop,
-  destination,
+  destinationAlong,
   normalRadius,
   tileId,
   toUTM,
@@ -79,8 +79,9 @@ export async function profile(
   const geometryStart = performance.now();
   const radius = normalRadius(i.observer.lat, azimuth),
     count = Math.ceil(i.distance / i.step);
+  const locate = destinationAlong(i.observer, azimuth);
   const locations = Array.from({ length: count + 1 }, (_, j) =>
-    destination(i.observer, azimuth, Math.min(j * i.step, i.distance)),
+    locate(Math.min(j * i.step, i.distance)),
   );
   const xy = locations.map((p) => toUTM(p));
   if (provider.stats)
@@ -123,7 +124,7 @@ export async function profile(
       if (d > 0 && d < i.distance && !existing.has(d)) extraDistances.add(d);
     }
   const distances = [...extraDistances].sort((a, b) => a - b);
-  const extra = distances.map((d) => destination(i.observer, azimuth, d));
+  const extra = distances.map(locate);
   if (provider.stats)
     provider.stats.profileMathMs += performance.now() - mathStart;
   if (extra.length) {
@@ -219,7 +220,9 @@ async function horizonProfiles(
         1,
         Math.min(
           24,
-          Math.floor(160000 / (Math.ceil(i.distance / i.step) + 194)),
+          // Raster requests are sectioned by the provider. Allow more adjacent
+          // rays to share blocks while retaining a bounded total sample count.
+          Math.floor(480000 / (Math.ceil(i.distance / i.step) + 194)),
         ),
       )
     : 1;

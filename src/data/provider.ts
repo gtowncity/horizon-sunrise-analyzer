@@ -1,4 +1,4 @@
-import { fromArrayBuffer } from "geotiff";
+import { fromArrayBuffer, GeoTIFF } from "geotiff";
 import { unzipSync } from "fflate";
 import type {
   Model,
@@ -8,7 +8,7 @@ import type {
 } from "../core/types";
 import { tileId, tileOrigin } from "../core/geo";
 import { bilinear, gridCoordinates } from "../core/raster";
-import type { CacheEntry, TileCache } from "./cache";
+import type { CacheEntry, ReadableCacheEntry, TileCache } from "./cache";
 
 export const CATALOG = "https://geoservices.bayern.de/services/poly2metalink";
 export const ATTRIBUTION =
@@ -153,10 +153,79 @@ export async function officialZip(
     },
   };
 }
-export async function openTile(entry: CacheEntry) {
+export async function openTile(
+  entry: ReadableCacheEntry,
+  onRead: (bytes: number, elapsedMs: number) => void = () => {},
+) {
   let image;
   try {
-    image = await (await fromArrayBuffer(entry.data)).getImage();
+    const data = entry.data;
+    if (data instanceof Blob) {
+      // Read original compressed byte ranges; no resampling or alternate raster.
+      // Blob.arrayBuffer also works inside workers, without FileReader globals.
+      // Small adjacent reads share pages to avoid one disk operation per strip.
+      // At most 2 MiB per open source, also bounded by the provider's file budget.
+      const pageSize = 256 * 1024;
+      const pages = new Map<number, Promise<ArrayBuffer>>();
+      const page = (index: number) => {
+        let pending = pages.get(index);
+        if (pending) {
+          pages.delete(index);
+        } else {
+          const started = performance.now();
+          pending = data
+            .slice(index * pageSize, (index + 1) * pageSize)
+            .arrayBuffer()
+            .then((buffer) => {
+              onRead(buffer.byteLength, performance.now() - started);
+              return buffer;
+            });
+        }
+        pages.set(index, pending);
+        while (pages.size > 8) pages.delete(pages.keys().next().value!);
+        return pending;
+      };
+      const source = {
+        fileSize: data.size,
+        async fetchSlice(
+          slice: { offset: number; length: number },
+          signal?: AbortSignal,
+        ) {
+          signal?.throwIfAborted();
+          const end = Math.min(data.size, slice.offset + slice.length);
+          const buffer = new ArrayBuffer(Math.max(0, end - slice.offset));
+          const target = new Uint8Array(buffer);
+          for (let offset = slice.offset; offset < end;) {
+            const index = Math.floor(offset / pageSize);
+            const bytes = new Uint8Array(await page(index));
+            const begin = offset - index * pageSize;
+            const length = Math.min(end - offset, bytes.length - begin);
+            if (length <= 0) throw new Error("Unvollständige GeoTIFF-Datei");
+            target.set(
+              bytes.subarray(begin, begin + length),
+              offset - slice.offset,
+            );
+            offset += length;
+          }
+          signal?.throwIfAborted();
+          return { ...slice, data: buffer };
+        },
+        async fetch(
+          slices: { offset: number; length: number }[],
+          signal?: AbortSignal,
+        ) {
+          return Promise.all(
+            slices.map(
+              async (slice) => (await source.fetchSlice(slice, signal)).data,
+            ),
+          );
+        },
+        async close() {},
+      };
+      image = await (await GeoTIFF.fromSource(source)).getImage();
+    } else {
+      image = await (await fromArrayBuffer(data)).getImage();
+    }
   } catch {
     throw new Error("Ungültige GeoTIFF-Datei");
   }

@@ -3,11 +3,12 @@ import geo from "geographiclib-geodesic";
 import type { Position } from "./types";
 export const RAD = Math.PI / 180;
 export const UTM32 = "+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs";
+const utmProjection = proj4("EPSG:4326", UTM32);
 export function toUTM(p: Position): [number, number] {
-  return proj4("EPSG:4326", UTM32, [p.lon, p.lat]) as [number, number];
+  return utmProjection.forward([p.lon, p.lat]) as [number, number];
 }
 export function fromUTM(x: number, y: number): Position {
-  const [lon, lat] = proj4(UTM32, "EPSG:4326", [x, y]);
+  const [lon, lat] = utmProjection.inverse([x, y]);
   return { lat, lon };
 }
 export function normalizeAzimuth(a: number) {
@@ -20,6 +21,19 @@ export function destination(
 ): Position {
   const r = geo.Geodesic.WGS84.Direct(p.lat, p.lon, azimuth, distance);
   return { lat: r.lat2!, lon: r.lon2! };
+}
+/** Reuse the same GeographicLib line coefficients for a profile's distances. */
+export function destinationAlong(p: Position, azimuth: number) {
+  const line = new geo.GeodesicLine.GeodesicLine(
+    geo.Geodesic.WGS84,
+    p.lat,
+    p.lon,
+    azimuth,
+  );
+  return (distance: number): Position => {
+    const point = line.Position(distance);
+    return { lat: point.lat2!, lon: point.lon2! };
+  };
 }
 export function inverse(a: Position, b: Position) {
   const r = geo.Geodesic.WGS84.Inverse(a.lat, a.lon, b.lat, b.lon);

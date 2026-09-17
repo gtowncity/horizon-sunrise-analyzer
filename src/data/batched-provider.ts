@@ -13,6 +13,8 @@ import {
 } from "./provider";
 import { tileId, tileOrigin } from "../core/geo";
 import { gridCoordinates, bilinear } from "../core/raster";
+import { NativeBlockReader } from "./native-block";
+import { DecoderPool } from "./decoder-pool";
 
 type OpenTile = Awaited<ReturnType<typeof openTile>>;
 type Request = {
@@ -66,24 +68,55 @@ export class BatchedProvider implements ElevationProvider {
   private lastProgress = 0;
   private recovered = new Set<string>();
   private storageErrors = new Map<string, string>();
+  private rasterReader: NativeBlockReader;
+  private decoder: DecoderPool;
+  private blockConcurrency: number;
   constructor(
     private cache: TileCache,
     private progress: ProgressFn = () => {},
     private load = officialZip,
     private concurrency = 2,
     private fileBudget = 192 * 1024 * 1024,
+    options: { decoderWorkers?: number; blocksInFlight?: number } = {},
   ) {
     if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 2)
       throw new Error("Parallelität muss 1 oder 2 sein");
+    this.blockConcurrency = options.blocksInFlight ?? 4;
+    if (
+      !Number.isInteger(this.blockConcurrency) ||
+      this.blockConcurrency < 1 ||
+      this.blockConcurrency > 4
+    )
+      throw new Error("Invalid block concurrency");
+    this.decoder = new DecoderPool(options.decoderWorkers ?? 0);
+    this.rasterReader = new NativeBlockReader(this.decoder);
+  }
+  dispose() {
+    this.decoder.dispose();
   }
   async batch<T>(work: () => Promise<T>) {
     return work();
   }
-  sampleMany(
+  async sampleMany(
     points: readonly [number, number][],
     model: Model,
   ): Promise<number[]> {
-    if (!points.length) return Promise.resolve([]);
+    // Keep nearby sections of concurrently requested rays together. Bound the
+    // four-corner planning arrays independently of the full profile length.
+    const output: number[] = [];
+    for (let start = 0; start < points.length; start += 8192) {
+      const values = await this.enqueue(
+        points.slice(start, start + 8192),
+        model,
+      );
+      for (const value of values) output.push(value);
+    }
+    return output;
+  }
+  private enqueue(
+    points: readonly [number, number][],
+    model: Model,
+  ): Promise<number[]> {
     return new Promise((resolve, reject) => {
       this.queue.push({ points, model, resolve, reject });
       if (!this.running) {
@@ -139,11 +172,14 @@ export class BatchedProvider implements ElevationProvider {
   private async loadFile(model: Model, id: string) {
     const key = model + ":" + id;
     let started = performance.now(),
-      entry = await this.cache.get(key);
+      entry = await (this.cache.getSource
+        ? this.cache.getSource(key)
+        : this.cache.get(key));
     this.stats.cacheReadMs += performance.now() - started;
     if (entry) {
       this.stats.persistentHits++;
-      this.stats.cacheReadBytes += entry.data.byteLength;
+      if (!(entry.data instanceof Blob))
+        this.stats.cacheReadBytes += entry.data.byteLength;
       entry = {
         ...entry,
         metadata: {
@@ -203,14 +239,16 @@ export class BatchedProvider implements ElevationProvider {
       this.stats.downloadServiceMs += performance.now() - started;
       this.stats.downloads++;
       this.stats.archiveBytes += entry.metadata.archiveBytes ?? 0;
-      this.stats.extractedBytes += entry.data.byteLength;
+      // Downloads are always complete, verified ArrayBuffers.
+      const downloaded = entry as Awaited<ReturnType<typeof officialZip>>;
+      this.stats.extractedBytes += downloaded.data.byteLength;
       if (previous && entry.metadata.sha256 !== previous.sha256)
         throw new Error(
           `Quelldatei ${id} hat sich geändert. Analyse neu starten, damit keine unterschiedlichen Datenstände vermischt werden.`,
         );
       started = performance.now();
       try {
-        await this.cache.put(key, entry);
+        await this.cache.put(key, downloaded);
       } catch (error) {
         this.stats.cacheWriteFailures++;
         const reason =
@@ -226,21 +264,24 @@ export class BatchedProvider implements ElevationProvider {
       }
       this.stats.cacheWriteMs += performance.now() - started;
     }
-    const tile = await openTile(entry);
+    const tile = await openTile(entry, (bytes, elapsedMs) => {
+      this.stats.cacheReadBytes += bytes;
+      this.stats.cacheReadMs += elapsedMs;
+    });
+    // Charge the full source size even for a Blob: a conservative handle limit.
+    const sourceBytes =
+      entry.data instanceof Blob ? entry.data.size : entry.data.byteLength;
     this.stats.fileOpens++;
     this.records.set(key, tile.record);
     this.stats.uniqueTiles = this.records.size;
-    while (
-      this.fileBytes + entry.data.byteLength > this.fileBudget &&
-      this.files.size
-    ) {
+    while (this.fileBytes + sourceBytes > this.fileBudget && this.files.size) {
       const first = this.files.keys().next().value!;
       this.fileBytes -= this.files.get(first)!.bytes;
       this.files.delete(first);
       this.stats.fileEvictions++;
     }
-    this.files.set(key, { tile, bytes: entry.data.byteLength });
-    this.fileBytes += entry.data.byteLength;
+    this.files.set(key, { tile, bytes: sourceBytes });
+    this.fileBytes += sourceBytes;
     this.stats.peakFileBytes = Math.max(
       this.stats.peakFileBytes,
       this.fileBytes,
@@ -272,20 +313,10 @@ export class BatchedProvider implements ElevationProvider {
     const tw = tile.image.getTileWidth(),
       th = tile.image.getTileHeight();
     const start = performance.now();
-    const raster = await tile.image.readRasters({
-      samples: [0],
-      interleave: true,
-      window: [
-        bx * tw,
-        by * th,
-        Math.min((bx + 1) * tw, tile.width),
-        Math.min((by + 1) * th, tile.height),
-      ],
-    });
-    // Match the old provider's Float32 conversion exactly, including sources
-    // whose native sample representation isn't Float32.
-    const values =
-      raster instanceof Float32Array ? raster : Float32Array.from(raster);
+    const values = await this.rasterReader.read(tile.image, bx, by);
+    this.stats.decoderCpuMs = this.decoder.cpuMs;
+    this.stats.decoderJobs = this.decoder.jobs;
+    this.stats.decoderWorkerJobs = this.decoder.workerJobs;
     const elapsed = performance.now() - start;
     this.stats.decodeMs += elapsed;
     tile.record.decodeMs = (tile.record.decodeMs ?? 0) + elapsed;
@@ -388,22 +419,46 @@ export class BatchedProvider implements ElevationProvider {
               refs.push(job.pixels[j], index);
             }
             job.pixels = [];
-            for (const [b, refs] of groups) {
-              const bx = b % nx,
-                by = Math.floor(b / nx),
-                v = await this.block(tile, bx, by),
-                bw = Math.min(tw, tile.width - bx * tw);
-              for (let j = 0; j < refs.length; j += 2) {
-                const col = refs[j + 1] % tile.width,
-                  row = Math.floor(refs[j + 1] / tile.width);
-                values[refs[j]] = v[(row - by * th) * bw + col - bx * tw];
-              }
-              this.emit(
-                `${done}/${entries.length} Dateien · ${this.stats.blocksDecoded.toLocaleString("de-DE")} Rasterblöcke`,
-                done,
-                entries.length,
-              );
-            }
+            const blocks = [...groups];
+            let nextBlock = 0;
+            await Promise.all(
+              Array.from(
+                {
+                  length: Math.min(
+                    this.blockConcurrency,
+                    blocks.length,
+                    Math.max(
+                      1,
+                      Math.floor(
+                        (8 * 1024 * 1024) /
+                          (tw *
+                            th *
+                            Math.max(4, tile.image.getSampleByteSize(0))),
+                      ),
+                    ),
+                  ),
+                },
+                async () => {
+                  while (nextBlock < blocks.length) {
+                    const [b, refs] = blocks[nextBlock++];
+                    const bx = b % nx,
+                      by = Math.floor(b / nx),
+                      v = await this.block(tile, bx, by),
+                      bw = Math.min(tw, tile.width - bx * tw);
+                    for (let j = 0; j < refs.length; j += 2) {
+                      const col = refs[j + 1] % tile.width,
+                        row = Math.floor(refs[j + 1] / tile.width);
+                      values[refs[j]] = v[(row - by * th) * bw + col - bx * tw];
+                    }
+                    this.emit(
+                      `${done}/${entries.length} Dateien · ${this.stats.blocksDecoded.toLocaleString("de-DE")} Rasterblöcke`,
+                      done,
+                      entries.length,
+                    );
+                  }
+                },
+              ),
+            );
             done++;
           }
         },

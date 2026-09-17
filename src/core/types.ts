@@ -20,6 +20,10 @@ export type TileRecord = {
   serviceMs?: number;
 };
 export type PerformanceStats = {
+  /** Sum of synchronous decoder durations, excludes I/O; workers can overlap. */
+  decoderCpuMs?: number;
+  decoderJobs?: number;
+  decoderWorkerJobs?: number;
   samplePoints: number;
   tileRequests: number;
   uniqueTiles: number;

@@ -13,6 +13,10 @@ for (const path of [
   "src/data/provider.ts",
   "src/data/batched-provider.ts",
   "src/data/cache.ts",
+  "src/data/native-block.ts",
+  "src/data/lzw.ts",
+  "src/data/decoder-pool.ts",
+  "src/data/decode.worker.ts",
   "package-lock.json",
 ]) {
   algorithmHash.update(path);
