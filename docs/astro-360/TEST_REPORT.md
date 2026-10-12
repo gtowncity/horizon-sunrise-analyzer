@@ -13,3 +13,7 @@ Real browser DGM1/DOM20 CORS probe completed at public Olympiapark: 9.765 s, Chr
 First audit CI workflow was rejected before jobs: runner.temp is not valid in job-level env (run 38237203743). Corrected to relative evidence/output directories outside checkout. Failure retained in failure-history.json; no test PASS was inferred from this invalid workflow.
 
 Second audit CI (38237421626): all validation commands passed on Ubuntu / Node 24.21.0; packaging failed because shallow checkout lacked baseline 18c2cc3, and upload used the obsolete temp directory. Corrected fetch-depth: 0 and env-derived upload path. Full failure preserved in failure-history.json. This was a packaging failure, not a successful artifact publication.
+
+Third audit CI (38237689367): validation and independent ZIP readback PASS (153 entries); upload-artifact v7 rejects relative ../ patterns. Corrected absolute RUNNER_TEMP paths initialized at runtime through GITHUB_ENV; manifest and CRC checks were already successful. All packaging/upload failures remain in failure-history.json.
+
+Session progress estimate: 55–60% of full commissioned scope, not a measured completion probability. P0/P1 complete; P2–P4 functional partial; P5 initial scientific controls; P6 session archive pending final upload. Scientific release remains BLOCKED. Future status updates must include honest percentages with their basis.

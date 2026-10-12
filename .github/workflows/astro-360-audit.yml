@@ -10,9 +10,6 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     timeout-minutes: 25
-    env:
-      ASTRO_AUDIT_EVIDENCE: ../astro-audit-evidence
-      ASTRO_AUDIT_OUTPUT: ../astro-audit-output
     steps:
       - uses: actions/checkout@v6
         with:
@@ -22,6 +19,10 @@ jobs:
         with:
           node-version: "24"
           cache: npm
+      - name: Initialize external audit paths
+        run: |
+          echo "ASTRO_AUDIT_EVIDENCE=$RUNNER_TEMP/astro-evidence" >> "$GITHUB_ENV"
+          echo "ASTRO_AUDIT_OUTPUT=$RUNNER_TEMP/astro-output" >> "$GITHUB_ENV"
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run audit:validate

@@ -31,5 +31,13 @@
     "package": "FAIL",
     "failure": "shallow checkout lacked 18c2cc3 baseline; upload path still referenced old runner temp location",
     "fix": "checkout full history and derive upload path from ASTRO_AUDIT_OUTPUT"
+  },
+  "thirdAuditCI": {
+    "runId": 38237689367,
+    "validation": "PASS",
+    "integrity": "PASS",
+    "upload": "FAIL",
+    "failure": "upload-artifact v7 rejects relative patterns containing ..",
+    "fix": "initialize absolute RUNNER_TEMP directories at runtime through GITHUB_ENV"
   }
 }
