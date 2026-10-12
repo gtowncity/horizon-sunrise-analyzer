@@ -1,0 +1,7 @@
+# Handoff
+
+Branch feature/astro-360-horizon. P0/P1 completed with documented inherited audit failure corrected. P2/P3/P4 functional partial implementation; P5 initial tests and two public Node probes; P6 session audit workflow. Scientific release BLOCKED, production NOT_DEPLOYED. Source baseline 18c2cc3; current commit and exact checksums in package GIT_STATE.json/SOURCE_MANIFEST.json.
+
+Next: implement conservative streaming cell-sector bounds and independent adversarial fixtures, resolve true network byte limit, verify real browser DGM/DOM, propagate observer/optical uncertainty, add provenance override importer and complete remaining UI/export tests. Do not remove INCOMPLETE labels until independent criteria met. Keep existing reference tests exact. Repeat full current documentation ZIP every session via npm run audit:validate then npm run audit:package. Local output/evidence paths configurable outside checkout. CI creates downloadable artifact without Pages rights.
+
+Real browser at public Olympiapark now verified for DGM/DOM; see PERFORMANCE_REAL_DATA.md. 48 selected real blocker angles independently crosschecked, maximum difference 4.903659700516982e-9°. Broad physical/sector coverage gates remain blocked. Browser/Node file hashes match exactly. At equal settings, selected DGM/DOM angles differ by at most 5.20604004350389e-10°, consistent with runtime floating arithmetic; directions are not byte-identical.

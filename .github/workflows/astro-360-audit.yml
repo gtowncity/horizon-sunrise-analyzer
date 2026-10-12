@@ -1,0 +1,36 @@
+name: Astro360 validation and audit (no deployment)
+on:
+  push:
+    branches: [feature/astro-360-horizon]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      ASTRO_AUDIT_EVIDENCE: ${{ runner.temp }}/astro-evidence
+      ASTRO_AUDIT_OUTPUT: ${{ runner.temp }}/astro-output
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run audit:validate
+      - name: Package and independently verify current public audit
+        if: always()
+        run: npm run audit:package
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: ASTRO360_CODEX_AUDIT_${{ github.sha }}
+          path: ${{ runner.temp }}/astro-output/*
+          if-no-files-found: error
+          retention-days: 90

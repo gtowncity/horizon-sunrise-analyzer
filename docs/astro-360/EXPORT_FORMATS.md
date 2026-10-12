@@ -1,0 +1,5 @@
+# Export formats
+
+astro360-1 JSON includes original coordinates/inputs, method adaptive-rays-v1, commit/timestamp, observer ground/eye, original supporting directions, per-source blocker & coverage/error/gap/count, source hashes/metadata, warnings and measured metrics. Import validates version, finite ranges, sorting, coverage consistency, recomputed actual/planning and seam gaps; future versions rejected until explicit migration exists. No migration required for first version. Large import limit 32 MiB. Imported evidence is untrusted and not independently verified as official.
+
+CSV explicitly names deg/m columns, quotes fields and empty cells for UNKNOWN; original point rows only. SVG is the plotted snapshot, hence visualization interpolation not scientific peak truth. NINA physical and planning files separate, explicitly PROVISIONAL, gated on consent/unknown requested sources. Planning uses max(sampledActual+specifiedMargin,userMin). Comments have no private coordinates. See NINA_COMPATIBILITY.md. PNG and measured local override import are still pending.

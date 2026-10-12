@@ -1,0 +1,11 @@
+
+ RUN  v5.0.1 <CHECKOUT>
+
+
+ Test Files  9 passed (9)
+      Tests  98 passed (98)
+   Start at  12:02:23
+   Duration  10.76s (tests 84%, import 11%, transform 5%)
+
+npm notice run horizon-sunrise-analyzer@0.9.1 test
+npm notice run vitest run

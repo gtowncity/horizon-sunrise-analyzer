@@ -1,0 +1,440 @@
+{
+  "classification": "PASS",
+  "checks": [
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 0,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.14449972456003812,
+      "computedDeg": -0.14449972477766046,
+      "absoluteErrorDeg": 2.1762233681776877e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 0,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -9.15206019178185,
+      "computedDeg": -9.152060192497995,
+      "absoluteErrorDeg": 7.161453652315686e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 30,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": 4.365669204906726,
+      "computedDeg": 4.365669204751996,
+      "absoluteErrorDeg": 1.5472956249595882e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 30,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -9.02019944481849,
+      "computedDeg": -9.020199442469973,
+      "absoluteErrorDeg": 2.348516048300553e-9
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 60,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": 9.122569143393225,
+      "computedDeg": 9.12256914315186,
+      "absoluteErrorDeg": 2.4136426191034843e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 60,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -9.144321665279262,
+      "computedDeg": -9.14432166195859,
+      "absoluteErrorDeg": 3.320671737583325e-9
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 90,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": 10.01553194094388,
+      "computedDeg": 10.015531941246097,
+      "absoluteErrorDeg": 3.022169181576828e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 90,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -8.783827304724719,
+      "computedDeg": -8.78382730633725,
+      "absoluteErrorDeg": 1.612530553529723e-9
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 120,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": 6.836177968206771,
+      "computedDeg": 6.836177968194098,
+      "absoluteErrorDeg": 1.2672529692281387e-11
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 120,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -9.901232866697208,
+      "computedDeg": -9.901232861883022,
+      "absoluteErrorDeg": 4.814186382873231e-9
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 150,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": 2.741914814707336,
+      "computedDeg": 2.741914814087171,
+      "absoluteErrorDeg": 6.201648083958844e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 150,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -9.406386895131634,
+      "computedDeg": -9.406386893734352,
+      "absoluteErrorDeg": 1.397282289872237e-9
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 180,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": 0.6612733399023375,
+      "computedDeg": 0.6612733395514958,
+      "absoluteErrorDeg": 3.508416890340982e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 180,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -9.334841646011593,
+      "computedDeg": -9.334841647152372,
+      "absoluteErrorDeg": 1.1407781386196802e-9
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 210,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": 1.1924618634886075,
+      "computedDeg": 1.1924618631129642,
+      "absoluteErrorDeg": 3.7564329424810694e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 210,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -9.264413183593435,
+      "computedDeg": -9.264413181871895,
+      "absoluteErrorDeg": 1.7215402436931981e-9
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 240,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": 4.05010205176455,
+      "computedDeg": 4.050102051550685,
+      "absoluteErrorDeg": 2.1386448167959315e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 240,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -9.239785804810378,
+      "computedDeg": -9.239785805054666,
+      "absoluteErrorDeg": 2.4428814526800124e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 270,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": 4.55819555172979,
+      "computedDeg": 4.5581955516134,
+      "absoluteErrorDeg": 1.1639045283118321e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 270,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -9.293006849561513,
+      "computedDeg": -9.293006849959315,
+      "absoluteErrorDeg": 3.978026796858103e-10
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 300,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": 0.8872042325953757,
+      "computedDeg": 0.8872042326600748,
+      "absoluteErrorDeg": 6.469902391614824e-11
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 300,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -8.834544854448202,
+      "computedDeg": -8.834544851709767,
+      "absoluteErrorDeg": 2.738435256333105e-9
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 330,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.660605212441235,
+      "computedDeg": -0.6606052125054972,
+      "absoluteErrorDeg": 6.426215115595824e-11
+    },
+    {
+      "site": "Munich Olympiapark public reference",
+      "azimuthDeg": 330,
+      "model": "surface",
+      "distanceM": 10,
+      "expectedDeg": -9.472279136072805,
+      "computedDeg": -9.472279131169145,
+      "absoluteErrorDeg": 4.903659700516982e-9
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 0,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.845400536044452,
+      "computedDeg": -0.8454005362977747,
+      "absoluteErrorDeg": 2.533226961531909e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 0,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.74826285849528,
+      "computedDeg": 83.74826285839163,
+      "absoluteErrorDeg": 1.0365397429268342e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 30,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.5520328951275739,
+      "computedDeg": -0.5520328945666759,
+      "absoluteErrorDeg": 5.608979947169246e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 30,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.78510842815892,
+      "computedDeg": 83.78510842817835,
+      "absoluteErrorDeg": 1.942623839568114e-11
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 60,
+      "model": "terrain",
+      "distanceM": 85,
+      "expectedDeg": -0.88307069420992,
+      "computedDeg": -0.8830706943193011,
+      "absoluteErrorDeg": 1.0938105976521229e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 60,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.75406559920589,
+      "computedDeg": 83.75406559901663,
+      "absoluteErrorDeg": 1.8926016309706029e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 90,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.5547980387178844,
+      "computedDeg": -0.5547980386470591,
+      "absoluteErrorDeg": 7.082523456602985e-11
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 90,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.65896570695612,
+      "computedDeg": 83.65896570669291,
+      "absoluteErrorDeg": 2.632134510349715e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 120,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.5193063140232278,
+      "computedDeg": -0.5193063139589822,
+      "absoluteErrorDeg": 6.424560883289132e-11
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 120,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.57176105685129,
+      "computedDeg": 83.57176105667406,
+      "absoluteErrorDeg": 1.772235691532842e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 150,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.6300280891562242,
+      "computedDeg": -0.630028088606092,
+      "absoluteErrorDeg": 5.501321620471344e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 150,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.5434845042553,
+      "computedDeg": 83.54348450410625,
+      "absoluteErrorDeg": 1.4905765510775382e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 180,
+      "model": "terrain",
+      "distanceM": 70,
+      "expectedDeg": -0.7127364432627248,
+      "computedDeg": -0.7127364427108228,
+      "absoluteErrorDeg": 5.519019685706894e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 180,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.57685100468996,
+      "computedDeg": 83.57685100473132,
+      "absoluteErrorDeg": 4.136779807595303e-11
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 210,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.5979394593084097,
+      "computedDeg": -0.5979394590673286,
+      "absoluteErrorDeg": 2.41081155039069e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 210,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.68531442464734,
+      "computedDeg": 83.68531442478366,
+      "absoluteErrorDeg": 1.3631051842821762e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 240,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.7064631356154583,
+      "computedDeg": -0.7064631356245545,
+      "absoluteErrorDeg": 9.096279285358833e-12
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 240,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.78592779930003,
+      "computedDeg": 83.7859277990538,
+      "absoluteErrorDeg": 2.462314796503051e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 270,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.6351064990213353,
+      "computedDeg": -0.635106499236096,
+      "absoluteErrorDeg": 2.1476065370507058e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 270,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.8021077794025,
+      "computedDeg": 83.80210777939622,
+      "absoluteErrorDeg": 6.281197784119286e-12
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 300,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.5246123735241044,
+      "computedDeg": -0.5246123733797773,
+      "absoluteErrorDeg": 1.443271058221285e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 300,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.75493444033803,
+      "computedDeg": 83.75493444025777,
+      "absoluteErrorDeg": 8.026290743146092e-11
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 330,
+      "model": "terrain",
+      "distanceM": 100,
+      "expectedDeg": -0.490750244440123,
+      "computedDeg": -0.49075024406951395,
+      "absoluteErrorDeg": 3.706090434540954e-10
+    },
+    {
+      "site": "Bamberg public reference",
+      "azimuthDeg": 330,
+      "model": "surface",
+      "distanceM": 2,
+      "expectedDeg": 83.72610066441909,
+      "computedDeg": 83.72610066453935,
+      "absoluteErrorDeg": 1.2025225260003936e-10
+    }
+  ],
+  "toleranceDeg": 0.000001,
+  "maxAbsoluteErrorDeg": 4.903659700516982e-9,
+  "scope": "Numerical formula crosscheck at selected public-data sampled blockers, not independent peak coverage, interpolation or physical ground truth"
+}

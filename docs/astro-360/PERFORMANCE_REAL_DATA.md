@@ -1,0 +1,7 @@
+# Measured real-data performance
+
+Opt-in scripts/probe-astro-360-real.ts, Node v24.19.0 Windows, public references only, 12 rays each, DGM radius 100 m / step 10 m, DOM radius 10 m / step 2 m. Fresh in-memory source caches; no browser measurement. Munich Olympiapark: 11.2029574 s wall, 2 native source tiles, 47,257,231 ZIP bytes, 47,378,893 TIFF bytes, 94 decoded blocks, 1,006,144 peak cached block bytes, 47,378,893 peak retained source bytes. Bamberg: 11.8009759 s, 2 tiles, 48,989,310 ZIP bytes, 49,048,290 TIFF bytes, 85 blocks, 1,188,288 peak cached blocks. 205 sampled points each. Full raster decodes zero. DOM and DGM valid on all requested rays. Results INCOMPLETE.
+
+Full raw metrics/hashes are in evidence/real-data.json. These are small native-block experiments, not performance estimates for statewide detail. Public official data downloaded through Node; browser CORS NOT_EXECUTED. Acquisition date/on-site measurements NOT_EXECUTED. CPU decoder durations differ from wall and I/O, cache bytes differ from total process/browser heap. Warm/persistent resume and large-radius memory stress still pending.
+
+Real Chromium 153.0.8010.12 CORS probe at public Munich Olympiapark (100 m DGM, 10 m DOM, 12 rays): PASS_WITH_KNOWN_GAPS; two official sources, 9.765 s observed browser wall time including download event. No mocks. evidence/browser-real.json records the result. This supplements the Node-only probe; Bamberg browser-CORS, heap profiles and broad-domain performance remain NOT_EXECUTED. All rays INCOMPLETE.
