@@ -1,0 +1,7 @@
+# Sources and licenses
+
+Official DGM1 and DOM20 sources remain Bayerische Vermessungsverwaltung / CC BY4.0. https://digitalisierung.bayern.de/produkte/landschaftsinformationen/gelaende.html and https://www.ldbv.bayern.de/produkte/landschaftsinformationen/dom.html . Spacing is not accuracy; source capture state/date remain independent from fetch time.
+
+LoD2 catalog reviewed: https://geodaten.bayern.de/opengeodata/OpenDataDetail.html?pn=lod2 and json/opengeodata_datensaetze.json. Official 2km tile688_5338.gml, source file SHA2565148292892b8f972d1b17cf4ffc60f790e2ea6902703b4a941d71ae6703bbc6d,44,381,303 uncompressed bytes. File declares ETRS89_UTM32*DE_DHHN2016_NH. Catalog says LoD2 can be derived from ALS, building survey and DOM, so separate product does not prove independent acquisition. No superiority claim. LoD2 license CC BY4.0; only public control summaries, not entire city data/address archives, are packaged.
+
+Laser data: https://geodaten.bayern.de/opengeodata/OpenDataDetail.html?pn=laserdaten . LAZ controls not executed this round. NINA reference code is MPL2.0, separate from project's existing code license. Runtime/measurement scopes and file hashes are retained; no fabricated acquisition dates or on-site controls. Scientific release BLOCKED. NINA export DENIED for all supported schemas. Full geographic/physical coverage NOT_CERTIFIED; no on-site measurements. Current partial model and acceptance gates: ADR-0002-fail-closed-native-cells.md and ROUND2_STATUS.json.

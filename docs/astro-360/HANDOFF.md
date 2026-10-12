@@ -1,0 +1,7 @@
+# Handoff
+
+Only feature/astro-360-horizon; existing draft PR1 updated, no merge/deploy. Round2 priority1 implemented and regression-proven. Priorities2/3 advanced with native bilinear supports and continuous declared interval propagation, only in projected-grid model. Priority4 has two-site browser checks, pinned actual parser and LoD2 edge control; full desktop/LAZ/on-site acceptance remains blocked. Priority5 adds map resize, no fake closing curve and PNG; remaining functions listed explicitly.
+
+Do not restore acknowledgement-based NINA export or infer certification from array length/source success/byte integrity. Do not map conditional grid bounds silently onto true-north plots. Next: derive/prove geographic enclosure and outward rounding, investigate LoD2 discrepancies with interior/capture/LAZ controls, implement provenance-measured overrides and full NINA application acceptance.
+
+Reproduce offline: npm ci; npm run audit:validate; powershell parser probe; npm run audit:package. Network scripts are opt-in and use fixed public references. Every session includes entire current docs, manifests, complete recorded logs, failures and independent closed-ZIP CRC/SHA readback. Scientific release BLOCKED. NINA export DENIED for all supported schemas. Full geographic/physical coverage NOT_CERTIFIED; no on-site measurements. Current partial model and acceptance gates: ADR-0002-fail-closed-native-cells.md and ROUND2_STATUS.json.

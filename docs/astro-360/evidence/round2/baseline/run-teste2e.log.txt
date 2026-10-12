@@ -1,0 +1,21 @@
+
+Running 8 tests using 1 worker
+
+  ok 1 [desktop] › tests\e2e\app.spec.ts:4:1 › complete deterministic sightline, sunrise, export and responsive workflow (4.9s)
+  ok 2 [desktop] › tests\e2e\app.spec.ts:77:1 › invalid input and cancellation have clear states (2.0s)
+  ok 3 [desktop] › tests\e2e\horizon360.spec.ts:5:1 › 360 navigation, worker, synchronized selection, JSON, CSV and provisional NINA (3.0s)
+  ok 4 [desktop] › tests\e2e\horizon360.spec.ts:97:1 › 360 invalid input and cancellation (1.7s)
+  ok 5 [mobile] › tests\e2e\app.spec.ts:4:1 › complete deterministic sightline, sunrise, export and responsive workflow (6.0s)
+  ok 6 [mobile] › tests\e2e\app.spec.ts:77:1 › invalid input and cancellation have clear states (2.7s)
+  ok 7 [mobile] › tests\e2e\horizon360.spec.ts:5:1 › 360 navigation, worker, synchronized selection, JSON, CSV and provisional NINA (4.3s)
+  ok 8 [mobile] › tests\e2e\horizon360.spec.ts:97:1 › 360 invalid input and cancellation (2.4s)
+
+  8 passed (30.4s)
+npm notice run horizon-sunrise-analyzer@0.9.1 test:e2e
+npm notice run playwright test
+[WebServer] (node:14040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:33980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:8884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

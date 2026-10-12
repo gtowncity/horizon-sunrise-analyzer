@@ -1,0 +1,9 @@
+# Deterministic uncertainty propagation
+
+Declared observerRadius=positionUncertainty+opticalHorizontalMotion. This covers every position in the combined disk, not just eight sample points. For relative optics, native DGM min/max across the movement disk plus a one-cell halo bound bilinear observer ground variation. Missing/unfinished ground traversal blocks propagation. Absolute DHHN2016 optics replace the relative calculation and do not add ground again.
+
+EyeMin=(absoluteEye OR groundMin+relativeHeight)-verticalBudget-groundError-opticalHeightBelow; EyeMax=(absoluteEye OR groundMax+relativeHeight)+verticalBudget+groundError+opticalHeightAbove. GroundError is terrainHeightError only for relative optics. Each obstruction source receives its separate assumed heightError; the maximum possible angle uses eyeMin and obstruction upper height. Interval enlargement affects source-sector maxima and angular coverage in independent tests.
+
+These are user-declared deterministic bounds in the projected raster model, not confidence intervals and not verified physical error budgets. Zero is an assumption, not measured perfect knowledge. FAST lacks exhaustive cell propagation; nominal sampled/planning curves never silently incorporate different grid-frame values.
+
+DGM product accuracy typically better than ±0.2 m and DOM stated 0.4–0.6 m do not guarantee every object. The independent LoD2 edge control has DOM–LoD2 deltas down to -39.614875 m. Raster edge interpolation, capture age, occlusion and model geometry require review; the selected 0.6 m scenario is not accepted as a physical bound. Numerical precision is distinct from accuracy. Scientific release BLOCKED. NINA export DENIED for all supported schemas. Full geographic/physical coverage NOT_CERTIFIED; no on-site measurements. Current partial model and acceptance gates: ADR-0002-fail-closed-native-cells.md and ROUND2_STATUS.json.

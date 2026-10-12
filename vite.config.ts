@@ -1,7 +1,7 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import { execSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { createHash } from "node:crypto";
 const algorithmHash = createHash("sha256");
 for (const path of [
@@ -23,6 +23,21 @@ for (const path of [
   algorithmHash.update(readFileSync(path));
 }
 let commit = "development";
+const horizonHash = createHash("sha256");
+for (const file of [
+  ...readdirSync("src/features/horizon360")
+    .filter((f) => /\.tsx?$/.test(f))
+    .map((f) => "src/features/horizon360/" + f),
+  "src/core/geo.ts",
+  "src/data/provider.ts",
+  "src/data/batched-provider.ts",
+  "src/data/native-block.ts",
+  "src/data/lzw.ts",
+  "package-lock.json",
+].sort()) {
+  horizonHash.update(file);
+  horizonHash.update(readFileSync(file));
+}
 try {
   commit = execSync("git rev-parse --short HEAD").toString().trim();
 } catch {
@@ -34,6 +49,7 @@ export default defineConfig({
   define: {
     __COMMIT__: JSON.stringify(commit),
     __ALGORITHM__: JSON.stringify(algorithmHash.digest("hex")),
+    __HORIZON_ALGORITHM__: JSON.stringify(horizonHash.digest("hex")),
   },
   worker: { format: "es" },
   test: { include: ["tests/**/*.test.{ts,tsx}"], environment: "node" },

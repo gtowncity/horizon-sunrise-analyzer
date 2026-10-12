@@ -1,0 +1,39 @@
+
+ RUN  v5.0.1 <LOCAL_USER>/Documents/Codex/2026-10-12/entwickle-das-neue-360-horizontanalyse-modul/work/repo
+
+ ❯ tests/horizon360-export-safety.test.ts (2 tests | 2 failed) 89ms
+   × NINA denies physical and planning export after budget leaves 240 degrees uninvestigated 16ms
+   × NINA denies partially successful radial batches even when every ray has numeric blockers 72ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/horizon360-export-safety.test.ts > NINA denies physical and planning export after budget leaves 240 degrees uninvestigated
+AssertionError: expected [Function] to throw an error
+ ❯ tests/horizon360-export-safety.test.ts:14:85
+     12|   expect(r.directions.at(-1)?.nextAngularGap).toBe(240);
+     13|   expect(r.directions.every(d => d.actual !== null)).toBe(true);
+     14|   for (const planning of [false, true]) expect(() => exportNina(r, pla…
+       |                                                                                     ^
+     15| });
+     16|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/horizon360-export-safety.test.ts > NINA denies partially successful radial batches even when every ray has numeric blockers
+AssertionError: expected [Function] to throw an error
+ ❯ tests/horizon360-export-safety.test.ts:26:85
+     24|   expect(r.directions).toHaveLength(12);
+     25|   expect(r.directions.every(d => d.terrain.valid > 0 && d.terrain.erro…
+     26|   for (const planning of [false, true]) expect(() => exportNina(r, pla…
+       |                                                                                     ^
+     27| });
+     28|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  13:10:07
+   Duration  388ms (import 37%, tests 35%, transform 27%, worker 1%)
+

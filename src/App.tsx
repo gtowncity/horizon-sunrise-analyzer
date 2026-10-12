@@ -12,6 +12,7 @@ import { validateInputs } from "./core/engine";
 import { BrowserCache } from "./data/cache";
 import { MapView } from "./components/Map";
 import { ProfileChart } from "./components/Charts";
+import { Horizon360 } from "./features/horizon360/Horizon360";
 import "./style.css";
 export const DEFAULTS: Inputs = {
   observer: { lat: 48.14, lon: 11.58 },
@@ -68,6 +69,7 @@ function NumberField({
   );
 }
 export function App() {
+  const [view, setView] = useState<"los" | "sunrise" | "horizon">("los");
   const [inputs, setInputs] = useState<Inputs>(DEFAULTS),
     [result, setResult] = useState<Analysis>(),
     [progress, setProgress] = useState<Progress>(),
@@ -269,27 +271,14 @@ export function App() {
           </a>
         </div>
       </header>
-      <div className="workspace">
+      <nav className="h360-navigation" aria-label="Hauptnavigation">
+        {([ ["los", "Sichtlinie"], ["sunrise", "Sonnenaufgang"], ["horizon", "360°-Horizont"] ] as const).map(([key, label]) => <button key={key} disabled={busy} aria-pressed={view === key} onClick={() => { setView(key); if (key !== "horizon") set("mode", key); }}>{label}</button>)}
+      </nav>
+      {view === "horizon" ? <Horizon360 /> : <div className="workspace">
         <aside className="sidebar">
           <div className="side-heading">
             <span className="eyebrow">ANALYSE EINRICHTEN</span>
             <h1>Den Horizont berechnen.</h1>
-          </div>
-          <div className="mode-switch" role="group" aria-label="Analysemodus">
-            <button
-              aria-pressed={inputs.mode === "los"}
-              disabled={busy}
-              onClick={() => set("mode", "los")}
-            >
-              Sichtlinie
-            </button>
-            <button
-              aria-pressed={inputs.mode === "sunrise"}
-              disabled={busy}
-              onClick={() => set("mode", "sunrise")}
-            >
-              Sonnenaufgang
-            </button>
           </div>
           <fieldset disabled={busy}>
             <legend>
@@ -982,7 +971,7 @@ export function App() {
             </p>
           </footer>
         </main>
-      </div>
+      </div>}
     </div>
   );
 }

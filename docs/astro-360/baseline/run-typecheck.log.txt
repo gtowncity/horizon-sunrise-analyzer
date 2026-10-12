@@ -1,0 +1,2 @@
+npm notice run horizon-sunrise-analyzer@0.9.1 typecheck
+npm notice run tsc --noEmit

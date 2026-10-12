@@ -1,0 +1,5 @@
+# Decisions and assumptions
+
+P0 inherited source-map-js issue FIXED at1.2.2; original baseline failure retained. P1 critical export counterexamples ACCEPTED and reproduced. Decision: no acknowledgement override, no supported-schema numeric NINA export. Cell model bounds and propagated deterministic intervals are conditional on declared projected-frame/error assumptions; true-north/physical certification is not inferred.
+
+The original v2 constant-footprint prototype is historical evidence. Final v3 encloses full bilinear support; records are not silently relabeled. Real LoD2 edge differences have NOT been reduced by adjusting code/tolerances/input errors. They require investigation of edges, capture age, occlusion/model shape and possibly independent LAZ/on-site evidence. True feature completion and release approval remain separate. Scientific release BLOCKED. NINA export DENIED for all supported schemas. Full geographic/physical coverage NOT_CERTIFIED; no on-site measurements. Current partial model and acceptance gates: ADR-0002-fail-closed-native-cells.md and ROUND2_STATUS.json.

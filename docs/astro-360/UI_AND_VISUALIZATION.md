@@ -1,0 +1,7 @@
+# Visualization and interactions
+
+Three original navigation choices remain. Main nominal geographic curve and polar view break large uninvestigated angular gaps, including incomplete north closure. Tooltip shows sampled angle/status/source/blocker distance/coordinates and unvalidated physical accuracy. User minimum and sampled reference are separate; no cell-grid values are silently mapped onto true-north graphics. All sparse profiles remain INCOMPLETE.
+
+DETAIL separate table identifies EPSG25832 grid north, conditional bilinear envelope, partial knownCellUpper versus full modelUpper, missing counts, traversal status and propagated eye interval. Model-bound values are not on-site measurements. Scientific JSON captures complete supporting metadata.
+
+Map uses ResizeObserver for container/layout changes, separate DOM/terrain circles, observer drag/click and selected blocker; service failures are visible rather than mistaken for analytical failure. Desktop/mobile tests resize viewport and check actual canvas/container agreement. Explicit Rechenmodus aria-label fixes exact labeling. PNG/SVG downloads verified. Rigorous accessibility and all polar zone semantics still require additional review. NINA buttons remain disabled with eligibility reasons. Scientific release BLOCKED. NINA export DENIED for all supported schemas. Full geographic/physical coverage NOT_CERTIFIED; no on-site measurements. Current partial model and acceptance gates: ADR-0002-fail-closed-native-cells.md and ROUND2_STATUS.json.

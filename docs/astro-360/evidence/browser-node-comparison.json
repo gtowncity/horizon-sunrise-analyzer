@@ -1,0 +1,70 @@
+{
+  "exactSourceHashes": true,
+  "exactDirections": false,
+  "maxAngleDifferenceDeg": 5.20604004350389e-10,
+  "rows": [
+    {
+      "azimuth": 0,
+      "terrainDifferenceDeg": -1.4593012909180914e-10,
+      "surfaceDifferenceDeg": 0
+    },
+    {
+      "azimuth": 30,
+      "terrainDifferenceDeg": 1.9090062863824642e-10,
+      "surfaceDifferenceDeg": -2.7634783350549696e-11
+    },
+    {
+      "azimuth": 60,
+      "terrainDifferenceDeg": 0,
+      "surfaceDifferenceDeg": -5.20604004350389e-10
+    },
+    {
+      "azimuth": 90,
+      "terrainDifferenceDeg": 0,
+      "surfaceDifferenceDeg": 1.7763568394002505e-15
+    },
+    {
+      "azimuth": 120,
+      "terrainDifferenceDeg": 3.8334668772677105e-11,
+      "surfaceDifferenceDeg": 0
+    },
+    {
+      "azimuth": 150,
+      "terrainDifferenceDeg": -4.440892098500626e-16,
+      "surfaceDifferenceDeg": -2.5928059699253936e-10
+    },
+    {
+      "azimuth": 180,
+      "terrainDifferenceDeg": 1.1102230246251565e-16,
+      "surfaceDifferenceDeg": 0
+    },
+    {
+      "azimuth": 210,
+      "terrainDifferenceDeg": 0,
+      "surfaceDifferenceDeg": -1.9763213288115367e-10
+    },
+    {
+      "azimuth": 240,
+      "terrainDifferenceDeg": -2.48219222953594e-11,
+      "surfaceDifferenceDeg": 0
+    },
+    {
+      "azimuth": 270,
+      "terrainDifferenceDeg": 8.881784197001252e-16,
+      "surfaceDifferenceDeg": 0
+    },
+    {
+      "azimuth": 300,
+      "terrainDifferenceDeg": 1.0565337493773086e-10,
+      "surfaceDifferenceDeg": 0
+    },
+    {
+      "azimuth": 330,
+      "terrainDifferenceDeg": 1.1102230246251565e-16,
+      "surfaceDifferenceDeg": 1.7763568394002505e-15
+    }
+  ],
+  "classification": "PASS",
+  "toleranceDeg": 1e-7,
+  "scope": "Numerical runtime reproducibility, not physical accuracy"
+}

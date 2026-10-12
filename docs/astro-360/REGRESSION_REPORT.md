@@ -1,0 +1,5 @@
+# Regression report
+
+Original src/core/*, src/data/*, analysis.worker.ts and original numerical engines remain unchanged in round2. Original98 unit tests and4 sightline/sunrise Desktop/Mobile E2E remain part of the complete suite. New algorithm hash is separate; prior algorithm inputs are unmodified. New UI references render through the original navigation and a separate worker.
+
+The previous positive NINA-export test embodied the unsafe assumption and was replaced by stricter denial of regular sampled profiles; this is an intentional contract change required by the independent review. Two adversarial tests were captured RED before the code change. No physics values, product error inputs or failure expectations were fitted to the LoD2 control. Scientific release BLOCKED. NINA export DENIED for all supported schemas. Full geographic/physical coverage NOT_CERTIFIED; no on-site measurements. Current partial model and acceptance gates: ADR-0002-fail-closed-native-cells.md and ROUND2_STATUS.json.

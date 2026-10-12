@@ -1,0 +1,65 @@
+{
+  "schema": "astro360-failure-history-1",
+  "baseline": {
+    "command": "npm audit --audit-level=high",
+    "exitCode": 1,
+    "highVulnerabilities": 1,
+    "advisory": "GHSA-68fv-2mgg-jv7q",
+    "fix": "source-map-js 1.2.2"
+  },
+  "firstFeatureE2E": {
+    "passed": 6,
+    "failed": 2,
+    "failure": "azimuth spinbutton accessible name missing; Playwright locator timeout on Desktop/Mobile",
+    "fix": "separate explicit aria-label on slider and numeric input; assertions kept",
+    "evidence": "tool execution output and error-context inspection; complete first feature-run stdout was not preserved separately"
+  },
+  "rerun": {
+    "passed": 8,
+    "failed": 0
+  },
+  "firstAuditCI": {
+    "runId": 38237203743,
+    "classification": "FAIL",
+    "failure": "runner.temp context is not available in job-level env",
+    "fix": "use relative evidence/output directories outside checkout",
+    "workflowJobsExecuted": 0
+  },
+  "secondAuditCI": {
+    "runId": 38237421626,
+    "testValidation": "PASS",
+    "package": "FAIL",
+    "failure": "shallow checkout lacked 18c2cc3 baseline; upload path still referenced old runner temp location",
+    "fix": "checkout full history and derive upload path from ASTRO_AUDIT_OUTPUT"
+  },
+  "thirdAuditCI": {
+    "runId": 38237689367,
+    "validation": "PASS",
+    "integrity": "PASS",
+    "upload": "FAIL",
+    "failure": "upload-artifact v7 rejects relative patterns containing ..",
+    "fix": "initialize absolute RUNNER_TEMP directories at runtime through GITHUB_ENV"
+  },
+  "round2": {
+    "base": "e6833ae",
+    "criticalNinaCounterexamples": {
+      "redTests": 2,
+      "correctivePolicy": "DENY_ALL_SUPPORTED_SCHEMAS",
+      "supersedesEarlierExportSafetyAssumptions": true
+    },
+    "integrationE2E": {
+      "passed": 6,
+      "failed": 2,
+      "cause": "implicit select label includes option text for exact getByLabel",
+      "fix": "explicit Rechenmodus aria-label, unchanged test locator",
+      "rerunPassed": 4
+    },
+    "lod2Attempts": {
+      "first": "partial status JSON",
+      "second": "25 MiB XML budget excludes 44.38 MB source",
+      "third": "archive entry/size diagnostics retained",
+      "correction": "bounded poll syntax retry; explicit 64 MiB experimental XML cap after actual archive-size diagnosis; no physical tolerance/model value adjustment",
+      "final": "CONTROL_DATA_COLLECTED, not agreement accepted"
+    }
+  }
+}

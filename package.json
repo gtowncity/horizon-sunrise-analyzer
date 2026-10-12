@@ -12,7 +12,9 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "validate": "npm run lint && npm run typecheck && npm test && npm run build"
+    "validate": "npm run lint && npm run typecheck && npm test && npm run build",
+    "audit:validate": "node scripts/run-astro-360-validation.mjs",
+    "audit:package": "node scripts/package-astro-360-audit.mjs"
   },
   "dependencies": {
     "astronomy-engine": "^2.1.19",

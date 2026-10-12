@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/isbeorn/nina",
+  "commit": "5f137612aba9a4360f365232763525bfd8d4a866",
+  "path": "NINA.Core/Model/CustomHorizon.cs",
+  "sourceSHA256": "032cc74751ad29ee4f23cd9fba63e860234db2c8bb2c9d28f17de099cedc2276",
+  "methodHashes": [
+    "da534598b7d2470f4ecae89dcd2cd5f0e2939b51a077ddb87d06ccbba998716b",
+    "96fa4541226bfcb1f55d144c116df4870b4ccec3beceb2b132fbb2d89581fbcc"
+  ],
+  "license": "MPL-2.0",
+  "scope": "unmodified Standard parser and grooming methods, compiled with a data-holding constructor and logger; not a full application run"
+}
