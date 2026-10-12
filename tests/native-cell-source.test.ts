@@ -27,7 +27,8 @@ test("native footprint traversal uses independent raw pixel values and includes 
   let count = 0;
   for await (const c of s.cells) {
     count++;
-    expect(c.size).toBe(1);
+    expect(c.size).toBe(2);
+    expect(c.pixelResolution).toBe(1);
     expect(c.height).toBeCloseTo(
       300 + (c.x - 691000) * 0.001 + (c.y - 5334000) * 0.002,
       4,

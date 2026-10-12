@@ -4,6 +4,7 @@ import { exportNina } from "../src/features/horizon360/export";
 import { horizonDefaults } from "../src/features/horizon360/types";
 import { fromUTM, inverse } from "../src/core/geo";
 import type { ElevationProvider } from "../src/data/provider";
+import { horizonPlotPoints } from "../src/features/horizon360/plot-data";
 
 test("NINA denies physical and planning export after budget leaves 240 degrees uninvestigated", async () => {
   const provider: ElevationProvider = {
@@ -21,6 +22,10 @@ test("NINA denies physical and planning export after budget leaves 240 degrees u
   expect(r.directions.map((d) => d.azimuth)).toEqual([0, 30, 60, 90, 120]);
   expect(r.directions.at(-1)?.nextAngularGap).toBe(240);
   expect(r.directions.every((d) => d.actual !== null)).toBe(true);
+  const plot = horizonPlotPoints(r);
+  expect(plot.some((p) => p.azimuth === 240 && p.direction === null)).toBe(
+    true,
+  );
   for (const planning of [false, true])
     expect(() => exportNina(r, planning, true)).toThrow();
 });

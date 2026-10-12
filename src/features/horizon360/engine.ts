@@ -95,7 +95,7 @@ export async function analyzeHorizon(
   let evaluated = 1;
   const warnings = new Set<string>([
     "VORLÄUFIG: adaptive Strahlen, keine vollständige Rasterzellprüfung; schmale Hindernisse können fehlen.",
-    "Kein physischer Genauigkeitsnachweis. Positions-/Höhenbudgets sind Angaben, keine propagierten Konfidenzintervalle.",
+    "Stichprobenkurve verwendet die nominale Optik; Unsicherheitsintervalle stehen ausschließlich im separaten Zellbericht. Keine statistischen Konfidenzintervalle oder physische Genauigkeitsgarantie.",
     "Endliche DGM-/DOM-Domänen. DOM außerhalb der gewählten Nahdistanz ungeprüft; Quellalter und aktueller Bewuchs unbekannt.",
     "k ist ein terrestrisches Szenario; Normalhöhen im lokalen GRS80-Modell, ohne Lotabweichung/Geoidneigung.",
   ]);
@@ -275,8 +275,12 @@ export async function analyzeHorizon(
     detail: "PARTIAL: wissenschaftliche Vollständigkeit nicht nachgewiesen",
   });
   return {
-    schema: "astro360-2",
-    method: "adaptive-rays-v2",
+    schema: "astro360-3",
+    method: "adaptive-rays-v3",
+    semantics: {
+      actual: "NOMINAL_SAMPLED_MAXIMUM",
+      planning: "NOMINAL_SAMPLED_REFERENCE_NOT_SAFE",
+    },
     commit,
     timestamp: new Date().toISOString(),
     inputs: structuredClone(i),

@@ -6,6 +6,7 @@ export type RasterCell = {
   size: number;
   height: number | null;
   tile: string;
+  pixelResolution?: number;
 };
 export type CellStream = {
   cells: AsyncIterable<RasterCell>;
@@ -40,7 +41,7 @@ export type CellSector = {
 };
 export type SourceCellAudit = {
   frame: "EPSG25832_GRID_NORTH";
-  reconstruction: "PIXEL_FOOTPRINT_CONSTANT";
+  reconstruction: "BILINEAR_SUPPORT_MAX_ENVELOPE";
   geodesicCertification: "NOT_CERTIFIED";
   radius: number;
   evaluatedCells: number;
@@ -145,6 +146,11 @@ export async function auditCellSource(
       exhausted = true;
       break;
     }
+    if (![cell.x, cell.y, cell.size].every(Number.isFinite) || cell.size < 0) {
+      stream.errors.push("INVALID_CELL_GEOMETRY");
+      exhausted = true;
+      break;
+    }
     count++;
     const upper = cellAngleUpper(cell, conditions);
     for (const n of touchedSectors(cell, conditions, sectorCount)) {
@@ -156,7 +162,8 @@ export async function auditCellSource(
           s.knownCellUpper === null ? upper : Math.max(s.knownCellUpper, upper);
     }
   }
-  const complete = !exhausted && stream.complete();
+  const complete =
+    !exhausted && stream.complete() && stream.errors.length === 0;
   for (const s of sectors)
     if (complete && !s.missing && s.cells > 0 && s.knownCellUpper !== null) {
       s.status = "CONDITIONAL_MODEL_BOUND";
@@ -164,7 +171,7 @@ export async function auditCellSource(
     }
   return {
     frame: "EPSG25832_GRID_NORTH",
-    reconstruction: "PIXEL_FOOTPRINT_CONSTANT",
+    reconstruction: "BILINEAR_SUPPORT_MAX_ENVELOPE",
     geodesicCertification: "NOT_CERTIFIED",
     radius,
     evaluatedCells: count,

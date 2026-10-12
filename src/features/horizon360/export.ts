@@ -113,12 +113,19 @@ export function importHorizonJSON(text: string): HorizonResult {
   const raw = JSON.parse(text);
   if (!(
     (raw?.schema === "astro360-1" && raw.method === "adaptive-rays-v1") ||
-    (raw?.schema === "astro360-2" && raw.method === "adaptive-rays-v2")
+    (raw?.schema === "astro360-2" && raw.method === "adaptive-rays-v2") ||
+    (raw?.schema === "astro360-3" && raw.method === "adaptive-rays-v3")
   ))
     throw new Error(
       "Nicht unterstützte Schema-/Modellversion; keine implizite Migration",
     );
   validateHorizonInputs(raw.inputs);
+  if (
+    raw.schema === "astro360-3" &&
+    (raw.semantics?.actual !== "NOMINAL_SAMPLED_MAXIMUM" ||
+      raw.semantics?.planning !== "NOMINAL_SAMPLED_REFERENCE_NOT_SAFE")
+  )
+    throw new Error("Unbekannte wissenschaftliche Wertsemantik");
   if (
     !Array.isArray(raw.directions) ||
     raw.directions.length < 1 ||
@@ -245,7 +252,9 @@ function validateSpatialAudit(raw: unknown) {
     if (s !== undefined) {
       if (
         s.frame !== "EPSG25832_GRID_NORTH" ||
-        s.reconstruction !== "PIXEL_FOOTPRINT_CONSTANT" ||
+        !["BILINEAR_SUPPORT_MAX_ENVELOPE", "PIXEL_FOOTPRINT_CONSTANT"].includes(
+          s.reconstruction,
+        ) ||
         s.geodesicCertification !== "NOT_CERTIFIED" ||
         !Array.isArray(s.sectors) ||
         s.sectors.length < 12 ||

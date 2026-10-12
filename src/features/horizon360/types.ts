@@ -57,9 +57,14 @@ export type HorizonDirection = {
   nextAngularGap: number;
 };
 export type HorizonResult = {
-  schema: "astro360-1" | "astro360-2";
-  method: "adaptive-rays-v1" | "adaptive-rays-v2";
+  schema: "astro360-1" | "astro360-2" | "astro360-3";
+  method: "adaptive-rays-v1" | "adaptive-rays-v2" | "adaptive-rays-v3";
+  semantics?: {
+    actual: "NOMINAL_SAMPLED_MAXIMUM";
+    planning: "NOMINAL_SAMPLED_REFERENCE_NOT_SAFE";
+  };
   commit: string;
+  algorithm?: string;
   timestamp: string;
   inputs: HorizonInputs;
   ground: number;
@@ -77,6 +82,7 @@ export type HorizonResult = {
     peakBlockBytes: number;
     sourceOpens: number;
   };
+  archiveStreamBytesConsumed?: number;
 };
 export const horizonDefaults: HorizonInputs = {
   observer: { lat: 48.14, lon: 11.58 },

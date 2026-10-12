@@ -11,6 +11,8 @@ import {
 } from "echarts/components";
 import { SVGRenderer } from "echarts/renderers";
 import type { HorizonResult } from "./types";
+import { horizonPlotPoints } from "./plot-data";
+import { selectedBlocker } from "./export";
 echarts.use([
   LineChart,
   GridComponent,
@@ -36,8 +38,7 @@ export function HorizonChart({
     if (!ref.current) return;
     const c = echarts.init(ref.current, undefined, { renderer: "svg" });
     chart.current = c;
-    const ds = [...result.directions];
-    if (ds[0]?.azimuth === 0) ds.push({ ...ds[0], azimuth: 360 });
+    const ds = horizonPlotPoints(result);
     const line = (name: string, color: string, values: (number | null)[]) => ({
       name,
       type: "line" as const,
@@ -50,8 +51,20 @@ export function HorizonChart({
     });
     c.setOption({
       legend: { top: 0 },
-      tooltip: { trigger: "axis" },
-      grid: { left: 60, right: 20, top: 50, bottom: 75 },
+      tooltip: {
+        trigger: "axis",
+        formatter: (raw: unknown) => {
+          const params = (Array.isArray(raw) ? raw : [raw]) as {
+            dataIndex?: number;
+          }[];
+          const p = ds[params[0]?.dataIndex ?? -1];
+          if (!p?.direction) return "UNKNOWN: ununtersuchter Winkelsektor";
+          const d = p.direction,
+            b = selectedBlocker(d);
+          return `${d.azimuth.toFixed(4)}° · ${d.status}<br/>Stichprobenmaximum: ${d.actual?.toFixed(6) ?? "UNKNOWN"}°<br/>${b ? `${b.model.toUpperCase()} · ${b.distance.toFixed(2)} m · ${b.lat.toFixed(7)}, ${b.lon.toFixed(7)}` : "Kein belegter Blocker"}<br/>Physische Genauigkeit: nicht validiert`;
+        },
+      },
+      grid: { left: 60, right: 20, top: 90, bottom: 95 },
       xAxis: {
         type: "value",
         min: 0,
@@ -70,7 +83,7 @@ export function HorizonChart({
           ...line(
             "DGM1",
             "#087f8c",
-            ds.map((d) => d.terrain.blocker?.angle ?? null),
+            ds.map((p) => p.direction?.terrain.blocker?.angle ?? null),
           ),
           markArea: {
             silent: true,
@@ -89,17 +102,17 @@ export function HorizonChart({
         line(
           "DOM20",
           "#7c3aed",
-          ds.map((d) => d.surface.blocker?.angle ?? null),
+          ds.map((p) => p.direction?.surface.blocker?.angle ?? null),
         ),
         line(
           "Abgetastetes Maximum",
           "#b45b00",
-          ds.map((d) => d.actual),
+          ds.map((p) => p.direction?.actual ?? null),
         ),
         line(
-          "Planung VORLÄUFIG",
+          "Stichprobenreferenz",
           "#c22c54",
-          ds.map((d) => d.planning),
+          ds.map((p) => p.direction?.planning ?? null),
         ),
         line(
           "Mindesthöhe",
@@ -161,6 +174,45 @@ export function HorizonChart({
         }}
       >
         SVG herunterladen
+      </button>
+      <button
+        onClick={() => {
+          const svg = ref.current?.querySelector("svg");
+          if (!svg) return;
+          const url = URL.createObjectURL(
+            new Blob([new XMLSerializer().serializeToString(svg)], {
+              type: "image/svg+xml",
+            }),
+          );
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement("canvas");
+            canvas.width = svg.clientWidth;
+            canvas.height = svg.clientHeight;
+            const ctx = canvas.getContext("2d");
+            if (!ctx) {
+              URL.revokeObjectURL(url);
+              return;
+            }
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0);
+            canvas.toBlob((blob) => {
+              URL.revokeObjectURL(url);
+              if (!blob) return;
+              const png = URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = png;
+              a.download = "astro360-provisional.png";
+              a.click();
+              setTimeout(() => URL.revokeObjectURL(png), 1000);
+            }, "image/png");
+          };
+          img.onerror = () => URL.revokeObjectURL(url);
+          img.src = url;
+        }}
+      >
+        PNG herunterladen
       </button>
     </>
   );
@@ -239,6 +291,8 @@ export function PolarDome({
       {result.directions.map((d, n) => {
         if (d.actual === null) return null;
         const next = result.directions[(n + 1) % result.directions.length];
+        if (d.nextAngularGap > result.inputs.initialAzimuthStep + 1e-9)
+          return null;
         if (next.actual === null) return null;
         const [x, y] = xy(d.azimuth, d.actual),
           [x2, y2] = xy(next.azimuth, next.actual);

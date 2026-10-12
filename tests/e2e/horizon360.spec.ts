@@ -81,6 +81,37 @@ test("360 navigation, worker, synchronized selection, JSON, CSV and fail-closed 
     ),
   ).toBe(true);
   expect(errors).toEqual([]);
+  const png = page.waitForEvent("download");
+  await page
+    .getByRole("button", { name: "PNG herunterladen", exact: true })
+    .click();
+  expect((await png).suggestedFilename()).toBe("astro360-provisional.png");
+  await page.getByLabel("Rechenmodus", { exact: true }).selectOption("DETAIL");
+  await page.getByLabel("Gelände-Reichweite · m", { exact: true }).fill("10");
+  await page
+    .getByRole("button", { name: "360° berechnen", exact: true })
+    .click();
+  await expect(
+    page.getByRole("heading", {
+      name: "Rasterzellprüfung und Unsicherheitsintervalle",
+    }),
+  ).toBeVisible();
+  await expect(page.getByText(/CONDITIONAL_MODEL_BOUND/).first()).toHaveCount(
+    1,
+  );
+  const resizedWidth = test.info().project.name === "mobile" ? 450 : 1100;
+  await page.setViewportSize({ width: resizedWidth, height: 900 });
+  await expect
+    .poll(() =>
+      page.locator(".h360-map").evaluate((el) => {
+        const canvas = el.querySelector("canvas")!;
+        return Math.abs(
+          canvas.getBoundingClientRect().width -
+            el.getBoundingClientRect().width,
+        );
+      }),
+    )
+    .toBeLessThan(2);
   await page.screenshot({
     path: `_local_audit/screenshots/astro360-${test.info().project.name}.png`,
     fullPage: true,

@@ -93,14 +93,18 @@ export class NativeCellSource implements CellSource {
                 ) {
                   const cx = tile.ox + (col + 0.5) * res,
                     cy = tile.oy - (row + 0.5) * res;
-                  const dx = Math.max(0, Math.abs(cx - x) - res / 2),
-                    dy = Math.max(0, Math.abs(cy - y) - res / 2);
+                  // Each native value can contribute to bilinear interpolation up to
+                  // one whole pixel spacing on either side of its center. Using only
+                  // the PixelIsArea half-width would fail to enclose that support.
+                  const dx = Math.max(0, Math.abs(cx - x) - res),
+                    dy = Math.max(0, Math.abs(cy - y) - res);
                   if (Math.hypot(dx, dy) > radius) continue;
                   const h = data[(row - by * th) * width + col - bx * tw];
                   yield {
                     x: cx,
                     y: cy,
-                    size: res,
+                    size: 2 * res,
+                    pixelResolution: res,
                     height: !Number.isFinite(h) || h === tile.nodata ? null : h,
                     tile: id,
                   };

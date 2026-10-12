@@ -160,6 +160,7 @@ export function Horizon360() {
           <label>
             Rechenmodus
             <select
+              aria-label="Rechenmodus"
               value={inputs.mode}
               onChange={(e) => {
                 const detail = e.target.value === "DETAIL";

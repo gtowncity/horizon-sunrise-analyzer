@@ -47,13 +47,19 @@ export async function propagateAndAudit(
         break;
       }
       used++;
-      if (cell.height === null) groundValid = false;
+      if (
+        cell.height === null ||
+        !Number.isFinite(cell.height) ||
+        cell.height < -100 ||
+        cell.height > 4000
+      )
+        groundValid = false;
       else {
         groundMin = Math.min(groundMin, cell.height);
         groundMax = Math.max(groundMax, cell.height);
       }
     }
-    groundValid &&= stream.complete();
+    groundValid &&= used > 0 && stream.complete() && stream.errors.length === 0;
     result.errors.push(...stream.errors);
   }
   result.groundTraversalComplete = groundValid;

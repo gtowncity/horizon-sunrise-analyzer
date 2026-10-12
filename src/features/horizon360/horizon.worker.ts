@@ -5,7 +5,9 @@ import { analyzeHorizon, validateHorizonInputs } from "./engine";
 import type { HorizonInputs } from "./types";
 import { NativeCellSource } from "./cell-source";
 import { propagateAndAudit } from "./uncertainty";
+import { boundedOfficialZip } from "./bounded-download";
 declare const __COMMIT__: string;
+declare const __HORIZON_ALGORITHM__: string;
 self.onmessage = async (e: MessageEvent<HorizonInputs>) => {
   let provider: BatchedProvider | undefined;
   try {
@@ -21,15 +23,19 @@ self.onmessage = async (e: MessageEvent<HorizonInputs>) => {
         throw new Error("Kachel zuvor fehlgeschlagen; keine erneute Anfrage");
       if (!attempted.has(key) && attempted.size >= e.data.maxTiles)
         throw new Error("Kachelbudget erreicht");
-      // Loader caps each archive at 150 MiB; reserve that upper bound before a transfer.
-      if (bytes + 150 * 1024 * 1024 > e.data.maxArchiveBytes)
-        throw new Error(
-          "Archivbudget: für nächste Kachel keine 150 MiB Obergrenze verfügbar",
-        );
+      if (bytes >= e.data.maxArchiveBytes)
+        throw new Error("Archivbudget ausgeschöpft");
       attempted.add(key);
       try {
-        const entry = await officialZip(model, id, progress);
-        bytes += entry.metadata.archiveBytes ?? 0;
+        const entry = await boundedOfficialZip(
+          model,
+          id,
+          progress ?? (() => {}),
+          Math.min(150 * 1024 * 1024, e.data.maxArchiveBytes - bytes),
+          (n) => {
+            bytes += n;
+          },
+        );
         return entry;
       } catch (error) {
         failed.add(key);
@@ -80,6 +86,8 @@ self.onmessage = async (e: MessageEvent<HorizonInputs>) => {
         result.warnings.push(...result.spatialAudit.errors);
     }
     result.elapsedMs = performance.now() - started;
+    result.algorithm = __HORIZON_ALGORITHM__;
+    result.archiveStreamBytesConsumed = bytes;
     self.postMessage({ type: "result", result });
   } catch (error) {
     self.postMessage({
