@@ -1,0 +1,331 @@
+{
+  "classification": "CONTROL_DATA_COLLECTED",
+  "scope": "LoD2 roof vertices versus independently supplied DGM/DOM product; no assertion of independent acquisition or on-site accuracy",
+  "observer": {
+    "lat": 48.1731,
+    "lon": 11.5467
+  },
+  "pollJsonRetries": 0,
+  "archiveBytes": 2958115,
+  "archiveSHA256": "9c20b41e3c825ba80843954ef2c5a20d6282e18fc29a33ec367ebe1e14596b9c",
+  "file": "688_5338.gml",
+  "fileSHA256": "5148292892b8f972d1b17cf4ffc60f790e2ea6902703b4a941d71ae6703bbc6d",
+  "fileBytes": 44381303,
+  "srsNames": [
+    "urn:adv:crs:ETRS89_UTM32*DE_DHHN2016_NH"
+  ],
+  "roofSurfaceCount": 6871,
+  "verticalDatumVerification": "DECLARED_DHHN2016_IN_FILE",
+  "controls": [
+    {
+      "x": 689252.629,
+      "y": 5338663.01,
+      "lod2RoofHeight": 547.127,
+      "distanceFromPublicReferenceM": 77.6705515477072,
+      "dgmHeight": 508.1552057474149,
+      "domHeight": 507.72349090579524,
+      "domMinusLod2M": -39.40350909420471,
+      "lod2MinusDgmM": 38.97179425258503
+    },
+    {
+      "x": 689252.472,
+      "y": 5338663.574,
+      "lod2RoofHeight": 547.278,
+      "distanceFromPublicReferenceM": 77.73130053987971,
+      "dgmHeight": 508.1653239724303,
+      "domHeight": 507.6631247070301,
+      "domMinusLod2M": -39.61487529296994,
+      "lod2MinusDgmM": 39.112676027569705
+    },
+    {
+      "x": 689252.49,
+      "y": 5338663.45,
+      "lod2RoofHeight": 547.253,
+      "distanceFromPublicReferenceM": 77.73386247374935,
+      "dgmHeight": 508.16999224852094,
+      "domHeight": 507.6748855590638,
+      "domMinusLod2M": -39.57811444093625,
+      "lod2MinusDgmM": 39.0830077514791
+    },
+    {
+      "x": 689259.66,
+      "y": 5338640.714,
+      "lod2RoofHeight": 545.57,
+      "distanceFromPublicReferenceM": 78.0602746925162,
+      "dgmHeight": 508.03088295901887,
+      "domHeight": 545.8145620117031,
+      "domMinusLod2M": 0.24456201170301028,
+      "lod2MinusDgmM": 37.53911704098118
+    },
+    {
+      "x": 689259.734,
+      "y": 5338640.481,
+      "lod2RoofHeight": 545.616,
+      "distanceFromPublicReferenceM": 78.10082747011425,
+      "dgmHeight": 508.0377056529759,
+      "domHeight": 545.793942260718,
+      "domMinusLod2M": 0.17794226071805497,
+      "lod2MinusDgmM": 37.5782943470241
+    },
+    {
+      "x": 689259.75,
+      "y": 5338640.43,
+      "lod2RoofHeight": 545.621,
+      "distanceFromPublicReferenceM": 78.10997853109085,
+      "dgmHeight": 508.03848953250997,
+      "domHeight": 545.7889923095554,
+      "domMinusLod2M": 0.1679923095554159,
+      "lod2MinusDgmM": 37.58251046749001
+    },
+    {
+      "x": 689250.234,
+      "y": 5338679.281,
+      "lod2RoofHeight": 547.209,
+      "distanceFromPublicReferenceM": 78.98709707538887,
+      "dgmHeight": 507.868218135671,
+      "domHeight": 547.2123560394473,
+      "domMinusLod2M": 0.0033560394473397537,
+      "lod2MinusDgmM": 39.34078186432896
+    },
+    {
+      "x": 689250.18,
+      "y": 5338679.66,
+      "lod2RoofHeight": 547.142,
+      "distanceFromPublicReferenceM": 79.05650158826035,
+      "dgmHeight": 507.84682895504,
+      "domHeight": 547.2339843750049,
+      "domMinusLod2M": 0.09198437500481305,
+      "lod2MinusDgmM": 39.29517104496006
+    },
+    {
+      "x": 689250.183,
+      "y": 5338679.734,
+      "lod2RoofHeight": 547.122,
+      "distanceFromPublicReferenceM": 79.05673166202402,
+      "dgmHeight": 507.8370882012292,
+      "domHeight": 547.2358361816425,
+      "domMinusLod2M": 0.11383618164256859,
+      "lod2MinusDgmM": 39.284911798770736
+    },
+    {
+      "x": 689266.91,
+      "y": 5338627.27,
+      "lod2RoofHeight": 545.658,
+      "distanceFromPublicReferenceM": 79.21104820971276,
+      "dgmHeight": 507.4656680390015,
+      "domHeight": 544.6965092467973,
+      "domMinusLod2M": -0.9614907532027246,
+      "lod2MinusDgmM": 38.1923319609985
+    },
+    {
+      "x": 689267.114,
+      "y": 5338627.009,
+      "lod2RoofHeight": 545.537,
+      "distanceFromPublicReferenceM": 79.21280128429285,
+      "dgmHeight": 507.4247130968254,
+      "domHeight": 544.64266723632,
+      "domMinusLod2M": -0.8943327636800404,
+      "lod2MinusDgmM": 38.112286903174606
+    },
+    {
+      "x": 689251.29,
+      "y": 5338704.022,
+      "lod2RoofHeight": 547.082,
+      "distanceFromPublicReferenceM": 82.6771590912617,
+      "dgmHeight": 507.76995062252047,
+      "domHeight": 546.8442102966353,
+      "domMinusLod2M": -0.2377897033646832,
+      "lod2MinusDgmM": 39.312049377479525
+    },
+    {
+      "x": 689251.3,
+      "y": 5338704.24,
+      "lod2RoofHeight": 547.129,
+      "distanceFromPublicReferenceM": 82.74123347982643,
+      "dgmHeight": 507.80995605471463,
+      "domHeight": 546.8400268554673,
+      "domMinusLod2M": -0.28897314453274703,
+      "lod2MinusDgmM": 39.31904394528539
+    },
+    {
+      "x": 689251.326,
+      "y": 5338704.346,
+      "lod2RoofHeight": 547.143,
+      "distanceFromPublicReferenceM": 82.75269661459592,
+      "dgmHeight": 507.8213545532028,
+      "domHeight": 546.8390248779291,
+      "domMinusLod2M": -0.3039751220709377,
+      "lod2MinusDgmM": 39.32164544679722
+    },
+    {
+      "x": 689282.693,
+      "y": 5338607.097,
+      "lod2RoofHeight": 542.157,
+      "distanceFromPublicReferenceM": 83.31557753239717,
+      "dgmHeight": 508.0656038885692,
+      "domHeight": 542.2296810913151,
+      "domMinusLod2M": 0.07268109131507572,
+      "lod2MinusDgmM": 34.09139611143081
+    },
+    {
+      "x": 689282.91,
+      "y": 5338606.82,
+      "lod2RoofHeight": 542.23,
+      "distanceFromPublicReferenceM": 83.42512627706448,
+      "dgmHeight": 508.090247534093,
+      "domHeight": 542.2025128174142,
+      "domMinusLod2M": -0.027487182585787195,
+      "lod2MinusDgmM": 34.13975246590701
+    },
+    {
+      "x": 689283.107,
+      "y": 5338606.652,
+      "lod2RoofHeight": 542.26,
+      "distanceFromPublicReferenceM": 83.45611612119889,
+      "dgmHeight": 508.09041339924045,
+      "domHeight": 542.1935883178323,
+      "domMinusLod2M": -0.06641168216765436,
+      "lod2MinusDgmM": 34.169586600759544
+    },
+    {
+      "x": 689254.849,
+      "y": 5338718.812,
+      "lod2RoofHeight": 547.187,
+      "distanceFromPublicReferenceM": 85.6396037093864,
+      "dgmHeight": 508.05353148288896,
+      "domHeight": 546.449504870605,
+      "domMinusLod2M": -0.7374951293950289,
+      "lod2MinusDgmM": 39.133468517111055
+    },
+    {
+      "x": 689254.88,
+      "y": 5338718.94,
+      "lod2RoofHeight": 547.157,
+      "distanceFromPublicReferenceM": 85.67641256248689,
+      "dgmHeight": 508.05468325198643,
+      "domHeight": 546.4420043945308,
+      "domMinusLod2M": -0.7149956054691984,
+      "lod2MinusDgmM": 39.10231674801361
+    },
+    {
+      "x": 689254.991,
+      "y": 5338719.217,
+      "lod2RoofHeight": 547.071,
+      "distanceFromPublicReferenceM": 85.71870618130365,
+      "dgmHeight": 508.0436362825962,
+      "domHeight": 546.425037841784,
+      "domMinusLod2M": -0.6459621582159798,
+      "lod2MinusDgmM": 39.02736371740383
+    },
+    {
+      "x": 689293.78,
+      "y": 5338597.557,
+      "lod2RoofHeight": 540.451,
+      "distanceFromPublicReferenceM": 86.28105406347764,
+      "dgmHeight": 507.20683590208967,
+      "domHeight": 540.3948589477526,
+      "domMinusLod2M": -0.05614105224742616,
+      "lod2MinusDgmM": 33.24416409791036
+    },
+    {
+      "x": 689294.511,
+      "y": 5338596.934,
+      "lod2RoofHeight": 539.954,
+      "distanceFromPublicReferenceM": 86.55439644108574,
+      "dgmHeight": 507.10519768371745,
+      "domHeight": 540.2217257690703,
+      "domMinusLod2M": 0.2677257690703527,
+      "lod2MinusDgmM": 32.8488023162825
+    },
+    {
+      "x": 689296.57,
+      "y": 5338595.18,
+      "lod2RoofHeight": 539.642,
+      "distanceFromPublicReferenceM": 87.37574587738276,
+      "dgmHeight": 506.84779317635,
+      "domHeight": 539.8025030517008,
+      "domMinusLod2M": 0.16050305170074353,
+      "lod2MinusDgmM": 32.79420682365003
+    },
+    {
+      "x": 689263.444,
+      "y": 5338740.295,
+      "lod2RoofHeight": 545.145,
+      "distanceFromPublicReferenceM": 91.76508087955362,
+      "dgmHeight": 507.5683583679112,
+      "domHeight": 545.0853556518499,
+      "domMinusLod2M": -0.0596443481500728,
+      "lod2MinusDgmM": 37.57664163208881
+    }
+  ],
+  "tiles": [
+    {
+      "id": "689_5338",
+      "model": "dgm1",
+      "source": "https://download1.bayernwolke.de/a/dgm/dgm1/689_5338.tif",
+      "state": "Downloaded",
+      "bytes": 3055070,
+      "downloadedAt": "2026-10-12T11:41:22.837Z",
+      "modified": "Mon, 12 Oct 2026 11:41:21 GMT",
+      "sha256": "abc6aee8a051792397b725a3292e3bb993ea50d7489290e8871fe18a1527f961",
+      "archiveBytes": 2997309,
+      "transferMs": 540.0849999999991,
+      "serviceMs": 1809.4537,
+      "crs": 25832,
+      "resolution": 1,
+      "decodeMs": 26.0611000000099
+    },
+    {
+      "id": "689_5338",
+      "model": "dom20",
+      "source": "https://download1.bayernwolke.de/a/dom20/DOM/32689_5338_20_DOM.tif",
+      "state": "Downloaded",
+      "bytes": 44323823,
+      "downloadedAt": "2026-10-12T11:41:29.936Z",
+      "modified": "Mon, 12 Oct 2026 11:41:27 GMT",
+      "sha256": "8faabd0dff8f6c2fe2bb547528f17cdeb6d918766d766f0c40c587bedce79428",
+      "archiveBytes": 44259922,
+      "transferMs": 2291.297200000001,
+      "serviceMs": 4416.9401,
+      "crs": 25832,
+      "resolution": 0.2,
+      "decodeMs": 43.437800000003335
+    }
+  ],
+  "wallMs": 23250.2524,
+  "performance": {
+    "samplePoints": 48,
+    "tileRequests": 2,
+    "uniqueTiles": 2,
+    "fileOpens": 2,
+    "fileCacheHits": 0,
+    "persistentHits": 0,
+    "downloads": 2,
+    "archiveBytes": 47257231,
+    "extractedBytes": 47378893,
+    "cacheReadBytes": 0,
+    "blocksDecoded": 20,
+    "blockHits": 0,
+    "blockEvictions": 0,
+    "fileEvictions": 0,
+    "fullRasterDecodes": 0,
+    "cacheReadMs": 0.06480000000192376,
+    "cacheWriteMs": 0.02419999999983702,
+    "downloadServiceMs": 9498.083099999998,
+    "decodeMs": 69.49890000001324,
+    "planningMs": 0.44389999999839347,
+    "interpolationMs": 0.5336999999999534,
+    "geometryMs": 0,
+    "profileMathMs": 0,
+    "solarMs": 0,
+    "peakFileBytes": 47378893,
+    "peakBlockBytes": 1176576,
+    "cacheWriteFailures": 0,
+    "decoderCpuMs": 15.399700000001758,
+    "decoderJobs": 20,
+    "decoderWorkerJobs": 0
+  },
+  "onSite": "NOT_EXECUTED",
+  "agreementAccepted": false,
+  "interpretation": "Roof vertices at 77.67..91.77 m, outside the separate 10 m DOM browser horizon domain; pointwise raster-edge/LoD2 discrepancy requires capture and geometry review; no on-site accuracy asserted"
+}

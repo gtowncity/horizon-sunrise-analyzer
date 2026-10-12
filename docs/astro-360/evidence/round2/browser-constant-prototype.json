@@ -1,0 +1,5610 @@
+{
+  "sourceCommit": "b72c6cc0be6e948f659125fb8c1829866df18ad2",
+  "sites": [
+    {
+      "site": {
+        "name": "Olympiapark public reference",
+        "lat": 48.1731,
+        "lon": 11.5467,
+        "mobile": false
+      },
+      "cacheState": "cold",
+      "classification": "PASS_WITH_KNOWN_GAPS",
+      "browser": "153.0.8010.12",
+      "wallMs": 9847,
+      "pageErrors": [],
+      "heap": {
+        "scope": "main page JS only, excludes workers",
+        "usedJSHeapBytes": 17100000
+      },
+      "result": {
+        "schema": "astro360-2",
+        "method": "adaptive-rays-v2",
+        "commit": "b72c6cc",
+        "timestamp": "2026-10-12T11:41:29.711Z",
+        "inputs": {
+          "observer": {
+            "lat": 48.1731,
+            "lon": 11.5467
+          },
+          "mode": "DETAIL",
+          "relativeHeight": 1.6,
+          "terrainDistance": 100,
+          "surfaceDistance": 10,
+          "terrainK": 0.13,
+          "surfaceK": 0.13,
+          "minAltitude": 30,
+          "margin": 0,
+          "positionUncertainty": 1,
+          "verticalUncertainty": 0.1,
+          "initialAzimuthStep": 30,
+          "minimumAzimuthStep": 0.5,
+          "radialStep": 10,
+          "refinementTolerance": 0.1,
+          "maxRays": 12,
+          "maxSamples": 500000,
+          "maxTiles": 20,
+          "maxArchiveBytes": 268435456,
+          "opticalHorizontalMotion": 0.3,
+          "opticalHeightBelow": 0.2,
+          "opticalHeightAbove": 0.2,
+          "terrainHeightError": 0.2,
+          "surfaceHeightError": 0.6,
+          "maxCells": 200000
+        },
+        "ground": 507.2964255276039,
+        "eye": 508.8964255276039,
+        "directions": [
+          {
+            "azimuth": 0,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.17399933154701,
+                "lon": 11.5467,
+                "distance": 100,
+                "height": 508.64489071479875,
+                "angle": -0.1444997249235906,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173189933161055,
+                "lon": 11.5467,
+                "distance": 10,
+                "height": 507.285259573581,
+                "angle": -9.152060192497995,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": -0.1444997249235906,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 30,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.17387884200854,
+                "lon": 11.547372275742065,
+                "distance": 100,
+                "height": 516.5319560711628,
+                "angle": 4.365669204942897,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173177884382554,
+                "lon": 11.54676722665794,
+                "distance": 10,
+                "height": 507.3088639471271,
+                "angle": -9.020199442497608,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 4.365669204942897,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 60,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173549659893844,
+                "lon": 11.547864408288987,
+                "distance": 100,
+                "height": 524.9560639978074,
+                "angle": 9.12256914315186,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17314496652174,
+                "lon": 11.546816439912647,
+                "distance": 10,
+                "height": 507.2866455578178,
+                "angle": -9.144321662479195,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 9.12256914315186,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 90,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173099992136976,
+                "lon": 11.548044531122544,
+                "distance": 100,
+                "height": 526.5590230219842,
+                "angle": 10.015531941246097,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17309999992136,
+                "lon": 11.546834453112268,
+                "distance": 10,
+                "height": 507.35113399733524,
+                "angle": -8.783827306337248,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 10.015531941246097,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 120,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.17265032827626,
+                "lon": 11.547864387927898,
+                "distance": 100,
+                "height": 520.8862808430322,
+                "angle": 6.836177968232433,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17305503335996,
+                "lon": 11.546816439709035,
+                "distance": 10,
+                "height": 507.15081060722844,
+                "angle": -9.901232861883022,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 6.836177968232433,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 150,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.172321153953895,
+                "lon": 11.54737225538097,
+                "distance": 100,
+                "height": 513.6866442306159,
+                "angle": 2.7419148140871705,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173022115577076,
+                "lon": 11.546767226454326,
+                "distance": 10,
+                "height": 507.23968312584725,
+                "angle": -9.406386893993632,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 2.7419148140871705,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 180,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.17220066831159,
+                "lon": 11.5467,
+                "distance": 100,
+                "height": 510.0513797062945,
+                "angle": 0.6612733395514959,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17301006683752,
+                "lon": 11.5467,
+                "distance": 10,
+                "height": 507.25251098328124,
+                "angle": -9.334841647152372,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 0.6612733395514959,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 210,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.172321153953895,
+                "lon": 11.546027744619028,
+                "distance": 100,
+                "height": 510.9787921149382,
+                "angle": 1.1924618631129642,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173022115577076,
+                "lon": 11.546632773545673,
+                "distance": 10,
+                "height": 507.26513362098797,
+                "angle": -9.264413182069527,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 1.1924618631129642,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 240,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.17265032827626,
+                "lon": 11.5455356120721,
+                "distance": 100,
+                "height": 515.9781633671244,
+                "angle": 4.0501020515258634,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17305503335996,
+                "lon": 11.546583560290964,
+                "distance": 10,
+                "height": 507.2695464300992,
+                "angle": -9.239785805054666,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 4.0501020515258634,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 270,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173099992136976,
+                "lon": 11.545355468877455,
+                "distance": 100,
+                "height": 516.8700457629892,
+                "angle": 4.558195551613401,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17309999992136,
+                "lon": 11.54656554688773,
+                "distance": 10,
+                "height": 507.26000976562494,
+                "angle": -9.293006849959315,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 4.558195551613401,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 300,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173549659893844,
+                "lon": 11.545535591711012,
+                "distance": 100,
+                "height": 510.44580180868843,
+                "angle": 0.8872042327657281,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17314496652174,
+                "lon": 11.546583560087353,
+                "distance": 10,
+                "height": 507.34206882499166,
+                "angle": -8.834544851709767,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 0.8872042327657281,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 330,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.17387884200854,
+                "lon": 11.546027724257934,
+                "distance": 100,
+                "height": 507.74400327268154,
+                "angle": -0.6606052125054971,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173177884382554,
+                "lon": 11.54663277334206,
+                "distance": 10,
+                "height": 507.227864068425,
+                "angle": -9.472279131169143,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": -0.6606052125054971,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          }
+        ],
+        "tiles": [
+          {
+            "id": "689_5338",
+            "model": "dgm1",
+            "source": "https://download1.bayernwolke.de/a/dgm/dgm1/689_5338.tif",
+            "state": "Downloaded",
+            "bytes": 3055070,
+            "downloadedAt": "2026-10-12T11:41:22.911Z",
+            "modified": "Mon, 12 Oct 2026 11:41:21 GMT",
+            "sha256": "abc6aee8a051792397b725a3292e3bb993ea50d7489290e8871fe18a1527f961",
+            "archiveBytes": 2997309,
+            "transferMs": 410,
+            "serviceMs": 1893.6000003814697,
+            "crs": 25832,
+            "resolution": 1,
+            "decodeMs": 0
+          },
+          {
+            "id": "689_5338",
+            "model": "dom20",
+            "source": "https://download1.bayernwolke.de/a/dom20/DOM/32689_5338_20_DOM.tif",
+            "state": "Downloaded",
+            "bytes": 44323823,
+            "downloadedAt": "2026-10-12T11:41:29.665Z",
+            "modified": "Mon, 12 Oct 2026 11:41:27 GMT",
+            "sha256": "8faabd0dff8f6c2fe2bb547528f17cdeb6d918766d766f0c40c587bedce79428",
+            "archiveBytes": 44259922,
+            "transferMs": 2093.5,
+            "serviceMs": 4312.10000038147,
+            "crs": 25832,
+            "resolution": 0.2,
+            "decodeMs": 0
+          }
+        ],
+        "warnings": [
+          "VORLÄUFIG: adaptive Strahlen, keine vollständige Rasterzellprüfung; schmale Hindernisse können fehlen.",
+          "Kein physischer Genauigkeitsnachweis. Positions-/Höhenbudgets sind Angaben, keine propagierten Konfidenzintervalle.",
+          "Endliche DGM-/DOM-Domänen. DOM außerhalb der gewählten Nahdistanz ungeprüft; Quellalter und aktueller Bewuchs unbekannt.",
+          "k ist ein terrestrisches Szenario; Normalhöhen im lokalen GRS80-Modell, ohne Lotabweichung/Geoidneigung.",
+          "Strahlenbudget erreicht; keine Winkelkonvergenzgarantie.",
+          "Zellobergrenzen gelten nur im deklarierten projizierten Modell. Geografischer Nord-/Distanzbezug, Aufnahmezustand und physische Genauigkeit nicht zertifiziert; N.I.N.A. gesperrt."
+        ],
+        "elapsedMs": 9231.5,
+        "evaluatedSamples": 385,
+        "preflight": {
+          "tileUpperBound": 18,
+          "bytes": null
+        },
+        "performance": {
+          "samplePoints": 385,
+          "tileRequests": 29,
+          "uniqueTiles": 2,
+          "fileOpens": 2,
+          "fileCacheHits": 27,
+          "persistentHits": 0,
+          "downloads": 2,
+          "archiveBytes": 47257231,
+          "extractedBytes": 47378893,
+          "cacheReadBytes": 0,
+          "blocksDecoded": 94,
+          "blockHits": 109,
+          "blockEvictions": 0,
+          "fileEvictions": 0,
+          "fullRasterDecodes": 0,
+          "cacheReadMs": 2.799999713897705,
+          "cacheWriteMs": 21.30000066757202,
+          "downloadServiceMs": 9081.199999809265,
+          "decodeMs": 43.80000114440918,
+          "planningMs": 1.9999995231628418,
+          "interpolationMs": 0.9999995231628418,
+          "geometryMs": 0,
+          "profileMathMs": 0,
+          "solarMs": 0,
+          "peakFileBytes": 47378893,
+          "peakBlockBytes": 1006144,
+          "cacheWriteFailures": 0,
+          "decoderCpuMs": 20.600000858306885,
+          "decoderJobs": 94,
+          "decoderWorkerJobs": 0
+        },
+        "spatialAudit": {
+          "status": "CONDITIONAL_MODEL_ONLY",
+          "physicalValidation": "NOT_MEASURED",
+          "eyeRange": [
+            508.3830200195313,
+            509.4090209960938
+          ],
+          "observerRadius": 1.3,
+          "groundRange": [
+            507.28302001953125,
+            507.30902099609375
+          ],
+          "groundTraversalComplete": true,
+          "errors": [],
+          "terrain": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 101.3,
+            "evaluatedCells": 32648,
+            "completeTraversal": true,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": 5.69954515210375,
+                "modelUpper": 5.69954515210375,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3150,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": 10.259377416959342,
+                "modelUpper": 10.259377416959342,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3140,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": 11.231653526527852,
+                "modelUpper": 11.231653526527852,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3159,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": 10.828303826397926,
+                "modelUpper": 10.828303826397926,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3108,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": 7.524382584126385,
+                "modelUpper": 7.524382584126385,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3139,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": 3.4202628232645713,
+                "modelUpper": 3.4202628232645713,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3150,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": 2.2810060657568827,
+                "modelUpper": 2.2810060657568827,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3116,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": 5.081687537064679,
+                "modelUpper": 5.081687537064679,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3137,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": 5.878246954574598,
+                "modelUpper": 5.878246954574598,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3107,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": 5.298333222173425,
+                "modelUpper": 5.298333222173425,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3160,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": 1.101246217960769,
+                "modelUpper": 1.101246217960769,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3141,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": 0.8121951169240607,
+                "modelUpper": 0.8121951169240607,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3115,
+                "missing": 0
+              }
+            ],
+            "errors": [],
+            "elapsedMs": 48.299999713897705,
+            "conditions": {
+              "observerX": 689329.1628922729,
+              "observerY": 5338676.249256447,
+              "observerRadius": 1.3,
+              "eyeMin": 508.3830200195313,
+              "eyeMax": 509.4090209960938,
+              "heightError": 0.2,
+              "k": 0.13
+            }
+          },
+          "surface": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 11.3,
+            "evaluatedCells": 10254,
+            "completeTraversal": true,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": -2.112924749591968,
+                "modelUpper": -2.112924749591968,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1719,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": -2.061837455883697,
+                "modelUpper": -2.061837455883697,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1744,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": -2.029768604175547,
+                "modelUpper": -2.029768604175547,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1749,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": -2.049965858292495,
+                "modelUpper": -2.049965858292495,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1718,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": -2.2850351503704855,
+                "modelUpper": -2.2850351503704855,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1744,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": -2.0489717835246144,
+                "modelUpper": -2.0489717835246144,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1721,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": -2.017530474773402,
+                "modelUpper": -2.017530474773402,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1744,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": -2.1485673196706996,
+                "modelUpper": -2.1485673196706996,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1744,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": -2.2893489049849616,
+                "modelUpper": -2.2893489049849616,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1715,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": -1.8476992124306832,
+                "modelUpper": -1.8476992124306832,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1743,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": -1.7492656175172745,
+                "modelUpper": -1.7492656175172745,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1746,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": -2.113873499391423,
+                "modelUpper": -2.113873499391423,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1740,
+                "missing": 0
+              }
+            ],
+            "errors": [],
+            "elapsedMs": 13.5,
+            "conditions": {
+              "observerX": 689329.1628922729,
+              "observerY": 5338676.249256447,
+              "observerRadius": 1.3,
+              "eyeMin": 508.3830200195313,
+              "eyeMax": 509.4090209960938,
+              "heightError": 0.6,
+              "k": 0.13
+            }
+          }
+        },
+        "cellMetrics": {
+          "blocksDecoded": 109,
+          "peakBlockBytes": 262144,
+          "sourceOpens": 3
+        }
+      }
+    },
+    {
+      "site": {
+        "name": "Olympiapark public reference",
+        "lat": 48.1731,
+        "lon": 11.5467,
+        "mobile": false
+      },
+      "cacheState": "warm",
+      "classification": "PASS_WITH_KNOWN_GAPS",
+      "browser": "153.0.8010.12",
+      "wallMs": 379,
+      "pageErrors": [],
+      "heap": {
+        "scope": "main page JS only, excludes workers",
+        "usedJSHeapBytes": 17100000
+      },
+      "result": {
+        "schema": "astro360-2",
+        "method": "adaptive-rays-v2",
+        "commit": "b72c6cc",
+        "timestamp": "2026-10-12T11:41:30.514Z",
+        "inputs": {
+          "observer": {
+            "lat": 48.1731,
+            "lon": 11.5467
+          },
+          "mode": "DETAIL",
+          "relativeHeight": 1.6,
+          "terrainDistance": 100,
+          "surfaceDistance": 10,
+          "terrainK": 0.13,
+          "surfaceK": 0.13,
+          "minAltitude": 30,
+          "margin": 0,
+          "positionUncertainty": 1,
+          "verticalUncertainty": 0.1,
+          "initialAzimuthStep": 30,
+          "minimumAzimuthStep": 0.5,
+          "radialStep": 10,
+          "refinementTolerance": 0.1,
+          "maxRays": 12,
+          "maxSamples": 500000,
+          "maxTiles": 20,
+          "maxArchiveBytes": 268435456,
+          "opticalHorizontalMotion": 0.3,
+          "opticalHeightBelow": 0.2,
+          "opticalHeightAbove": 0.2,
+          "terrainHeightError": 0.2,
+          "surfaceHeightError": 0.6,
+          "maxCells": 200000
+        },
+        "ground": 507.2964255276039,
+        "eye": 508.8964255276039,
+        "directions": [
+          {
+            "azimuth": 0,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.17399933154701,
+                "lon": 11.5467,
+                "distance": 100,
+                "height": 508.64489071479875,
+                "angle": -0.1444997249235906,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173189933161055,
+                "lon": 11.5467,
+                "distance": 10,
+                "height": 507.285259573581,
+                "angle": -9.152060192497995,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": -0.1444997249235906,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 30,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.17387884200854,
+                "lon": 11.547372275742065,
+                "distance": 100,
+                "height": 516.5319560711628,
+                "angle": 4.365669204942897,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173177884382554,
+                "lon": 11.54676722665794,
+                "distance": 10,
+                "height": 507.3088639471271,
+                "angle": -9.020199442497608,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 4.365669204942897,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 60,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173549659893844,
+                "lon": 11.547864408288987,
+                "distance": 100,
+                "height": 524.9560639978074,
+                "angle": 9.12256914315186,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17314496652174,
+                "lon": 11.546816439912647,
+                "distance": 10,
+                "height": 507.2866455578178,
+                "angle": -9.144321662479195,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 9.12256914315186,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 90,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173099992136976,
+                "lon": 11.548044531122544,
+                "distance": 100,
+                "height": 526.5590230219842,
+                "angle": 10.015531941246097,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17309999992136,
+                "lon": 11.546834453112268,
+                "distance": 10,
+                "height": 507.35113399733524,
+                "angle": -8.783827306337248,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 10.015531941246097,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 120,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.17265032827626,
+                "lon": 11.547864387927898,
+                "distance": 100,
+                "height": 520.8862808430322,
+                "angle": 6.836177968232433,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17305503335996,
+                "lon": 11.546816439709035,
+                "distance": 10,
+                "height": 507.15081060722844,
+                "angle": -9.901232861883022,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 6.836177968232433,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 150,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.172321153953895,
+                "lon": 11.54737225538097,
+                "distance": 100,
+                "height": 513.6866442306159,
+                "angle": 2.7419148140871705,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173022115577076,
+                "lon": 11.546767226454326,
+                "distance": 10,
+                "height": 507.23968312584725,
+                "angle": -9.406386893993632,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 2.7419148140871705,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 180,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.17220066831159,
+                "lon": 11.5467,
+                "distance": 100,
+                "height": 510.0513797062945,
+                "angle": 0.6612733395514959,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17301006683752,
+                "lon": 11.5467,
+                "distance": 10,
+                "height": 507.25251098328124,
+                "angle": -9.334841647152372,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 0.6612733395514959,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 210,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.172321153953895,
+                "lon": 11.546027744619028,
+                "distance": 100,
+                "height": 510.9787921149382,
+                "angle": 1.1924618631129642,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173022115577076,
+                "lon": 11.546632773545673,
+                "distance": 10,
+                "height": 507.26513362098797,
+                "angle": -9.264413182069527,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 1.1924618631129642,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 240,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.17265032827626,
+                "lon": 11.5455356120721,
+                "distance": 100,
+                "height": 515.9781633671244,
+                "angle": 4.0501020515258634,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17305503335996,
+                "lon": 11.546583560290964,
+                "distance": 10,
+                "height": 507.2695464300992,
+                "angle": -9.239785805054666,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 4.0501020515258634,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 270,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173099992136976,
+                "lon": 11.545355468877455,
+                "distance": 100,
+                "height": 516.8700457629892,
+                "angle": 4.558195551613401,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17309999992136,
+                "lon": 11.54656554688773,
+                "distance": 10,
+                "height": 507.26000976562494,
+                "angle": -9.293006849959315,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 4.558195551613401,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 300,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173549659893844,
+                "lon": 11.545535591711012,
+                "distance": 100,
+                "height": 510.44580180868843,
+                "angle": 0.8872042327657281,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17314496652174,
+                "lon": 11.546583560087353,
+                "distance": 10,
+                "height": 507.34206882499166,
+                "angle": -8.834544851709767,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 0.8872042327657281,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 330,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.17387884200854,
+                "lon": 11.546027724257934,
+                "distance": 100,
+                "height": 507.74400327268154,
+                "angle": -0.6606052125054971,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173177884382554,
+                "lon": 11.54663277334206,
+                "distance": 10,
+                "height": 507.227864068425,
+                "angle": -9.472279131169143,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": -0.6606052125054971,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          }
+        ],
+        "tiles": [
+          {
+            "id": "689_5338",
+            "model": "dgm1",
+            "source": "https://download1.bayernwolke.de/a/dgm/dgm1/689_5338.tif",
+            "state": "Downloaded",
+            "bytes": 3055070,
+            "downloadedAt": "2026-10-12T11:41:22.911Z",
+            "modified": "Mon, 12 Oct 2026 11:41:21 GMT",
+            "sha256": "abc6aee8a051792397b725a3292e3bb993ea50d7489290e8871fe18a1527f961",
+            "archiveBytes": 2997309,
+            "transferMs": 410,
+            "serviceMs": 1893.6000003814697,
+            "crs": 25832,
+            "resolution": 1,
+            "decodeMs": 0
+          },
+          {
+            "id": "689_5338",
+            "model": "dom20",
+            "source": "https://download1.bayernwolke.de/a/dom20/DOM/32689_5338_20_DOM.tif",
+            "state": "Downloaded",
+            "bytes": 44323823,
+            "downloadedAt": "2026-10-12T11:41:29.665Z",
+            "modified": "Mon, 12 Oct 2026 11:41:27 GMT",
+            "sha256": "8faabd0dff8f6c2fe2bb547528f17cdeb6d918766d766f0c40c587bedce79428",
+            "archiveBytes": 44259922,
+            "transferMs": 2093.5,
+            "serviceMs": 4312.10000038147,
+            "crs": 25832,
+            "resolution": 0.2,
+            "decodeMs": 0
+          }
+        ],
+        "warnings": [
+          "VORLÄUFIG: adaptive Strahlen, keine vollständige Rasterzellprüfung; schmale Hindernisse können fehlen.",
+          "Kein physischer Genauigkeitsnachweis. Positions-/Höhenbudgets sind Angaben, keine propagierten Konfidenzintervalle.",
+          "Endliche DGM-/DOM-Domänen. DOM außerhalb der gewählten Nahdistanz ungeprüft; Quellalter und aktueller Bewuchs unbekannt.",
+          "k ist ein terrestrisches Szenario; Normalhöhen im lokalen GRS80-Modell, ohne Lotabweichung/Geoidneigung.",
+          "Strahlenbudget erreicht; keine Winkelkonvergenzgarantie.",
+          "Zellobergrenzen gelten nur im deklarierten projizierten Modell. Geografischer Nord-/Distanzbezug, Aufnahmezustand und physische Genauigkeit nicht zertifiziert; N.I.N.A. gesperrt."
+        ],
+        "elapsedMs": 123.40000009536743,
+        "evaluatedSamples": 385,
+        "preflight": {
+          "tileUpperBound": 18,
+          "bytes": null
+        },
+        "performance": {
+          "samplePoints": 385,
+          "tileRequests": 29,
+          "uniqueTiles": 2,
+          "fileOpens": 2,
+          "fileCacheHits": 27,
+          "persistentHits": 2,
+          "downloads": 0,
+          "archiveBytes": 0,
+          "extractedBytes": 0,
+          "cacheReadBytes": 2006494,
+          "blocksDecoded": 94,
+          "blockHits": 109,
+          "blockEvictions": 0,
+          "fileEvictions": 0,
+          "fullRasterDecodes": 0,
+          "cacheReadMs": 11.300000667572021,
+          "cacheWriteMs": 0,
+          "downloadServiceMs": 0,
+          "decodeMs": 53.300002098083496,
+          "planningMs": 1.399998664855957,
+          "interpolationMs": 0.9000005722045898,
+          "geometryMs": 0,
+          "profileMathMs": 0,
+          "solarMs": 0,
+          "peakFileBytes": 47378893,
+          "peakBlockBytes": 1006144,
+          "cacheWriteFailures": 0,
+          "decoderCpuMs": 21.200000762939453,
+          "decoderJobs": 94,
+          "decoderWorkerJobs": 0
+        },
+        "spatialAudit": {
+          "status": "CONDITIONAL_MODEL_ONLY",
+          "physicalValidation": "NOT_MEASURED",
+          "eyeRange": [
+            508.3830200195313,
+            509.4090209960938
+          ],
+          "observerRadius": 1.3,
+          "groundRange": [
+            507.28302001953125,
+            507.30902099609375
+          ],
+          "groundTraversalComplete": true,
+          "errors": [],
+          "terrain": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 101.3,
+            "evaluatedCells": 32648,
+            "completeTraversal": true,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": 5.69954515210375,
+                "modelUpper": 5.69954515210375,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3150,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": 10.259377416959342,
+                "modelUpper": 10.259377416959342,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3140,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": 11.231653526527852,
+                "modelUpper": 11.231653526527852,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3159,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": 10.828303826397926,
+                "modelUpper": 10.828303826397926,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3108,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": 7.524382584126385,
+                "modelUpper": 7.524382584126385,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3139,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": 3.4202628232645713,
+                "modelUpper": 3.4202628232645713,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3150,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": 2.2810060657568827,
+                "modelUpper": 2.2810060657568827,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3116,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": 5.081687537064679,
+                "modelUpper": 5.081687537064679,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3137,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": 5.878246954574598,
+                "modelUpper": 5.878246954574598,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3107,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": 5.298333222173425,
+                "modelUpper": 5.298333222173425,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3160,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": 1.101246217960769,
+                "modelUpper": 1.101246217960769,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3141,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": 0.8121951169240607,
+                "modelUpper": 0.8121951169240607,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3115,
+                "missing": 0
+              }
+            ],
+            "errors": [],
+            "elapsedMs": 47.39999961853027,
+            "conditions": {
+              "observerX": 689329.1628922729,
+              "observerY": 5338676.249256447,
+              "observerRadius": 1.3,
+              "eyeMin": 508.3830200195313,
+              "eyeMax": 509.4090209960938,
+              "heightError": 0.2,
+              "k": 0.13
+            }
+          },
+          "surface": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 11.3,
+            "evaluatedCells": 10254,
+            "completeTraversal": true,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": -2.112924749591968,
+                "modelUpper": -2.112924749591968,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1719,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": -2.061837455883697,
+                "modelUpper": -2.061837455883697,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1744,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": -2.029768604175547,
+                "modelUpper": -2.029768604175547,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1749,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": -2.049965858292495,
+                "modelUpper": -2.049965858292495,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1718,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": -2.2850351503704855,
+                "modelUpper": -2.2850351503704855,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1744,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": -2.0489717835246144,
+                "modelUpper": -2.0489717835246144,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1721,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": -2.017530474773402,
+                "modelUpper": -2.017530474773402,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1744,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": -2.1485673196706996,
+                "modelUpper": -2.1485673196706996,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1744,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": -2.2893489049849616,
+                "modelUpper": -2.2893489049849616,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1715,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": -1.8476992124306832,
+                "modelUpper": -1.8476992124306832,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1743,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": -1.7492656175172745,
+                "modelUpper": -1.7492656175172745,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1746,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": -2.113873499391423,
+                "modelUpper": -2.113873499391423,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1740,
+                "missing": 0
+              }
+            ],
+            "errors": [],
+            "elapsedMs": 14.199999809265137,
+            "conditions": {
+              "observerX": 689329.1628922729,
+              "observerY": 5338676.249256447,
+              "observerRadius": 1.3,
+              "eyeMin": 508.3830200195313,
+              "eyeMax": 509.4090209960938,
+              "heightError": 0.6,
+              "k": 0.13
+            }
+          }
+        },
+        "cellMetrics": {
+          "blocksDecoded": 109,
+          "peakBlockBytes": 262144,
+          "sourceOpens": 3
+        }
+      }
+    },
+    {
+      "site": {
+        "name": "Olympiapark public reference",
+        "lat": 48.1731,
+        "lon": 11.5467,
+        "mobile": false
+      },
+      "cacheState": "cell-budget-stress",
+      "classification": "PASS_WITH_KNOWN_GAPS",
+      "browser": "153.0.8010.12",
+      "wallMs": 337,
+      "pageErrors": [],
+      "heap": {
+        "scope": "main page JS only, excludes workers",
+        "usedJSHeapBytes": 17100000
+      },
+      "result": {
+        "schema": "astro360-2",
+        "method": "adaptive-rays-v2",
+        "commit": "b72c6cc",
+        "timestamp": "2026-10-12T11:41:31.161Z",
+        "inputs": {
+          "observer": {
+            "lat": 48.1731,
+            "lon": 11.5467
+          },
+          "mode": "DETAIL",
+          "relativeHeight": 1.6,
+          "terrainDistance": 100,
+          "surfaceDistance": 10,
+          "terrainK": 0.13,
+          "surfaceK": 0.13,
+          "minAltitude": 30,
+          "margin": 0,
+          "positionUncertainty": 1,
+          "verticalUncertainty": 0.1,
+          "initialAzimuthStep": 30,
+          "minimumAzimuthStep": 0.5,
+          "radialStep": 10,
+          "refinementTolerance": 0.1,
+          "maxRays": 12,
+          "maxSamples": 500000,
+          "maxTiles": 20,
+          "maxArchiveBytes": 268435456,
+          "opticalHorizontalMotion": 0.3,
+          "opticalHeightBelow": 0.2,
+          "opticalHeightAbove": 0.2,
+          "terrainHeightError": 0.2,
+          "surfaceHeightError": 0.6,
+          "maxCells": 1000
+        },
+        "ground": 507.2964255276039,
+        "eye": 508.8964255276039,
+        "directions": [
+          {
+            "azimuth": 0,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.17399933154701,
+                "lon": 11.5467,
+                "distance": 100,
+                "height": 508.64489071479875,
+                "angle": -0.1444997249235906,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173189933161055,
+                "lon": 11.5467,
+                "distance": 10,
+                "height": 507.285259573581,
+                "angle": -9.152060192497995,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": -0.1444997249235906,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 30,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.17387884200854,
+                "lon": 11.547372275742065,
+                "distance": 100,
+                "height": 516.5319560711628,
+                "angle": 4.365669204942897,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173177884382554,
+                "lon": 11.54676722665794,
+                "distance": 10,
+                "height": 507.3088639471271,
+                "angle": -9.020199442497608,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 4.365669204942897,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 60,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173549659893844,
+                "lon": 11.547864408288987,
+                "distance": 100,
+                "height": 524.9560639978074,
+                "angle": 9.12256914315186,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17314496652174,
+                "lon": 11.546816439912647,
+                "distance": 10,
+                "height": 507.2866455578178,
+                "angle": -9.144321662479195,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 9.12256914315186,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 90,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173099992136976,
+                "lon": 11.548044531122544,
+                "distance": 100,
+                "height": 526.5590230219842,
+                "angle": 10.015531941246097,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17309999992136,
+                "lon": 11.546834453112268,
+                "distance": 10,
+                "height": 507.35113399733524,
+                "angle": -8.783827306337248,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 10.015531941246097,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 120,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.17265032827626,
+                "lon": 11.547864387927898,
+                "distance": 100,
+                "height": 520.8862808430322,
+                "angle": 6.836177968232433,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17305503335996,
+                "lon": 11.546816439709035,
+                "distance": 10,
+                "height": 507.15081060722844,
+                "angle": -9.901232861883022,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 6.836177968232433,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 150,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 48.172321153953895,
+                "lon": 11.54737225538097,
+                "distance": 100,
+                "height": 513.6866442306159,
+                "angle": 2.7419148140871705,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173022115577076,
+                "lon": 11.546767226454326,
+                "distance": 10,
+                "height": 507.23968312584725,
+                "angle": -9.406386893993632,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 2.7419148140871705,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 180,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.17220066831159,
+                "lon": 11.5467,
+                "distance": 100,
+                "height": 510.0513797062945,
+                "angle": 0.6612733395514959,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17301006683752,
+                "lon": 11.5467,
+                "distance": 10,
+                "height": 507.25251098328124,
+                "angle": -9.334841647152372,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 0.6612733395514959,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 210,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.172321153953895,
+                "lon": 11.546027744619028,
+                "distance": 100,
+                "height": 510.9787921149382,
+                "angle": 1.1924618631129642,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173022115577076,
+                "lon": 11.546632773545673,
+                "distance": 10,
+                "height": 507.26513362098797,
+                "angle": -9.264413182069527,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 1.1924618631129642,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 240,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.17265032827626,
+                "lon": 11.5455356120721,
+                "distance": 100,
+                "height": 515.9781633671244,
+                "angle": 4.0501020515258634,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17305503335996,
+                "lon": 11.546583560290964,
+                "distance": 10,
+                "height": 507.2695464300992,
+                "angle": -9.239785805054666,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 4.0501020515258634,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 270,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173099992136976,
+                "lon": 11.545355468877455,
+                "distance": 100,
+                "height": 516.8700457629892,
+                "angle": 4.558195551613401,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17309999992136,
+                "lon": 11.54656554688773,
+                "distance": 10,
+                "height": 507.26000976562494,
+                "angle": -9.293006849959315,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 4.558195551613401,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 300,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.173549659893844,
+                "lon": 11.545535591711012,
+                "distance": 100,
+                "height": 510.44580180868843,
+                "angle": 0.8872042327657281,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.17314496652174,
+                "lon": 11.546583560087353,
+                "distance": 10,
+                "height": 507.34206882499166,
+                "angle": -8.834544851709767,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": 0.8872042327657281,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 330,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 48.17387884200854,
+                "lon": 11.546027724257934,
+                "distance": 100,
+                "height": 507.74400327268154,
+                "angle": -0.6606052125054971,
+                "model": "dgm1",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 48.173177884382554,
+                "lon": 11.54663277334206,
+                "distance": 10,
+                "height": 507.227864068425,
+                "angle": -9.472279131169143,
+                "model": "dom20",
+                "tile": "689_5338"
+              },
+              "errors": []
+            },
+            "actual": -0.6606052125054971,
+            "planning": 30,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          }
+        ],
+        "tiles": [
+          {
+            "id": "689_5338",
+            "model": "dgm1",
+            "source": "https://download1.bayernwolke.de/a/dgm/dgm1/689_5338.tif",
+            "state": "Downloaded",
+            "bytes": 3055070,
+            "downloadedAt": "2026-10-12T11:41:22.911Z",
+            "modified": "Mon, 12 Oct 2026 11:41:21 GMT",
+            "sha256": "abc6aee8a051792397b725a3292e3bb993ea50d7489290e8871fe18a1527f961",
+            "archiveBytes": 2997309,
+            "transferMs": 410,
+            "serviceMs": 1893.6000003814697,
+            "crs": 25832,
+            "resolution": 1,
+            "decodeMs": 0
+          },
+          {
+            "id": "689_5338",
+            "model": "dom20",
+            "source": "https://download1.bayernwolke.de/a/dom20/DOM/32689_5338_20_DOM.tif",
+            "state": "Downloaded",
+            "bytes": 44323823,
+            "downloadedAt": "2026-10-12T11:41:29.665Z",
+            "modified": "Mon, 12 Oct 2026 11:41:27 GMT",
+            "sha256": "8faabd0dff8f6c2fe2bb547528f17cdeb6d918766d766f0c40c587bedce79428",
+            "archiveBytes": 44259922,
+            "transferMs": 2093.5,
+            "serviceMs": 4312.10000038147,
+            "crs": 25832,
+            "resolution": 0.2,
+            "decodeMs": 0
+          }
+        ],
+        "warnings": [
+          "VORLÄUFIG: adaptive Strahlen, keine vollständige Rasterzellprüfung; schmale Hindernisse können fehlen.",
+          "Kein physischer Genauigkeitsnachweis. Positions-/Höhenbudgets sind Angaben, keine propagierten Konfidenzintervalle.",
+          "Endliche DGM-/DOM-Domänen. DOM außerhalb der gewählten Nahdistanz ungeprüft; Quellalter und aktueller Bewuchs unbekannt.",
+          "k ist ein terrestrisches Szenario; Normalhöhen im lokalen GRS80-Modell, ohne Lotabweichung/Geoidneigung.",
+          "Strahlenbudget erreicht; keine Winkelkonvergenzgarantie.",
+          "Zellobergrenzen gelten nur im deklarierten projizierten Modell. Geografischer Nord-/Distanzbezug, Aufnahmezustand und physische Genauigkeit nicht zertifiziert; N.I.N.A. gesperrt.",
+          "CELL_BUDGET_EXHAUSTED",
+          "CELL_BUDGET_EXHAUSTED"
+        ],
+        "elapsedMs": 73.2000002861023,
+        "evaluatedSamples": 385,
+        "preflight": {
+          "tileUpperBound": 18,
+          "bytes": null
+        },
+        "performance": {
+          "samplePoints": 385,
+          "tileRequests": 29,
+          "uniqueTiles": 2,
+          "fileOpens": 2,
+          "fileCacheHits": 27,
+          "persistentHits": 2,
+          "downloads": 0,
+          "archiveBytes": 0,
+          "extractedBytes": 0,
+          "cacheReadBytes": 2006494,
+          "blocksDecoded": 94,
+          "blockHits": 109,
+          "blockEvictions": 0,
+          "fileEvictions": 0,
+          "fullRasterDecodes": 0,
+          "cacheReadMs": 11.099999904632568,
+          "cacheWriteMs": 0,
+          "downloadServiceMs": 0,
+          "decodeMs": 52.20000505447388,
+          "planningMs": 1.0999999046325684,
+          "interpolationMs": 0.7999997138977051,
+          "geometryMs": 0,
+          "profileMathMs": 0,
+          "solarMs": 0,
+          "peakFileBytes": 47378893,
+          "peakBlockBytes": 1006144,
+          "cacheWriteFailures": 0,
+          "decoderCpuMs": 21.30000352859497,
+          "decoderJobs": 94,
+          "decoderWorkerJobs": 0
+        },
+        "spatialAudit": {
+          "status": "CONDITIONAL_MODEL_ONLY",
+          "physicalValidation": "NOT_MEASURED",
+          "eyeRange": [
+            508.3830200195313,
+            509.4090209960938
+          ],
+          "observerRadius": 1.3,
+          "groundRange": [
+            507.28302001953125,
+            507.30902099609375
+          ],
+          "groundTraversalComplete": true,
+          "errors": [
+            "CELL_BUDGET_EXHAUSTED",
+            "CELL_BUDGET_EXHAUSTED"
+          ],
+          "terrain": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 101.3,
+            "evaluatedCells": 971,
+            "completeTraversal": false,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": 5.2101130507308655,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 506,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": -0.2677732337374954,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 3,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": 0.8121951169240607,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 521,
+                "missing": 0
+              }
+            ],
+            "errors": [
+              "CELL_BUDGET_EXHAUSTED"
+            ],
+            "elapsedMs": 8,
+            "conditions": {
+              "observerX": 689329.1628922729,
+              "observerY": 5338676.249256447,
+              "observerRadius": 1.3,
+              "eyeMin": 508.3830200195313,
+              "eyeMax": 509.4090209960938,
+              "heightError": 0.2,
+              "k": 0.13
+            }
+          },
+          "surface": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 11.3,
+            "evaluatedCells": 0,
+            "completeTraversal": false,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              }
+            ],
+            "errors": [
+              "CELL_BUDGET_EXHAUSTED"
+            ],
+            "elapsedMs": 5.099999904632568,
+            "conditions": {
+              "observerX": 689329.1628922729,
+              "observerY": 5338676.249256447,
+              "observerRadius": 1.3,
+              "eyeMin": 508.3830200195313,
+              "eyeMax": 509.4090209960938,
+              "heightError": 0.6,
+              "k": 0.13
+            }
+          }
+        },
+        "cellMetrics": {
+          "blocksDecoded": 13,
+          "peakBlockBytes": 262144,
+          "sourceOpens": 3
+        }
+      }
+    },
+    {
+      "site": {
+        "name": "Bamberg public reference",
+        "lat": 49.8917,
+        "lon": 10.8918,
+        "mobile": true
+      },
+      "cacheState": "cold",
+      "classification": "PASS_WITH_KNOWN_GAPS",
+      "browser": "153.0.8010.12",
+      "wallMs": 13672,
+      "pageErrors": [],
+      "heap": {
+        "scope": "main page JS only, excludes workers",
+        "usedJSHeapBytes": 19300000
+      },
+      "result": {
+        "schema": "astro360-2",
+        "method": "adaptive-rays-v2",
+        "commit": "b72c6cc",
+        "timestamp": "2026-10-12T11:41:46.675Z",
+        "inputs": {
+          "observer": {
+            "lat": 49.8917,
+            "lon": 10.8918
+          },
+          "mode": "DETAIL",
+          "relativeHeight": 1.6,
+          "terrainDistance": 100,
+          "surfaceDistance": 10,
+          "terrainK": 0.13,
+          "surfaceK": 0.13,
+          "minAltitude": 30,
+          "margin": 0,
+          "positionUncertainty": 1,
+          "verticalUncertainty": 0.1,
+          "initialAzimuthStep": 30,
+          "minimumAzimuthStep": 0.5,
+          "radialStep": 10,
+          "refinementTolerance": 0.1,
+          "maxRays": 12,
+          "maxSamples": 500000,
+          "maxTiles": 20,
+          "maxArchiveBytes": 268435456,
+          "opticalHorizontalMotion": 0.3,
+          "opticalHeightBelow": 0.2,
+          "opticalHeightAbove": 0.2,
+          "terrainHeightError": 0.2,
+          "surfaceHeightError": 0.6,
+          "maxCells": 200000
+        },
+        "ground": 237.92496251273218,
+        "eye": 239.52496251273217,
+        "directions": [
+          {
+            "azimuth": 0,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89259906240178,
+                "lon": 10.8918,
+                "distance": 100,
+                "height": 238.04998779296875,
+                "angle": -0.8454005362680467,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170449531236,
+                "lon": 10.8918,
+                "distance": 0.5,
+                "height": 257.89551413225144,
+                "angle": 88.44088368439694,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.44088368439694,
+            "planning": 88.44088368439694,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 30,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89247860879989,
+                "lon": 10.892495840719585,
+                "distance": 100,
+                "height": 238.56210431312456,
+                "angle": -0.5520328945369442,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170389305465,
+                "lon": 10.891803479147903,
+                "distance": 0.5,
+                "height": 257.8823140607,
+                "angle": 88.43976317834334,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43976317834334,
+            "planning": 88.43976317834334,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 60,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.89208209701269,
+                "lon": 10.892824438364924,
+                "distance": 85,
+                "height": 238.21524665657233,
+                "angle": -0.8830706942843276,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 26,
+              "valid": 26,
+              "blocker": {
+                "lat": 49.89170224765601,
+                "lon": 10.891806026060731,
+                "distance": 0.5,
+                "height": 257.84644130449885,
+                "angle": 88.43670989297507,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43670989297507,
+            "planning": 88.43670989297507,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 90,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.891699991649084,
+                "lon": 10.893191659049473,
+                "distance": 100,
+                "height": 238.55727625746422,
+                "angle": -0.5547980386162855,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169999999979,
+                "lon": 10.891806958295248,
+                "distance": 0.5,
+                "height": 257.8018923297885,
+                "angle": 88.43290140812641,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43290140812641,
+            "planning": 88.43290140812641,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 120,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89125046248344,
+                "lon": 10.893005200895837,
+                "distance": 100,
+                "height": 238.61922890718847,
+                "angle": -0.5193063139292503,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169775234366,
+                "lon": 10.891806026060175,
+                "distance": 0.5,
+                "height": 257.7686244936539,
+                "angle": 88.43004515675183,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43004515675183,
+            "planning": 88.43004515675183,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 150,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89092138691952,
+                "lon": 10.892495818330447,
+                "distance": 100,
+                "height": 238.42595810202778,
+                "angle": -0.6300280885763613,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169610694523,
+                "lon": 10.891803479147347,
+                "distance": 0.5,
+                "height": 257.7490727393715,
+                "angle": 88.42836160057517,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.42836160057517,
+            "planning": 88.42836160057517,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 180,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.89107065623536,
+                "lon": 10.8918,
+                "distance": 70,
+                "height": 238.65445186669075,
+                "angle": -0.7127364426683517,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169550468764,
+                "lon": 10.8918,
+                "distance": 0.5,
+                "height": 257.75948089394143,
+                "angle": 88.42925819213292,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.42925819213292,
+            "planning": 88.42925819213292,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 210,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.89092138691952,
+                "lon": 10.891104181669553,
+                "distance": 100,
+                "height": 238.48197157294044,
+                "angle": -0.5979394590375974,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169610694523,
+                "lon": 10.891796520852653,
+                "distance": 0.5,
+                "height": 257.79798699887954,
+                "angle": 88.43256653863855,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43256653863855,
+            "planning": 88.43256653863855,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 240,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89125046248344,
+                "lon": 10.890594799104163,
+                "distance": 100,
+                "height": 238.29253039705387,
+                "angle": -0.7064631355948248,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169775234366,
+                "lon": 10.891793973939825,
+                "distance": 0.5,
+                "height": 257.8433350998895,
+                "angle": 88.43644494167678,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43644494167678,
+            "planning": 88.43644494167678,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 270,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.891699991649084,
+                "lon": 10.890408340950527,
+                "distance": 100,
+                "height": 238.4170918832712,
+                "angle": -0.635106499254983,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169999999979,
+                "lon": 10.891793041704751,
+                "distance": 0.5,
+                "height": 257.87403556050924,
+                "angle": 88.43905971548234,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43905971548234,
+            "planning": 88.43905971548234,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 300,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89214952495515,
+                "lon": 10.890594776715012,
+                "distance": 100,
+                "height": 238.6099670179442,
+                "angle": -0.5246123733500454,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170224765601,
+                "lon": 10.891793973939269,
+                "distance": 0.5,
+                "height": 257.8926835150094,
+                "angle": 88.44064364573435,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.44064364573435,
+            "planning": 88.44064364573435,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 330,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89247860879989,
+                "lon": 10.891104159280415,
+                "distance": 100,
+                "height": 238.66907505234974,
+                "angle": -0.49075024404178447,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170389305465,
+                "lon": 10.891796520852097,
+                "distance": 0.5,
+                "height": 257.90204750185876,
+                "angle": 88.44143774046397,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.44143774046397,
+            "planning": 88.44143774046397,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          }
+        ],
+        "tiles": [
+          {
+            "id": "635_5528",
+            "model": "dgm1",
+            "source": "https://download1.bayernwolke.de/a/dgm/dgm1/635_5528.tif",
+            "state": "Downloaded",
+            "bytes": 2047633,
+            "downloadedAt": "2026-10-12T11:41:35.698Z",
+            "modified": "Mon, 12 Oct 2026 11:41:34 GMT",
+            "sha256": "5082d8fff527c5ff8a42e8d732ff475f01b6e60c27847220632f3e3c7f3b8ee9",
+            "archiveBytes": 2044120,
+            "transferMs": 318.19999980926514,
+            "serviceMs": 1735.9000000953674,
+            "crs": 25832,
+            "resolution": 1,
+            "decodeMs": 0
+          },
+          {
+            "id": "635_5528",
+            "model": "dom20",
+            "source": "https://download1.bayernwolke.de/a/dom20/DOM/32635_5528_20_DOM.tif",
+            "state": "Downloaded",
+            "bytes": 47000657,
+            "downloadedAt": "2026-10-12T11:41:46.616Z",
+            "modified": "Mon, 12 Oct 2026 11:41:42 GMT",
+            "sha256": "ade5e46e7a7b1df2eeaeed56e020a538df5356b2a74bf548835b6fe7dd7829b2",
+            "archiveBytes": 46945190,
+            "transferMs": 2338.199999809265,
+            "serviceMs": 8256.900000095367,
+            "crs": 25832,
+            "resolution": 0.2,
+            "decodeMs": 0
+          }
+        ],
+        "warnings": [
+          "VORLÄUFIG: adaptive Strahlen, keine vollständige Rasterzellprüfung; schmale Hindernisse können fehlen.",
+          "Kein physischer Genauigkeitsnachweis. Positions-/Höhenbudgets sind Angaben, keine propagierten Konfidenzintervalle.",
+          "Endliche DGM-/DOM-Domänen. DOM außerhalb der gewählten Nahdistanz ungeprüft; Quellalter und aktueller Bewuchs unbekannt.",
+          "k ist ein terrestrisches Szenario; Normalhöhen im lokalen GRS80-Modell, ohne Lotabweichung/Geoidneigung.",
+          "Strahlenbudget erreicht; keine Winkelkonvergenzgarantie.",
+          "Zellobergrenzen gelten nur im deklarierten projizierten Modell. Geografischer Nord-/Distanzbezug, Aufnahmezustand und physische Genauigkeit nicht zertifiziert; N.I.N.A. gesperrt."
+        ],
+        "elapsedMs": 13146.5,
+        "evaluatedSamples": 391,
+        "preflight": {
+          "tileUpperBound": 18,
+          "bytes": null
+        },
+        "performance": {
+          "samplePoints": 391,
+          "tileRequests": 30,
+          "uniqueTiles": 2,
+          "fileOpens": 2,
+          "fileCacheHits": 28,
+          "persistentHits": 0,
+          "downloads": 2,
+          "archiveBytes": 48989310,
+          "extractedBytes": 49048290,
+          "cacheReadBytes": 0,
+          "blocksDecoded": 85,
+          "blockHits": 109,
+          "blockEvictions": 0,
+          "fileEvictions": 0,
+          "fullRasterDecodes": 0,
+          "cacheReadMs": 2,
+          "cacheWriteMs": 22.09999990463257,
+          "downloadServiceMs": 12995.5,
+          "decodeMs": 49.39999961853027,
+          "planningMs": 1.7999992370605469,
+          "interpolationMs": 1.299999713897705,
+          "geometryMs": 0,
+          "profileMathMs": 0,
+          "solarMs": 0,
+          "peakFileBytes": 49048290,
+          "peakBlockBytes": 1188288,
+          "cacheWriteFailures": 0,
+          "decoderCpuMs": 26.399998664855957,
+          "decoderJobs": 85,
+          "decoderWorkerJobs": 0
+        },
+        "spatialAudit": {
+          "status": "CONDITIONAL_MODEL_ONLY",
+          "physicalValidation": "NOT_MEASURED",
+          "eyeRange": [
+            238.89998779296877,
+            240.0599914550781
+          ],
+          "observerRadius": 1.3,
+          "groundRange": [
+            237.79998779296875,
+            237.95999145507812
+          ],
+          "groundTraversalComplete": true,
+          "errors": [],
+          "terrain": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 101.3,
+            "evaluatedCells": 32641,
+            "completeTraversal": true,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": 0.011732259415794569,
+                "modelUpper": 0.011732259415794569,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3121,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": 0.03547182195812979,
+                "modelUpper": 0.03547182195812979,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3137,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": -0.005932014109380687,
+                "modelUpper": -0.005932014109380687,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3084,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": 0.1633358562597718,
+                "modelUpper": 0.1633358562597718,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3183,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": -0.02209318892369953,
+                "modelUpper": -0.02209318892369953,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3138,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": 0.26110974334781506,
+                "modelUpper": 0.26110974334781506,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3121,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": 0.14936320868044536,
+                "modelUpper": 0.14936320868044536,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3138,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": -0.093759382851724,
+                "modelUpper": -0.093759382851724,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3136,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": 0.1507221081105361,
+                "modelUpper": 0.1507221081105361,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3186,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": 0.15680749332862517,
+                "modelUpper": 0.15680749332862517,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3086,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": 0.000005389244133181575,
+                "modelUpper": 0.000005389244133181575,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3136,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": 0.06929802967679081,
+                "modelUpper": 0.06929802967679081,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3137,
+                "missing": 0
+              }
+            ],
+            "errors": [],
+            "elapsedMs": 38.09999990463257,
+            "conditions": {
+              "observerX": 635879.9221185038,
+              "observerY": 5528305.514544923,
+              "observerRadius": 1.3,
+              "eyeMin": 238.89998779296877,
+              "eyeMax": 240.0599914550781,
+              "heightError": 0.2,
+              "k": 0.13
+            }
+          },
+          "surface": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 11.3,
+            "evaluatedCells": 10246,
+            "completeTraversal": true,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1767,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1750,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1766,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1756,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1745,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1762,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1751,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1749,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1755,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1762,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1745,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1754,
+                "missing": 0
+              }
+            ],
+            "errors": [],
+            "elapsedMs": 18.800000190734863,
+            "conditions": {
+              "observerX": 635879.9221185038,
+              "observerY": 5528305.514544923,
+              "observerRadius": 1.3,
+              "eyeMin": 238.89998779296877,
+              "eyeMax": 240.0599914550781,
+              "heightError": 0.6,
+              "k": 0.13
+            }
+          }
+        },
+        "cellMetrics": {
+          "blocksDecoded": 109,
+          "peakBlockBytes": 262144,
+          "sourceOpens": 3
+        }
+      }
+    },
+    {
+      "site": {
+        "name": "Bamberg public reference",
+        "lat": 49.8917,
+        "lon": 10.8918,
+        "mobile": true
+      },
+      "cacheState": "warm",
+      "classification": "PASS_WITH_KNOWN_GAPS",
+      "browser": "153.0.8010.12",
+      "wallMs": 396,
+      "pageErrors": [],
+      "heap": {
+        "scope": "main page JS only, excludes workers",
+        "usedJSHeapBytes": 19300000
+      },
+      "result": {
+        "schema": "astro360-2",
+        "method": "adaptive-rays-v2",
+        "commit": "b72c6cc",
+        "timestamp": "2026-10-12T11:41:47.386Z",
+        "inputs": {
+          "observer": {
+            "lat": 49.8917,
+            "lon": 10.8918
+          },
+          "mode": "DETAIL",
+          "relativeHeight": 1.6,
+          "terrainDistance": 100,
+          "surfaceDistance": 10,
+          "terrainK": 0.13,
+          "surfaceK": 0.13,
+          "minAltitude": 30,
+          "margin": 0,
+          "positionUncertainty": 1,
+          "verticalUncertainty": 0.1,
+          "initialAzimuthStep": 30,
+          "minimumAzimuthStep": 0.5,
+          "radialStep": 10,
+          "refinementTolerance": 0.1,
+          "maxRays": 12,
+          "maxSamples": 500000,
+          "maxTiles": 20,
+          "maxArchiveBytes": 268435456,
+          "opticalHorizontalMotion": 0.3,
+          "opticalHeightBelow": 0.2,
+          "opticalHeightAbove": 0.2,
+          "terrainHeightError": 0.2,
+          "surfaceHeightError": 0.6,
+          "maxCells": 200000
+        },
+        "ground": 237.92496251273218,
+        "eye": 239.52496251273217,
+        "directions": [
+          {
+            "azimuth": 0,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89259906240178,
+                "lon": 10.8918,
+                "distance": 100,
+                "height": 238.04998779296875,
+                "angle": -0.8454005362680467,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170449531236,
+                "lon": 10.8918,
+                "distance": 0.5,
+                "height": 257.89551413225144,
+                "angle": 88.44088368439694,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.44088368439694,
+            "planning": 88.44088368439694,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 30,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89247860879989,
+                "lon": 10.892495840719585,
+                "distance": 100,
+                "height": 238.56210431312456,
+                "angle": -0.5520328945369442,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170389305465,
+                "lon": 10.891803479147903,
+                "distance": 0.5,
+                "height": 257.8823140607,
+                "angle": 88.43976317834334,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43976317834334,
+            "planning": 88.43976317834334,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 60,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.89208209701269,
+                "lon": 10.892824438364924,
+                "distance": 85,
+                "height": 238.21524665657233,
+                "angle": -0.8830706942843276,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 26,
+              "valid": 26,
+              "blocker": {
+                "lat": 49.89170224765601,
+                "lon": 10.891806026060731,
+                "distance": 0.5,
+                "height": 257.84644130449885,
+                "angle": 88.43670989297507,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43670989297507,
+            "planning": 88.43670989297507,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 90,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.891699991649084,
+                "lon": 10.893191659049473,
+                "distance": 100,
+                "height": 238.55727625746422,
+                "angle": -0.5547980386162855,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169999999979,
+                "lon": 10.891806958295248,
+                "distance": 0.5,
+                "height": 257.8018923297885,
+                "angle": 88.43290140812641,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43290140812641,
+            "planning": 88.43290140812641,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 120,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89125046248344,
+                "lon": 10.893005200895837,
+                "distance": 100,
+                "height": 238.61922890718847,
+                "angle": -0.5193063139292503,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169775234366,
+                "lon": 10.891806026060175,
+                "distance": 0.5,
+                "height": 257.7686244936539,
+                "angle": 88.43004515675183,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43004515675183,
+            "planning": 88.43004515675183,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 150,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89092138691952,
+                "lon": 10.892495818330447,
+                "distance": 100,
+                "height": 238.42595810202778,
+                "angle": -0.6300280885763613,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169610694523,
+                "lon": 10.891803479147347,
+                "distance": 0.5,
+                "height": 257.7490727393715,
+                "angle": 88.42836160057517,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.42836160057517,
+            "planning": 88.42836160057517,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 180,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.89107065623536,
+                "lon": 10.8918,
+                "distance": 70,
+                "height": 238.65445186669075,
+                "angle": -0.7127364426683517,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169550468764,
+                "lon": 10.8918,
+                "distance": 0.5,
+                "height": 257.75948089394143,
+                "angle": 88.42925819213292,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.42925819213292,
+            "planning": 88.42925819213292,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 210,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.89092138691952,
+                "lon": 10.891104181669553,
+                "distance": 100,
+                "height": 238.48197157294044,
+                "angle": -0.5979394590375974,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169610694523,
+                "lon": 10.891796520852653,
+                "distance": 0.5,
+                "height": 257.79798699887954,
+                "angle": 88.43256653863855,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43256653863855,
+            "planning": 88.43256653863855,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 240,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89125046248344,
+                "lon": 10.890594799104163,
+                "distance": 100,
+                "height": 238.29253039705387,
+                "angle": -0.7064631355948248,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169775234366,
+                "lon": 10.891793973939825,
+                "distance": 0.5,
+                "height": 257.8433350998895,
+                "angle": 88.43644494167678,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43644494167678,
+            "planning": 88.43644494167678,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 270,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.891699991649084,
+                "lon": 10.890408340950527,
+                "distance": 100,
+                "height": 238.4170918832712,
+                "angle": -0.635106499254983,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169999999979,
+                "lon": 10.891793041704751,
+                "distance": 0.5,
+                "height": 257.87403556050924,
+                "angle": 88.43905971548234,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43905971548234,
+            "planning": 88.43905971548234,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 300,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89214952495515,
+                "lon": 10.890594776715012,
+                "distance": 100,
+                "height": 238.6099670179442,
+                "angle": -0.5246123733500454,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170224765601,
+                "lon": 10.891793973939269,
+                "distance": 0.5,
+                "height": 257.8926835150094,
+                "angle": 88.44064364573435,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.44064364573435,
+            "planning": 88.44064364573435,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 330,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89247860879989,
+                "lon": 10.891104159280415,
+                "distance": 100,
+                "height": 238.66907505234974,
+                "angle": -0.49075024404178447,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170389305465,
+                "lon": 10.891796520852097,
+                "distance": 0.5,
+                "height": 257.90204750185876,
+                "angle": 88.44143774046397,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.44143774046397,
+            "planning": 88.44143774046397,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          }
+        ],
+        "tiles": [
+          {
+            "id": "635_5528",
+            "model": "dgm1",
+            "source": "https://download1.bayernwolke.de/a/dgm/dgm1/635_5528.tif",
+            "state": "Downloaded",
+            "bytes": 2047633,
+            "downloadedAt": "2026-10-12T11:41:35.698Z",
+            "modified": "Mon, 12 Oct 2026 11:41:34 GMT",
+            "sha256": "5082d8fff527c5ff8a42e8d732ff475f01b6e60c27847220632f3e3c7f3b8ee9",
+            "archiveBytes": 2044120,
+            "transferMs": 318.19999980926514,
+            "serviceMs": 1735.9000000953674,
+            "crs": 25832,
+            "resolution": 1,
+            "decodeMs": 0
+          },
+          {
+            "id": "635_5528",
+            "model": "dom20",
+            "source": "https://download1.bayernwolke.de/a/dom20/DOM/32635_5528_20_DOM.tif",
+            "state": "Downloaded",
+            "bytes": 47000657,
+            "downloadedAt": "2026-10-12T11:41:46.616Z",
+            "modified": "Mon, 12 Oct 2026 11:41:42 GMT",
+            "sha256": "ade5e46e7a7b1df2eeaeed56e020a538df5356b2a74bf548835b6fe7dd7829b2",
+            "archiveBytes": 46945190,
+            "transferMs": 2338.199999809265,
+            "serviceMs": 8256.900000095367,
+            "crs": 25832,
+            "resolution": 0.2,
+            "decodeMs": 0
+          }
+        ],
+        "warnings": [
+          "VORLÄUFIG: adaptive Strahlen, keine vollständige Rasterzellprüfung; schmale Hindernisse können fehlen.",
+          "Kein physischer Genauigkeitsnachweis. Positions-/Höhenbudgets sind Angaben, keine propagierten Konfidenzintervalle.",
+          "Endliche DGM-/DOM-Domänen. DOM außerhalb der gewählten Nahdistanz ungeprüft; Quellalter und aktueller Bewuchs unbekannt.",
+          "k ist ein terrestrisches Szenario; Normalhöhen im lokalen GRS80-Modell, ohne Lotabweichung/Geoidneigung.",
+          "Strahlenbudget erreicht; keine Winkelkonvergenzgarantie.",
+          "Zellobergrenzen gelten nur im deklarierten projizierten Modell. Geografischer Nord-/Distanzbezug, Aufnahmezustand und physische Genauigkeit nicht zertifiziert; N.I.N.A. gesperrt."
+        ],
+        "elapsedMs": 133.09999990463257,
+        "evaluatedSamples": 391,
+        "preflight": {
+          "tileUpperBound": 18,
+          "bytes": null
+        },
+        "performance": {
+          "samplePoints": 391,
+          "tileRequests": 30,
+          "uniqueTiles": 2,
+          "fileOpens": 2,
+          "fileCacheHits": 28,
+          "persistentHits": 2,
+          "downloads": 0,
+          "archiveBytes": 0,
+          "extractedBytes": 0,
+          "cacheReadBytes": 1835008,
+          "blocksDecoded": 85,
+          "blockHits": 109,
+          "blockEvictions": 0,
+          "fileEvictions": 0,
+          "fullRasterDecodes": 0,
+          "cacheReadMs": 13.600000858306885,
+          "cacheWriteMs": 0,
+          "downloadServiceMs": 0,
+          "decodeMs": 54.99999761581421,
+          "planningMs": 1.1000003814697266,
+          "interpolationMs": 2.0999999046325684,
+          "geometryMs": 0,
+          "profileMathMs": 0,
+          "solarMs": 0,
+          "peakFileBytes": 49048290,
+          "peakBlockBytes": 1188288,
+          "cacheWriteFailures": 0,
+          "decoderCpuMs": 23.499998092651367,
+          "decoderJobs": 85,
+          "decoderWorkerJobs": 0
+        },
+        "spatialAudit": {
+          "status": "CONDITIONAL_MODEL_ONLY",
+          "physicalValidation": "NOT_MEASURED",
+          "eyeRange": [
+            238.89998779296877,
+            240.0599914550781
+          ],
+          "observerRadius": 1.3,
+          "groundRange": [
+            237.79998779296875,
+            237.95999145507812
+          ],
+          "groundTraversalComplete": true,
+          "errors": [],
+          "terrain": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 101.3,
+            "evaluatedCells": 32641,
+            "completeTraversal": true,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": 0.011732259415794569,
+                "modelUpper": 0.011732259415794569,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3121,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": 0.03547182195812979,
+                "modelUpper": 0.03547182195812979,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3137,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": -0.005932014109380687,
+                "modelUpper": -0.005932014109380687,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3084,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": 0.1633358562597718,
+                "modelUpper": 0.1633358562597718,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3183,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": -0.02209318892369953,
+                "modelUpper": -0.02209318892369953,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3138,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": 0.26110974334781506,
+                "modelUpper": 0.26110974334781506,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3121,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": 0.14936320868044536,
+                "modelUpper": 0.14936320868044536,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3138,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": -0.093759382851724,
+                "modelUpper": -0.093759382851724,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3136,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": 0.1507221081105361,
+                "modelUpper": 0.1507221081105361,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3186,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": 0.15680749332862517,
+                "modelUpper": 0.15680749332862517,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3086,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": 0.000005389244133181575,
+                "modelUpper": 0.000005389244133181575,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3136,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": 0.06929802967679081,
+                "modelUpper": 0.06929802967679081,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 3137,
+                "missing": 0
+              }
+            ],
+            "errors": [],
+            "elapsedMs": 43.5,
+            "conditions": {
+              "observerX": 635879.9221185038,
+              "observerY": 5528305.514544923,
+              "observerRadius": 1.3,
+              "eyeMin": 238.89998779296877,
+              "eyeMax": 240.0599914550781,
+              "heightError": 0.2,
+              "k": 0.13
+            }
+          },
+          "surface": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 11.3,
+            "evaluatedCells": 10246,
+            "completeTraversal": true,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1767,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1750,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1766,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1756,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1745,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1762,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1751,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1749,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1755,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1762,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1745,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": 90,
+                "modelUpper": 90,
+                "status": "CONDITIONAL_MODEL_BOUND",
+                "cells": 1754,
+                "missing": 0
+              }
+            ],
+            "errors": [],
+            "elapsedMs": 23.40000009536743,
+            "conditions": {
+              "observerX": 635879.9221185038,
+              "observerY": 5528305.514544923,
+              "observerRadius": 1.3,
+              "eyeMin": 238.89998779296877,
+              "eyeMax": 240.0599914550781,
+              "heightError": 0.6,
+              "k": 0.13
+            }
+          }
+        },
+        "cellMetrics": {
+          "blocksDecoded": 109,
+          "peakBlockBytes": 262144,
+          "sourceOpens": 3
+        }
+      }
+    },
+    {
+      "site": {
+        "name": "Bamberg public reference",
+        "lat": 49.8917,
+        "lon": 10.8918,
+        "mobile": true
+      },
+      "cacheState": "cell-budget-stress",
+      "classification": "PASS_WITH_KNOWN_GAPS",
+      "browser": "153.0.8010.12",
+      "wallMs": 347,
+      "pageErrors": [],
+      "heap": {
+        "scope": "main page JS only, excludes workers",
+        "usedJSHeapBytes": 19300000
+      },
+      "result": {
+        "schema": "astro360-2",
+        "method": "adaptive-rays-v2",
+        "commit": "b72c6cc",
+        "timestamp": "2026-10-12T11:41:48.580Z",
+        "inputs": {
+          "observer": {
+            "lat": 49.8917,
+            "lon": 10.8918
+          },
+          "mode": "DETAIL",
+          "relativeHeight": 1.6,
+          "terrainDistance": 100,
+          "surfaceDistance": 10,
+          "terrainK": 0.13,
+          "surfaceK": 0.13,
+          "minAltitude": 30,
+          "margin": 0,
+          "positionUncertainty": 1,
+          "verticalUncertainty": 0.1,
+          "initialAzimuthStep": 30,
+          "minimumAzimuthStep": 0.5,
+          "radialStep": 10,
+          "refinementTolerance": 0.1,
+          "maxRays": 12,
+          "maxSamples": 500000,
+          "maxTiles": 20,
+          "maxArchiveBytes": 268435456,
+          "opticalHorizontalMotion": 0.3,
+          "opticalHeightBelow": 0.2,
+          "opticalHeightAbove": 0.2,
+          "terrainHeightError": 0.2,
+          "surfaceHeightError": 0.6,
+          "maxCells": 1000
+        },
+        "ground": 237.92496251273218,
+        "eye": 239.52496251273217,
+        "directions": [
+          {
+            "azimuth": 0,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89259906240178,
+                "lon": 10.8918,
+                "distance": 100,
+                "height": 238.04998779296875,
+                "angle": -0.8454005362680467,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170449531236,
+                "lon": 10.8918,
+                "distance": 0.5,
+                "height": 257.89551413225144,
+                "angle": 88.44088368439694,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.44088368439694,
+            "planning": 88.44088368439694,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 30,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89247860879989,
+                "lon": 10.892495840719585,
+                "distance": 100,
+                "height": 238.56210431312456,
+                "angle": -0.5520328945369442,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170389305465,
+                "lon": 10.891803479147903,
+                "distance": 0.5,
+                "height": 257.8823140607,
+                "angle": 88.43976317834334,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43976317834334,
+            "planning": 88.43976317834334,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 60,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.89208209701269,
+                "lon": 10.892824438364924,
+                "distance": 85,
+                "height": 238.21524665657233,
+                "angle": -0.8830706942843276,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 26,
+              "valid": 26,
+              "blocker": {
+                "lat": 49.89170224765601,
+                "lon": 10.891806026060731,
+                "distance": 0.5,
+                "height": 257.84644130449885,
+                "angle": 88.43670989297507,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43670989297507,
+            "planning": 88.43670989297507,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 90,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.891699991649084,
+                "lon": 10.893191659049473,
+                "distance": 100,
+                "height": 238.55727625746422,
+                "angle": -0.5547980386162855,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169999999979,
+                "lon": 10.891806958295248,
+                "distance": 0.5,
+                "height": 257.8018923297885,
+                "angle": 88.43290140812641,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43290140812641,
+            "planning": 88.43290140812641,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 120,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89125046248344,
+                "lon": 10.893005200895837,
+                "distance": 100,
+                "height": 238.61922890718847,
+                "angle": -0.5193063139292503,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169775234366,
+                "lon": 10.891806026060175,
+                "distance": 0.5,
+                "height": 257.7686244936539,
+                "angle": 88.43004515675183,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43004515675183,
+            "planning": 88.43004515675183,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 150,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89092138691952,
+                "lon": 10.892495818330447,
+                "distance": 100,
+                "height": 238.42595810202778,
+                "angle": -0.6300280885763613,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169610694523,
+                "lon": 10.891803479147347,
+                "distance": 0.5,
+                "height": 257.7490727393715,
+                "angle": 88.42836160057517,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.42836160057517,
+            "planning": 88.42836160057517,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 180,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.89107065623536,
+                "lon": 10.8918,
+                "distance": 70,
+                "height": 238.65445186669075,
+                "angle": -0.7127364426683517,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169550468764,
+                "lon": 10.8918,
+                "distance": 0.5,
+                "height": 257.75948089394143,
+                "angle": 88.42925819213292,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.42925819213292,
+            "planning": 88.42925819213292,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 210,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.89092138691952,
+                "lon": 10.891104181669553,
+                "distance": 100,
+                "height": 238.48197157294044,
+                "angle": -0.5979394590375974,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169610694523,
+                "lon": 10.891796520852653,
+                "distance": 0.5,
+                "height": 257.79798699887954,
+                "angle": 88.43256653863855,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43256653863855,
+            "planning": 88.43256653863855,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 240,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89125046248344,
+                "lon": 10.890594799104163,
+                "distance": 100,
+                "height": 238.29253039705387,
+                "angle": -0.7064631355948248,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169775234366,
+                "lon": 10.891793973939825,
+                "distance": 0.5,
+                "height": 257.8433350998895,
+                "angle": 88.43644494167678,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43644494167678,
+            "planning": 88.43644494167678,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 270,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 16,
+              "valid": 16,
+              "blocker": {
+                "lat": 49.891699991649084,
+                "lon": 10.890408340950527,
+                "distance": 100,
+                "height": 238.4170918832712,
+                "angle": -0.635106499254983,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89169999999979,
+                "lon": 10.891793041704751,
+                "distance": 0.5,
+                "height": 257.87403556050924,
+                "angle": 88.43905971548234,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.43905971548234,
+            "planning": 88.43905971548234,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 300,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89214952495515,
+                "lon": 10.890594776715012,
+                "distance": 100,
+                "height": 238.6099670179442,
+                "angle": -0.5246123733500454,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170224765601,
+                "lon": 10.891793973939269,
+                "distance": 0.5,
+                "height": 257.8926835150094,
+                "angle": 88.44064364573435,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.44064364573435,
+            "planning": 88.44064364573435,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          },
+          {
+            "azimuth": 330,
+            "terrain": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 100,
+              "sampledTo": 100,
+              "maxRadialGap": 10,
+              "attempted": 10,
+              "valid": 10,
+              "blocker": {
+                "lat": 49.89247860879989,
+                "lon": 10.891104159280415,
+                "distance": 100,
+                "height": 238.66907505234974,
+                "angle": -0.49075024404178447,
+                "model": "dgm1",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "surface": {
+              "status": "INCOMPLETE",
+              "requestedDistance": 10,
+              "sampledTo": 10,
+              "maxRadialGap": 0.5,
+              "attempted": 20,
+              "valid": 20,
+              "blocker": {
+                "lat": 49.89170389305465,
+                "lon": 10.891796520852097,
+                "distance": 0.5,
+                "height": 257.90204750185876,
+                "angle": 88.44143774046397,
+                "model": "dom20",
+                "tile": "635_5528"
+              },
+              "errors": []
+            },
+            "actual": 88.44143774046397,
+            "planning": 88.44143774046397,
+            "status": "INCOMPLETE",
+            "nextAngularGap": 30
+          }
+        ],
+        "tiles": [
+          {
+            "id": "635_5528",
+            "model": "dgm1",
+            "source": "https://download1.bayernwolke.de/a/dgm/dgm1/635_5528.tif",
+            "state": "Downloaded",
+            "bytes": 2047633,
+            "downloadedAt": "2026-10-12T11:41:35.698Z",
+            "modified": "Mon, 12 Oct 2026 11:41:34 GMT",
+            "sha256": "5082d8fff527c5ff8a42e8d732ff475f01b6e60c27847220632f3e3c7f3b8ee9",
+            "archiveBytes": 2044120,
+            "transferMs": 318.19999980926514,
+            "serviceMs": 1735.9000000953674,
+            "crs": 25832,
+            "resolution": 1,
+            "decodeMs": 0
+          },
+          {
+            "id": "635_5528",
+            "model": "dom20",
+            "source": "https://download1.bayernwolke.de/a/dom20/DOM/32635_5528_20_DOM.tif",
+            "state": "Downloaded",
+            "bytes": 47000657,
+            "downloadedAt": "2026-10-12T11:41:46.616Z",
+            "modified": "Mon, 12 Oct 2026 11:41:42 GMT",
+            "sha256": "ade5e46e7a7b1df2eeaeed56e020a538df5356b2a74bf548835b6fe7dd7829b2",
+            "archiveBytes": 46945190,
+            "transferMs": 2338.199999809265,
+            "serviceMs": 8256.900000095367,
+            "crs": 25832,
+            "resolution": 0.2,
+            "decodeMs": 0
+          }
+        ],
+        "warnings": [
+          "VORLÄUFIG: adaptive Strahlen, keine vollständige Rasterzellprüfung; schmale Hindernisse können fehlen.",
+          "Kein physischer Genauigkeitsnachweis. Positions-/Höhenbudgets sind Angaben, keine propagierten Konfidenzintervalle.",
+          "Endliche DGM-/DOM-Domänen. DOM außerhalb der gewählten Nahdistanz ungeprüft; Quellalter und aktueller Bewuchs unbekannt.",
+          "k ist ein terrestrisches Szenario; Normalhöhen im lokalen GRS80-Modell, ohne Lotabweichung/Geoidneigung.",
+          "Strahlenbudget erreicht; keine Winkelkonvergenzgarantie.",
+          "Zellobergrenzen gelten nur im deklarierten projizierten Modell. Geografischer Nord-/Distanzbezug, Aufnahmezustand und physische Genauigkeit nicht zertifiziert; N.I.N.A. gesperrt.",
+          "CELL_BUDGET_EXHAUSTED",
+          "CELL_BUDGET_EXHAUSTED"
+        ],
+        "elapsedMs": 74.19999980926514,
+        "evaluatedSamples": 391,
+        "preflight": {
+          "tileUpperBound": 18,
+          "bytes": null
+        },
+        "performance": {
+          "samplePoints": 391,
+          "tileRequests": 30,
+          "uniqueTiles": 2,
+          "fileOpens": 2,
+          "fileCacheHits": 28,
+          "persistentHits": 2,
+          "downloads": 0,
+          "archiveBytes": 0,
+          "extractedBytes": 0,
+          "cacheReadBytes": 1835008,
+          "blocksDecoded": 85,
+          "blockHits": 109,
+          "blockEvictions": 0,
+          "fileEvictions": 0,
+          "fullRasterDecodes": 0,
+          "cacheReadMs": 10.400000095367432,
+          "cacheWriteMs": 0,
+          "downloadServiceMs": 0,
+          "decodeMs": 47.2999963760376,
+          "planningMs": 1.3000001907348633,
+          "interpolationMs": 1.4999990463256836,
+          "geometryMs": 0,
+          "profileMathMs": 0,
+          "solarMs": 0,
+          "peakFileBytes": 49048290,
+          "peakBlockBytes": 1188288,
+          "cacheWriteFailures": 0,
+          "decoderCpuMs": 21.3999981880188,
+          "decoderJobs": 85,
+          "decoderWorkerJobs": 0
+        },
+        "spatialAudit": {
+          "status": "CONDITIONAL_MODEL_ONLY",
+          "physicalValidation": "NOT_MEASURED",
+          "eyeRange": [
+            238.89998779296877,
+            240.0599914550781
+          ],
+          "observerRadius": 1.3,
+          "groundRange": [
+            237.79998779296875,
+            237.95999145507812
+          ],
+          "groundTraversalComplete": true,
+          "errors": [
+            "CELL_BUDGET_EXHAUSTED",
+            "CELL_BUDGET_EXHAUSTED"
+          ],
+          "terrain": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 101.3,
+            "evaluatedCells": 974,
+            "completeTraversal": false,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": 0.011732259415794569,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 493,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": -0.07170350261267432,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 1,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": -0.027595938671102726,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 4,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": 0.06929802967679081,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 537,
+                "missing": 0
+              }
+            ],
+            "errors": [
+              "CELL_BUDGET_EXHAUSTED"
+            ],
+            "elapsedMs": 5.600000381469727,
+            "conditions": {
+              "observerX": 635879.9221185038,
+              "observerY": 5528305.514544923,
+              "observerRadius": 1.3,
+              "eyeMin": 238.89998779296877,
+              "eyeMax": 240.0599914550781,
+              "heightError": 0.2,
+              "k": 0.13
+            }
+          },
+          "surface": {
+            "frame": "EPSG25832_GRID_NORTH",
+            "reconstruction": "PIXEL_FOOTPRINT_CONSTANT",
+            "geodesicCertification": "NOT_CERTIFIED",
+            "radius": 11.3,
+            "evaluatedCells": 0,
+            "completeTraversal": false,
+            "sectors": [
+              {
+                "start": 0,
+                "end": 30,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 30,
+                "end": 60,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 60,
+                "end": 90,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 90,
+                "end": 120,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 120,
+                "end": 150,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 150,
+                "end": 180,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 180,
+                "end": 210,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 210,
+                "end": 240,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 240,
+                "end": 270,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 270,
+                "end": 300,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 300,
+                "end": 330,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              },
+              {
+                "start": 330,
+                "end": 360,
+                "knownCellUpper": null,
+                "modelUpper": null,
+                "status": "UNKNOWN",
+                "cells": 0,
+                "missing": 0
+              }
+            ],
+            "errors": [
+              "CELL_BUDGET_EXHAUSTED"
+            ],
+            "elapsedMs": 7.699999809265137,
+            "conditions": {
+              "observerX": 635879.9221185038,
+              "observerY": 5528305.514544923,
+              "observerRadius": 1.3,
+              "eyeMin": 238.89998779296877,
+              "eyeMax": 240.0599914550781,
+              "heightError": 0.6,
+              "k": 0.13
+            }
+          }
+        },
+        "cellMetrics": {
+          "blocksDecoded": 13,
+          "peakBlockBytes": 262144,
+          "sourceOpens": 3
+        }
+      }
+    }
+  ],
+  "scope": "two public browser sites; declared interval assumptions; not on-site validation or geodesic certification"
+}

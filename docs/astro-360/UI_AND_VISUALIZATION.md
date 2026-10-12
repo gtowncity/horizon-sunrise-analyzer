@@ -1,9 +1,7 @@
-# UI wireframe and interaction contract
+# Visualization and interactions
 
-Header / three main navigation buttons: Sichtlinie | Sonnenaufgang | 360°-Horizont.
+Three original navigation choices remain. Main nominal geographic curve and polar view break large uninvestigated angular gaps, including incomplete north closure. Tooltip shows sampled angle/status/source/blocker distance/coordinates and unvalidated physical accuracy. User minimum and sampled reference are separate; no cell-grid values are silently mapped onto true-north graphics. All sparse profiles remain INCOMPLETE.
 
-360 panel: observer + optical height / FAST vs DETAIL / separate terrain & DOM radius / min altitude & margin / advanced model + budgets / start-cancel.
+DETAIL separate table identifies EPSG25832 grid north, conditional bilinear envelope, partial knownCellUpper versus full modelUpper, missing counts, traversal status and propagated eye interval. Model-bound values are not on-site measurements. Scientific JSON captures complete supporting metadata.
 
-Primary full-width diagram: 0..360° horizontal, height degrees vertical; DGM, DOM, sampled effective maximum, planning reference, user minimum. Missing angles break lines; all sampled corridors carry INCOMPLETE hatching. No peak smoothing. Zoom/pan via ECharts. A shared selected azimuth drives the diagram cursor, polar radial indicator and map direction/blocker. Keyboard azimuth input provides an accessible equivalent. North seam repeats the exact 0° point only for rendering.
-
-Secondary polar dome: N top, E right, zenith center, altitude rings; unknown/incomplete zones explicit. OSM map: observer draggable, investigated radius and selected blocker. DOM/DGM only as source categories, no fabricated tree/building classifications. Accessible table preserves exact point values and source/coverage details; exports retain scientific points rather than smoothed graphics.
+Map uses ResizeObserver for container/layout changes, separate DOM/terrain circles, observer drag/click and selected blocker; service failures are visible rather than mistaken for analytical failure. Desktop/mobile tests resize viewport and check actual canvas/container agreement. Explicit Rechenmodus aria-label fixes exact labeling. PNG/SVG downloads verified. Rigorous accessibility and all polar zone semantics still require additional review. NINA buttons remain disabled with eligibility reasons. Scientific release BLOCKED. NINA export DENIED for all supported schemas. Full geographic/physical coverage NOT_CERTIFIED; no on-site measurements. Current partial model and acceptance gates: ADR-0002-fail-closed-native-cells.md and ROUND2_STATUS.json.

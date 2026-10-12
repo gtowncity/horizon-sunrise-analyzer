@@ -1,0 +1,56 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "arch": "x64",
+  "results": [
+    {
+      "command": "npm run lint",
+      "startedAt": "2026-10-12T11:30:53.954Z",
+      "durationMs": 29364,
+      "exitCode": 0,
+      "log": "run-lint.log"
+    },
+    {
+      "command": "npm run typecheck",
+      "startedAt": "2026-10-12T11:31:23.320Z",
+      "durationMs": 8869,
+      "exitCode": 0,
+      "log": "run-typecheck.log"
+    },
+    {
+      "command": "npm test",
+      "startedAt": "2026-10-12T11:31:32.189Z",
+      "durationMs": 16876,
+      "exitCode": 0,
+      "log": "test.log"
+    },
+    {
+      "command": "npm run build",
+      "startedAt": "2026-10-12T11:31:49.065Z",
+      "durationMs": 8619,
+      "exitCode": 0,
+      "log": "run-build.log"
+    },
+    {
+      "command": "npm exec -- playwright install chromium",
+      "startedAt": "2026-10-12T11:31:57.684Z",
+      "durationMs": 17689,
+      "exitCode": 0,
+      "log": "exec----playwright-install-chromium.log"
+    },
+    {
+      "command": "npm run test:e2e",
+      "startedAt": "2026-10-12T11:32:15.373Z",
+      "durationMs": 271403,
+      "exitCode": 1,
+      "log": "run-teste2e.log"
+    },
+    {
+      "command": "npm audit --audit-level=high",
+      "startedAt": "2026-10-12T11:36:46.777Z",
+      "durationMs": 1375,
+      "exitCode": 0,
+      "log": "audit---audit-levelhigh.log"
+    }
+  ]
+}

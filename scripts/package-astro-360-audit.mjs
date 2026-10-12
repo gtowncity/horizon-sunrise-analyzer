@@ -69,15 +69,24 @@ const required = [
   "npm run test:e2e",
   "npm audit --audit-level=high",
 ];
-const success = required.every((c) =>
+const commandSuccess = required.every((c) =>
   report.results.some((r) => r.command === c && r.exitCode === 0),
 );
+const ninaReference = existsSync(
+  resolve(evidence, "nina-parser-execution.json"),
+)
+  ? JSON.parse(readFileSync(resolve(evidence, "nina-parser-execution.json")))
+  : null;
+const success =
+  commandSuccess &&
+  (!existsSync("docs/astro-360/ROUND2_STATUS.json") ||
+    ninaReference?.classification === "PASS_WITH_KNOWN_GAPS");
 const gaps = [
-  "Continuous raster-cell/sector upper bounds not implemented; every adaptive sector INCOMPLETE",
+  "Native bilinear-support and deterministic uncertainty bounds implemented only in projected-grid model; geographic/physical certification missing",
   "Multi-site DGM1/DOM20 physical accuracy and independent on-site controls pending",
-  "LoD2/LAZ controls and manual measured override layer pending",
+  "LoD2 roof-edge control collected with discrepancies up to ~40 m; agreement not accepted; LAS/LAZ and measured override layer pending",
   "NINA installed-application import NOT_EXECUTED",
-  "Optical motion/position uncertainty propagation, resume, PNG export and full accessibility audit pending",
+  "Geographic error enclosure, directed rounding, verified uncertainty parameters, resume and full accessibility/large-domain memory audit pending",
 ];
 const validation = {
   schema: "astro360-audit-1",
@@ -86,7 +95,13 @@ const validation = {
   branch,
   commit,
   testResults: report.results,
+  ninaParserReference: ninaReference,
   knownGaps: gaps,
+  ninaExport: "DENIED_FOR_ALL_SUPPORTED_SCHEMAS",
+  modelBounds: "CONDITIONAL_PROJECTED_GRID_ONLY",
+  roundStatus: existsSync("docs/astro-360/ROUND2_STATUS.json")
+    ? JSON.parse(readFileSync("docs/astro-360/ROUND2_STATUS.json"))
+    : null,
   realData: existsSync(resolve(evidence, "real-data.json"))
     ? JSON.parse(readFileSync(resolve(evidence, "real-data.json")))
     : "NOT_EXECUTED",

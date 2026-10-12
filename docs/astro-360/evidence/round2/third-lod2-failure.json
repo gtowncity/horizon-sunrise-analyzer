@@ -1,0 +1,5 @@
+{
+  "classification": "FAIL",
+  "error": "No bounded CityGML file: [{\"name\":\"688_5338.gml\",\"bytes\":44381303}]",
+  "wallMs": 4499.9133
+}

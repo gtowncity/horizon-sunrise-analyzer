@@ -1,0 +1,43 @@
+{
+  "schema": "astro360-round-status-2",
+  "status": "PARTIAL",
+  "scientificRelease": "BLOCKED",
+  "ninaExport": "DENIED_FOR_ALL_SUPPORTED_SCHEMAS",
+  "progressEstimatePercent": [
+    60,
+    65
+  ],
+  "percentBasis": "Estimated remaining effort; not a coverage proof or scientific confidence score",
+  "baseCommit": "e6833ae50f77872662382c64af508dc131e9fde7",
+  "priorities": [
+    {
+      "id": 1,
+      "status": "IMPLEMENTED",
+      "acceptance": "RED budget-tail and partial-radial tests, no consent override; all supported schemas rejected"
+    },
+    {
+      "id": 2,
+      "status": "PARTIAL",
+      "acceptance": "Native bilinear-support projected-sector bounds tested; geographic enclosure and directed rounding NOT_CERTIFIED"
+    },
+    {
+      "id": 3,
+      "status": "PARTIAL",
+      "acceptance": "Continuous declared local position/height/optics intervals actually propagated; physical parameter/geodetic certification NOT_MET"
+    },
+    {
+      "id": 4,
+      "status": "PARTIAL",
+      "acceptance": "Two public browser sites cold/warm/budget, original Standard parser execution and LoD2 edge controls; full desktop NINA/LAZ/on-site NOT_EXECUTED"
+    },
+    {
+      "id": 5,
+      "status": "PARTIAL",
+      "acceptance": "Map resize/DOM domain/errors, unknown graphic breaks, richer tooltip, PNG; overrides/site-save/resume/accessibility open"
+    }
+  ],
+  "sourceModel": "BILINEAR_SUPPORT_MAX_ENVELOPE in EPSG25832 GRID_NORTH",
+  "measurementStatus": "NOT_MEASURED",
+  "independentControlAgreement": "NOT_ACCEPTED",
+  "deployment": "NOT_DEPLOYED"
+}

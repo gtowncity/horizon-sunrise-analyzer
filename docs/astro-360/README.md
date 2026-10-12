@@ -1,19 +1,9 @@
-# 360° horizon — development register
+# 360° horizon — current development register
 
-Status: PARTIAL. No production deployment authorized. Work only on feature/astro-360-horizon.
+Round 2 starts from e6833ae50f77872662382c64af508dc131e9fde7 on feature/astro-360-horizon. Initial P0/P1, public path provenance and command audit remain in baseline/. This round reads all current docs/JSON reports and independently reopens all five available previous ZIPs; inventory in evidence/round2/prior-audit-reading.json. Every historical ZIP retains its original classification and SHA.
 
-## P0 baseline
+Independent review found critical NINA fail-open defects despite the earlier narrow test suite passing. Two new regressions first fail against e6833ae, then pass after the export is denied. Acknowledgement cannot grant coverage. P2 now has native bilinear-support raster traversal, unknown sector masks and conditional model upper bounds. P3 model intervals propagate observer/optical movement and vertical errors. P4/P5 add original NINA parser execution, two-site genuine browser cold/warm/budget controls and LoD2 roof-edge controls. Map resizing and PNG output are verified.
 
-Clean single-branch local clone from the requested public GitHub remote, HEAD 18c2cc303df73faf9424120188b56f8b12303f3d. Main observed remotely at 6b395610ceecaa8d0176432c697edfc384ae0823. Node v24.19.0, Windows x64. All eight commands were executed before changes; see audit baseline/report.json and complete logs. Unit: 98 pass; E2E: 4 pass. npm audit failed: GHSA-68fv-2mgg-jv7q, source-map-js, high severity. No other baseline failures.
+Scientific release BLOCKED. NINA export DENIED for all supported schemas. Full geographic/physical coverage NOT_CERTIFIED; no on-site measurements. Current partial model and acceptance gates: ADR-0002-fail-closed-native-cells.md and ROUND2_STATUS.json.
 
-Historical local development path: FOUND_WITH_SOURCE. An existing 2026-09-16 project directory contains _local_audit/ENVIRONMENT.md (0.8.0, commit 0455a900) and README_LOCAL_AUDIT.md. This verifies a historical development directory, not the provenance of an October 10 master archive. Historical private audits were not copied. Exact absolute local checkout and historical paths are recorded locally outside the public package. Original path strings from other chats are not evidence.
-
-## Exit gates
-
-P0: baseline recorded; inherited security failure requires fix.
-P1: model, coverage, input schema, UI wireframe and architecture decisions specified before implementation.
-P2-P4: implementation and tests in progress. Synthetic numerical validation does not prove real-world accuracy.
-P5: multiple independent official DGM/DOM sites, browser CORS and physical controls mandatory before release.
-P6: each session packages all current documentation and test evidence, with independent ZIP readback and checksum. A passing archive is not a scientific release approval.
-
-See HANDOFF.md and MACHINE_READABLE_VALIDATION_REPORT.json in the audit package for current gates.
+Overall progress estimate 60–65% by outstanding effort, not scientific confidence. This round produces a new complete audit ZIP with all current public docs, source manifests, logs, failure history and independent CRC/SHA readback. Main remains 6b395610ceecaa8d0176432c697edfc384ae0823; deployment NOT_DEPLOYED.

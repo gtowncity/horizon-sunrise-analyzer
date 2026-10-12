@@ -1,11 +1,12 @@
-# Open issues and release blockers
+# Current open gates
 
-1. Scientific COMPLETE gate: streaming raster-cell angular footprints and conservative upper bounds, not adaptive-only rays. Need independent adversarial/chimney/raster-edge proofs. All current sectors INCOMPLETE.
-2. Browser real DGM+DOM CORS verification at multiple public sites and independent interpolation/raw pixel controls. Node downloads succeeded; this does not prove browser service availability.
-3. Propagate position/vertical/optical motion ensembles; current fields are declared inputs only. User margin is not verified uncertainty.
-4. Provenanced local measured override import, LoD2/LAZ controls, explicit local site save and cache-age policy pending.
-5. Installed NINA import, PNG export, sector fill semantics/polar zones, map DOM domain outline and full accessibility/performance checks pending.
-6. Hard transfer bound unresolved: existing official loader validates 150 MiB after response buffering; preflight reserve protects normal-source budget only. A strict streamed byte limit requires an isolated bounded loader. Cancellation terminates worker but already requested remote ZIP jobs may persist server-side.
-7. Detail completion and scientific release BLOCKED pending above gates; partial branch is reviewable but cannot merge/deploy without user approval.
+CLOSED: NINA fail-open, large-gap graphics closure, unpropagated local interval calculation in DETAIL, map container resize, PNG export, unbounded new-feature archive retention. Counterexamples/errors retained; new conditional bounds do not reopen export.
 
-Follow-up completed this session: real Chromium DGM1+DOM20 CORS at public Olympiapark succeeded. Earlier NOT_EXECUTED entries refer to the Node probes; real browser report is evidence/browser-real.json. Multi-site browser validation and independent source-cell controls remain pending.
+BLOCKED release gates:
+1. Certified projected-to-geographic sector/distance enclosure, WGS84/ETRS89/datum effects, directed rounding/residual bound. Current grid envelope is conditional only.
+2. Capture completeness/current trees and buildings; LoD2 edge discrepancies down to -39.614875m versus DOM require independent interpretation, LAZ and/or on-site controls. LoD2 may share inputs with DOM.
+3. Verified real observer/optical/source error budgets, refraction scenarios and physical uncertainty propagation; implemented intervals use declared assumptions only.
+4. Full installed NINA import and sequence/FOV verification; only Standard parser/grooming methods executed. Re-enable export only in a reviewed separate change after continuous bounds and consumer gates.
+5. Provenanced measured override layer, explicit site save/cache freshness, resume, large-domain/worker heap stress and full accessibility/polar-zone review.
+
+Archive generation/CI integrity can PASS_WITH_KNOWN_GAPS while scientific release remains BLOCKED. Scientific release BLOCKED. NINA export DENIED for all supported schemas. Full geographic/physical coverage NOT_CERTIFIED; no on-site measurements. Current partial model and acceptance gates: ADR-0002-fail-closed-native-cells.md and ROUND2_STATUS.json.

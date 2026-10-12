@@ -1,9 +1,7 @@
-# Input schema v1
+# Input schema (current astro360-3)
 
-observer: WGS84 lat/lon; rectangular search envelope 47..51 N / 8.5..14.1 E includes Bayern but is not an administrative containment proof. Missing official data outside coverage stays unknown. No private default; existing Munich public default only.
+Keep all original ray limits: Bayern search envelope 47..51 N,8.5..14.1 E (not administrative membership proof), relative optical height .05..100 m, optional absolute DHHN2016 -100..4000 m, terrain radius10..80000 m, surface0..min(terrain,2000), k0..0.5, user minimum -90..90°, specified margin0..30°. Position0..1000 m and vertical0..100 m.
 
-mode FAST | DETAIL; terrainDistance 10..80000 m; surfaceDistance 0..min(terrainDistance,2000) m. relativeHeight 0.05..100 m. absoluteEyeHeight optional -100..4000 m, exclusively DHHN2016. minAltitude -90..90°, margin 0..30°. terrainK and surfaceK 0..0.5 independently. positionUncertainty and verticalUncertainty in m are declared sensitivities, not propagated safety bounds. optical motion range requires follow-up implementation and is not implicitly zero physical uncertainty.
+New optional nonnegative fields: opticalHorizontalMotion, opticalHeightBelow, opticalHeightAbove, terrainHeightError, surfaceHeightError (each <=100 m). Zero defaults are explicitly scenario assumptions. maxCells integer1000..2000000 (default200000). Original maxRays12..720, maxSamples1000..2000000, maxTiles1..100, maxArchiveBytes1..1024 MiB. Every supplied optional field is runtime-validated.
 
-initialAzimuthStep 1..30°; minimumAzimuthStep 0.1..initial; radialStep 0.2..100 m; refinementTolerance 0.001..5°; maxRays 12..720; maxSamples 1000..2000000; maxTiles 1..100; maxArchiveBytes 1..1024 MiB. Default mode budgets differ. Bounds are runtime validated, including integers and finite values.
-
-No coordinates in URL, telemetry or CI logs. Coordinates in scientific exports are intentional local user downloads. No automatic persistence of result locations.
+astro360-3 adds scientific value semantics, separate projected spatialAudit and algorithm hash. v1 and intermediate v2 are read for historical inspection; no migration changes original numerical values. All versions are NINA-ineligible. Imported assertions do not become physical certification. Invalid version/values/sorting/seam/model-bound state are rejected. Scientific release BLOCKED. NINA export DENIED for all supported schemas. Full geographic/physical coverage NOT_CERTIFIED; no on-site measurements. Current partial model and acceptance gates: ADR-0002-fail-closed-native-cells.md and ROUND2_STATUS.json.

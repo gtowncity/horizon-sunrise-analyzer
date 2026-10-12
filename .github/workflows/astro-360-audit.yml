@@ -26,13 +26,16 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run audit:validate
+      - name: Execute pinned NINA Standard parser reference
+        shell: pwsh
+        run: ./scripts/probe-nina-standard-parser.ps1 -OutputDirectory $env:ASTRO_AUDIT_EVIDENCE
       - name: Package and independently verify current public audit
         if: always()
         run: npm run audit:package
       - uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: ASTRO360_CODEX_AUDIT_${{ github.sha }}
+          name: ASTRO360_CODEX_AUDIT_${{ github.event.pull_request.head.sha || github.sha }}
           path: ${{ env.ASTRO_AUDIT_OUTPUT }}/*
           if-no-files-found: error
           retention-days: 90

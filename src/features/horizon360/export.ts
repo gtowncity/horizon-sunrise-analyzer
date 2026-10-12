@@ -222,11 +222,17 @@ export function importHorizonJSON(text: string): HorizonResult {
       !Number.isFinite(t.bytes)
     )
       throw new Error("Ungültige Provenienz");
-  if (raw.spatialAudit !== undefined) validateSpatialAudit(raw.spatialAudit);
+  if (
+    raw.algorithm !== undefined &&
+    (typeof raw.algorithm !== "string" || !/^[a-f0-9]{64}$/.test(raw.algorithm))
+  )
+    throw new Error("Ungültige Modell-SHA256");
+  if (raw.spatialAudit !== undefined)
+    validateSpatialAudit(raw.spatialAudit, raw.schema === "astro360-2");
   return raw as HorizonResult;
 }
 
-function validateSpatialAudit(raw: unknown) {
+function validateSpatialAudit(raw: unknown, legacyConstant: boolean) {
   if (typeof raw !== "object" || raw === null)
     throw new Error("Invalid spatial audit");
   const a = raw as NonNullable<HorizonResult["spatialAudit"]>;
@@ -235,6 +241,7 @@ function validateSpatialAudit(raw: unknown) {
     a.physicalValidation !== "NOT_MEASURED" ||
     !Number.isFinite(a.observerRadius) ||
     a.observerRadius < 0 ||
+    typeof a.groundTraversalComplete !== "boolean" ||
     !Array.isArray(a.errors) ||
     !a.errors.every((e) => typeof e === "string")
   )
@@ -252,8 +259,10 @@ function validateSpatialAudit(raw: unknown) {
     if (s !== undefined) {
       if (
         s.frame !== "EPSG25832_GRID_NORTH" ||
-        !["BILINEAR_SUPPORT_MAX_ENVELOPE", "PIXEL_FOOTPRINT_CONSTANT"].includes(
-          s.reconstruction,
+        !(
+          s.reconstruction === "BILINEAR_SUPPORT_MAX_ENVELOPE" ||
+          (legacyConstant &&
+            (s.reconstruction as string) === "PIXEL_FOOTPRINT_CONSTANT")
         ) ||
         s.geodesicCertification !== "NOT_CERTIFIED" ||
         !Array.isArray(s.sectors) ||
@@ -266,7 +275,24 @@ function validateSpatialAudit(raw: unknown) {
         typeof s.completeTraversal !== "boolean"
       )
         throw new Error("Invalid cell coverage");
-      if (!s.conditions || !Object.values(s.conditions).every(Number.isFinite))
+      if (
+        !s.conditions ||
+        ![
+          s.conditions.observerX,
+          s.conditions.observerY,
+          s.conditions.observerRadius,
+          s.conditions.eyeMin,
+          s.conditions.eyeMax,
+          s.conditions.heightError,
+          s.conditions.k,
+        ].every(Number.isFinite) ||
+        s.conditions.observerRadius < 0 ||
+        s.conditions.eyeMin > s.conditions.eyeMax ||
+        s.conditions.heightError < 0 ||
+        s.conditions.heightError > 100 ||
+        s.conditions.k < 0 ||
+        s.conditions.k > 0.5
+      )
         throw new Error("Invalid interval conditions");
       for (let n = 0; n < s.sectors.length; n++) {
         const sector = s.sectors[n];

@@ -39,5 +39,27 @@
     "upload": "FAIL",
     "failure": "upload-artifact v7 rejects relative patterns containing ..",
     "fix": "initialize absolute RUNNER_TEMP directories at runtime through GITHUB_ENV"
+  },
+  "round2": {
+    "base": "e6833ae",
+    "criticalNinaCounterexamples": {
+      "redTests": 2,
+      "correctivePolicy": "DENY_ALL_SUPPORTED_SCHEMAS",
+      "supersedesEarlierExportSafetyAssumptions": true
+    },
+    "integrationE2E": {
+      "passed": 6,
+      "failed": 2,
+      "cause": "implicit select label includes option text for exact getByLabel",
+      "fix": "explicit Rechenmodus aria-label, unchanged test locator",
+      "rerunPassed": 4
+    },
+    "lod2Attempts": {
+      "first": "partial status JSON",
+      "second": "25 MiB XML budget excludes 44.38 MB source",
+      "third": "archive entry/size diagnostics retained",
+      "correction": "bounded poll syntax retry; explicit 64 MiB experimental XML cap after actual archive-size diagnosis; no physical tolerance/model value adjustment",
+      "final": "CONTROL_DATA_COLLECTED, not agreement accepted"
+    }
   }
 }

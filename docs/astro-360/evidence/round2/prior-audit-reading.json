@@ -1,0 +1,433 @@
+[
+  {
+    "path": "docs/astro-360/ADR-0001.md",
+    "sha256": "1ca198f1a27efb9a5d878e72071f2732fe9b8f105265349aab14202a24b9ed4a",
+    "bytes": 1403
+  },
+  {
+    "path": "docs/astro-360/ARCHITECTURE.md",
+    "sha256": "53104db873b348414f430587c786217c9b36df21ab340cbcddb78eed5de56de9",
+    "bytes": 996
+  },
+  {
+    "path": "docs/astro-360/baseline/audit---audit-levelhigh.log.txt",
+    "sha256": "bdb51ae6f1484a41cb2aeb059144aa297adb841f441ccac193d2156a11565226",
+    "bytes": 346
+  },
+  {
+    "path": "docs/astro-360/baseline/ci.log.txt",
+    "sha256": "e3efc8618000dbf920dc2f96e18f082855357076f6324887a20811948c081345",
+    "bytes": 754
+  },
+  {
+    "path": "docs/astro-360/baseline/exec----playwright-install-chromium.log.txt",
+    "sha256": "5fb2a9d30657cfe64317a72e0785566a269d2484269629a75e18a1e44e3fddb8",
+    "bytes": 93
+  },
+  {
+    "path": "docs/astro-360/baseline/report.json",
+    "sha256": "b987f9e8dbc79773bf4753f7baeb5f91a8aa1a20258132e2b9b2aff3addd5fdf",
+    "bytes": 1528
+  },
+  {
+    "path": "docs/astro-360/baseline/run-build.log.txt",
+    "sha256": "f8049a32da3e1a32ad05d31ac292a17810af22f9a0efc04bf9f3da5d0055a2ee",
+    "bytes": 1570
+  },
+  {
+    "path": "docs/astro-360/baseline/run-lint.log.txt",
+    "sha256": "139052cf0ec2490dacfdba90b33e4847bc70a378ec6a85692cc14238882917e4",
+    "bytes": 75
+  },
+  {
+    "path": "docs/astro-360/baseline/run-teste2e.log.txt",
+    "sha256": "4f9ee72e7c51798ec6995e55b780d7249f6fa5fc730dfdc2eabdb59870d49bbd",
+    "bytes": 1133
+  },
+  {
+    "path": "docs/astro-360/baseline/run-typecheck.log.txt",
+    "sha256": "4bfa0acd9cc2e036a3f50b3300706ffcdbf0bac116c650cd8661dd0fffc8a59f",
+    "bytes": 84
+  },
+  {
+    "path": "docs/astro-360/baseline/test.log.txt",
+    "sha256": "2110f9efafa75abe27a4fe892e3275e40416e63a308406aecaa7341582240280",
+    "bytes": 239
+  },
+  {
+    "path": "docs/astro-360/CHANGELOG.md",
+    "sha256": "ea02a5eb3625197ab5e026bfd683c4ff406ca11cd495732c774b38659d28535e",
+    "bytes": 499
+  },
+  {
+    "path": "docs/astro-360/DATA_SOURCES_AND_LICENSES.md",
+    "sha256": "1ea13d764a66b5c8ab7bdff7dc8d961554b70f12d9f7b7ac264043f7d1de80cd",
+    "bytes": 1133
+  },
+  {
+    "path": "docs/astro-360/DECISIONS_AND_ASSUMPTIONS.md",
+    "sha256": "4c0cd7127b5834d8017916419296110033d87a2ff3a1902b0a911283d67030e3",
+    "bytes": 323
+  },
+  {
+    "path": "docs/astro-360/evidence/browser-node-comparison.json",
+    "sha256": "d8a78e4dc692902953846fadbdbc0b64b69d03ee5ef43974bcc73c24fa1f95f9",
+    "bytes": 1758,
+    "classification": "PASS"
+  },
+  {
+    "path": "docs/astro-360/evidence/browser-real.json",
+    "sha256": "73aaaebb6422e0e3090eaaab74bc71cbab0f29f409fc12651937c5d48671b6f0",
+    "bytes": 18198,
+    "classification": "PASS_WITH_KNOWN_GAPS",
+    "counts": 12
+  },
+  {
+    "path": "docs/astro-360/evidence/failure-history.json",
+    "sha256": "a96bc39a685ffb0a2c5db55f4c152eb30f8baeacf510f02755a76f415fea0ad5",
+    "bytes": 1518
+  },
+  {
+    "path": "docs/astro-360/evidence/independent-reference.json",
+    "sha256": "77f318d63121195b0b26d777afa0bab134fea56dcada174fe2177e1d9cac1606",
+    "bytes": 12946,
+    "classification": "PASS",
+    "counts": 48
+  },
+  {
+    "path": "docs/astro-360/evidence/real-data.json",
+    "sha256": "6a35c7c419dd9392107fe7e29ad6ec3f58dce0f995098858830df1e120ccaac3",
+    "bytes": 37434,
+    "counts": 2
+  },
+  {
+    "path": "docs/astro-360/EXPORT_FORMATS.md",
+    "sha256": "45e72d0dc826e34c947519040cc0e5f88fada5aa1d16d8b1a4f4e84503a2c061",
+    "bytes": 1073
+  },
+  {
+    "path": "docs/astro-360/FAST_VS_DETAIL.md",
+    "sha256": "3ee5a13542822323187074c85bd99c3e728fb5e9095de8b8de76a575b1f176c6",
+    "bytes": 817
+  },
+  {
+    "path": "docs/astro-360/FORMULAS_AND_UNITS.md",
+    "sha256": "3460826608e5286b0e26d47bfb3a921cea479837cf4ced860a3da1ecdc46e71e",
+    "bytes": 824
+  },
+  {
+    "path": "docs/astro-360/HANDOFF.md",
+    "sha256": "85200f42bbd585e7b1c1866e4ce66ff6e82e5198c290940ae69d45a42a9f6b6e",
+    "bytes": 1437
+  },
+  {
+    "path": "docs/astro-360/INPUT_SCHEMA.md",
+    "sha256": "8309031190be848b0019c32ef03325100e6ec0b19a7077fe88b5dc8cd52167a3",
+    "bytes": 1221
+  },
+  {
+    "path": "docs/astro-360/NINA_COMPATIBILITY.md",
+    "sha256": "37be67bd0f0200fbb7dd77f957aa66f1a96469d69dc0402d84749402618c6158",
+    "bytes": 833
+  },
+  {
+    "path": "docs/astro-360/OPEN_ISSUES_AND_LIMITATIONS.md",
+    "sha256": "2b6ff6ec9b592a01da5e30f170d67c62d99edea02287f98479092fd280892acf",
+    "bytes": 1605
+  },
+  {
+    "path": "docs/astro-360/PERFORMANCE_REAL_DATA.md",
+    "sha256": "25799e812abfa2d23b1d357129af6e0fe49902ea6ab101a23ea23f59ed7b0e35",
+    "bytes": 1528
+  },
+  {
+    "path": "docs/astro-360/PRIVACY_AND_SECURITY.md",
+    "sha256": "2126e1dca3c944d64994f7805bfce905fc4574180b65b398499e56aa8ecd6944",
+    "bytes": 1039
+  },
+  {
+    "path": "docs/astro-360/PROVENANCE.md",
+    "sha256": "5759cce04b971a35421e7de4c8776301891ce1e54e66813ce13e700add8b1e8e",
+    "bytes": 1181
+  },
+  {
+    "path": "docs/astro-360/RASTER_AND_SECTOR_COVERAGE.md",
+    "sha256": "88a457511476e007d7ee2c9d3818cda3357f8e84513e7e44a8b35b0814ac5e36",
+    "bytes": 962
+  },
+  {
+    "path": "docs/astro-360/README.md",
+    "sha256": "0e05139d76285cb910d1bb86ce713a16b751379e4d16a222a766cd5ca2159b6d",
+    "bytes": 1762
+  },
+  {
+    "path": "docs/astro-360/REGRESSION_REPORT.md",
+    "sha256": "244de2c49020e70895b0fb5f7a3cefa22c16bd0457554de1f8de3f2742b809d7",
+    "bytes": 637
+  },
+  {
+    "path": "docs/astro-360/SCIENTIFIC_MODEL.md",
+    "sha256": "083678d1f39466df737a2b54188a99a25d8ca1107798e95a1cfdb0e628989f42",
+    "bytes": 2435
+  },
+  {
+    "path": "docs/astro-360/TEST_REPORT.md",
+    "sha256": "93039ee0ccb4363bfbcf97eeab9e91e8ce22811b40dbb21aa6f01d312bbfdf0e",
+    "bytes": 3136
+  },
+  {
+    "path": "docs/astro-360/UI_AND_VISUALIZATION.md",
+    "sha256": "97774ed206ebfb28ecdf684dda7246ffe9eac3e30c32ee6023406b38b87e4e50",
+    "bytes": 1160
+  },
+  {
+    "path": "docs/astro-360/UNCERTAINTY_BUDGET.md",
+    "sha256": "f9b0607d99a1de45cd8854d69975efbae0a9d017a4b7a053486825b2f1fd83c6",
+    "bytes": 855
+  },
+  {
+    "path": "docs/astro-360/USER_GUIDE.md",
+    "sha256": "ae84d84831f38dfed0587a3a330fd740be2a970e603afd656f513a2f7bb417e2",
+    "bytes": 946
+  },
+  {
+    "path": "docs/astro-360/VALIDATION_MATRIX.md",
+    "sha256": "7fecae10dcbd4206c3efef53d8289686621548cf638b46f88a4686f34335bbed",
+    "bytes": 1150
+  },
+  {
+    "path": "outputs/ASTRO360_CODEX_AUDIT_20261012T103259Z_47fc26be.zip",
+    "integrity": "PASS",
+    "entries": 164,
+    "manifestVerified": 163,
+    "crc": "PASS",
+    "sha256": "0044b24af3421b20804c843384e9004666c1acb9102ab24a9c12763e2cceb6b6",
+    "validation": "PASS_WITH_KNOWN_GAPS",
+    "commit": "47fc26be160a3fb3f4212e21c0ccac67af205136",
+    "knownGaps": [
+      "Continuous raster-cell/sector upper bounds not implemented; every adaptive sector INCOMPLETE",
+      "Multi-site DGM1/DOM20 physical accuracy and independent on-site controls pending",
+      "LoD2/LAZ controls and manual measured override layer pending",
+      "NINA installed-application import NOT_EXECUTED",
+      "Optical motion/position uncertainty propagation, resume, PNG export and full accessibility audit pending"
+    ],
+    "results": [
+      {
+        "command": "npm run lint",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run typecheck",
+        "exitCode": 0
+      },
+      {
+        "command": "npm test",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run build",
+        "exitCode": 0
+      },
+      {
+        "command": "npm exec -- playwright install chromium",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run test:e2e",
+        "exitCode": 0
+      },
+      {
+        "command": "npm audit --audit-level=high",
+        "exitCode": 0
+      }
+    ]
+  },
+  {
+    "path": "outputs/ASTRO360_CODEX_AUDIT_20261012T103718Z_b0cefba3.zip",
+    "integrity": "PASS",
+    "entries": 168,
+    "manifestVerified": 167,
+    "crc": "PASS",
+    "sha256": "3c5cf41fd34ef6f54800521ab7b7efc039e8c549630795ab577e9d45b932c15a",
+    "validation": "PASS_WITH_KNOWN_GAPS",
+    "commit": "b0cefba3bb59bc4ba4747aa1470c9ebd0cedfb4f",
+    "knownGaps": [
+      "Continuous raster-cell/sector upper bounds not implemented; every adaptive sector INCOMPLETE",
+      "Multi-site DGM1/DOM20 physical accuracy and independent on-site controls pending",
+      "LoD2/LAZ controls and manual measured override layer pending",
+      "NINA installed-application import NOT_EXECUTED",
+      "Optical motion/position uncertainty propagation, resume, PNG export and full accessibility audit pending"
+    ],
+    "results": [
+      {
+        "command": "npm run lint",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run typecheck",
+        "exitCode": 0
+      },
+      {
+        "command": "npm test",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run build",
+        "exitCode": 0
+      },
+      {
+        "command": "npm exec -- playwright install chromium",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run test:e2e",
+        "exitCode": 0
+      },
+      {
+        "command": "npm audit --audit-level=high",
+        "exitCode": 0
+      }
+    ]
+  },
+  {
+    "path": "outputs/ASTRO360_CODEX_AUDIT_20261012T103822Z_b0cefba3.zip",
+    "integrity": "PASS",
+    "entries": 168,
+    "manifestVerified": 167,
+    "crc": "PASS",
+    "sha256": "3c5cf41fd34ef6f54800521ab7b7efc039e8c549630795ab577e9d45b932c15a",
+    "validation": "PASS_WITH_KNOWN_GAPS",
+    "commit": "b0cefba3bb59bc4ba4747aa1470c9ebd0cedfb4f",
+    "knownGaps": [
+      "Continuous raster-cell/sector upper bounds not implemented; every adaptive sector INCOMPLETE",
+      "Multi-site DGM1/DOM20 physical accuracy and independent on-site controls pending",
+      "LoD2/LAZ controls and manual measured override layer pending",
+      "NINA installed-application import NOT_EXECUTED",
+      "Optical motion/position uncertainty propagation, resume, PNG export and full accessibility audit pending"
+    ],
+    "results": [
+      {
+        "command": "npm run lint",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run typecheck",
+        "exitCode": 0
+      },
+      {
+        "command": "npm test",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run build",
+        "exitCode": 0
+      },
+      {
+        "command": "npm exec -- playwright install chromium",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run test:e2e",
+        "exitCode": 0
+      },
+      {
+        "command": "npm audit --audit-level=high",
+        "exitCode": 0
+      }
+    ]
+  },
+  {
+    "path": "outputs/ASTRO360_CODEX_AUDIT_20261012T104253Z_e6833ae5.zip",
+    "integrity": "PASS",
+    "entries": 168,
+    "manifestVerified": 167,
+    "crc": "PASS",
+    "sha256": "52d181da1612fc0e4c6ca073d7e3c1140997875842110be2e4f544ce8019d764",
+    "validation": "PASS_WITH_KNOWN_GAPS",
+    "commit": "e6833ae50f77872662382c64af508dc131e9fde7",
+    "knownGaps": [
+      "Continuous raster-cell/sector upper bounds not implemented; every adaptive sector INCOMPLETE",
+      "Multi-site DGM1/DOM20 physical accuracy and independent on-site controls pending",
+      "LoD2/LAZ controls and manual measured override layer pending",
+      "NINA installed-application import NOT_EXECUTED",
+      "Optical motion/position uncertainty propagation, resume, PNG export and full accessibility audit pending"
+    ],
+    "results": [
+      {
+        "command": "npm run lint",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run typecheck",
+        "exitCode": 0
+      },
+      {
+        "command": "npm test",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run build",
+        "exitCode": 0
+      },
+      {
+        "command": "npm exec -- playwright install chromium",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run test:e2e",
+        "exitCode": 0
+      },
+      {
+        "command": "npm audit --audit-level=high",
+        "exitCode": 0
+      }
+    ]
+  },
+  {
+    "path": "outputs/ASTRO360_CODEX_AUDIT_20261012T104411Z_e6833ae5.zip",
+    "integrity": "PASS",
+    "entries": 153,
+    "manifestVerified": 152,
+    "crc": "PASS",
+    "sha256": "c1684ccfcb05bfd44f26f43feb90773541fec38062c8a03d711eb9ef7dd28cbf",
+    "validation": "PASS_WITH_KNOWN_GAPS",
+    "commit": "e6833ae50f77872662382c64af508dc131e9fde7",
+    "knownGaps": [
+      "Continuous raster-cell/sector upper bounds not implemented; every adaptive sector INCOMPLETE",
+      "Multi-site DGM1/DOM20 physical accuracy and independent on-site controls pending",
+      "LoD2/LAZ controls and manual measured override layer pending",
+      "NINA installed-application import NOT_EXECUTED",
+      "Optical motion/position uncertainty propagation, resume, PNG export and full accessibility audit pending"
+    ],
+    "results": [
+      {
+        "command": "npm run lint",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run typecheck",
+        "exitCode": 0
+      },
+      {
+        "command": "npm test",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run build",
+        "exitCode": 0
+      },
+      {
+        "command": "npm exec -- playwright install chromium",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run test:e2e",
+        "exitCode": 0
+      },
+      {
+        "command": "npm audit --audit-level=high",
+        "exitCode": 0
+      }
+    ]
+  }
+]

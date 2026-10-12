@@ -1,10 +1,7 @@
 # Sources and licenses
 
-Source review 2026-10-12:
-- DGM: https://digitalisierung.bayern.de/produkte/landschaftsinformationen/gelaende.html ; 1 m spacing, stated vertical accuracy better than ±0.2 m, not a per-pixel guarantee.
-- DOM: https://www.ldbv.bayern.de/produkte/landschaftsinformationen/dom.html ; 0.2 m raster, stated positional/vertical accuracy 0.4–0.6 m, photogrammetric capture state.
-- Download: existing src/data/provider.ts official Bayerische Vermessungsverwaltung catalog, EPSG:25832, PixelIsArea. Source hashes are supplied by existing loader. Fetch time is not acquisition date. Missing metadata remains missing.
-- Attribution: Bayerische Vermessungsverwaltung – www.geodaten.bayern.de, CC BY 4.0; repository's existing project license applies to code.
-- N.I.N.A.: https://nighttime-imaging.eu/docs/master/site/tabs/options/general/#custom-horizon ; azimuth altitude pairs, gaps interpolated, >=2 points, example has matching 0/360 endpoints. Format evidence reviewed; actual installed N.I.N.A. import not yet executed.
+Official DGM1 and DOM20 sources remain Bayerische Vermessungsverwaltung / CC BY4.0. https://digitalisierung.bayern.de/produkte/landschaftsinformationen/gelaende.html and https://www.ldbv.bayern.de/produkte/landschaftsinformationen/dom.html . Spacing is not accuracy; source capture state/date remain independent from fetch time.
 
-LoD2/LAZ are optional controls and not yet integrated. No on-site measurement claimed.
+LoD2 catalog reviewed: https://geodaten.bayern.de/opengeodata/OpenDataDetail.html?pn=lod2 and json/opengeodata_datensaetze.json. Official 2km tile688_5338.gml, source file SHA2565148292892b8f972d1b17cf4ffc60f790e2ea6902703b4a941d71ae6703bbc6d,44,381,303 uncompressed bytes. File declares ETRS89_UTM32*DE_DHHN2016_NH. Catalog says LoD2 can be derived from ALS, building survey and DOM, so separate product does not prove independent acquisition. No superiority claim. LoD2 license CC BY4.0; only public control summaries, not entire city data/address archives, are packaged.
+
+Laser data: https://geodaten.bayern.de/opengeodata/OpenDataDetail.html?pn=laserdaten . LAZ controls not executed this round. NINA reference code is MPL2.0, separate from project's existing code license. Runtime/measurement scopes and file hashes are retained; no fabricated acquisition dates or on-site controls. Scientific release BLOCKED. NINA export DENIED for all supported schemas. Full geographic/physical coverage NOT_CERTIFIED; no on-site measurements. Current partial model and acceptance gates: ADR-0002-fail-closed-native-cells.md and ROUND2_STATUS.json.

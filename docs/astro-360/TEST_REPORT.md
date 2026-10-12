@@ -1,19 +1,11 @@
-# Test report
+# Current test and audit report
 
-P0 Node v24.19.0 Windows: npm ci PASS; lint PASS; typecheck PASS; npm test 98/98 PASS; build PASS; Chromium install PASS; E2E 4/4 PASS; npm audit FAIL with 1 high source-map-js advisory. Logs/durations/exitcodes in baseline/report.json. Corrected lockfile source-map-js 1.2.2, no API/code patch in original scientific engine.
+Round2 before-change baseline on e6833ae: Node24.19.0 Windows, npm ci/lint/TS/unit(138)/build/Chromium/E2E(8)/audit all exit0. This did not cover NINA scientific safety. Two new counterexamples first FAIL on the exact original source, then PASS after fail-closed correction. RED/GREEN logs in evidence/round2.
 
-First feature E2E: 6 PASS, 2 FAIL due missing accessible name for azimuth number input. Corrected explicit aria labels on range and numeric inputs; assertions unchanged. Rerun: 8 PASS, 0 FAIL. Current full check 2026-10-12T10:25:40Z: lint, TS, unit (137 PASS), build, Chromium, E2E (8 PASS), audit (0 vulnerabilities) all exit 0. Final post-review rerun appears in the package evidence/report.json. No faked successful network/physical checks.
+Latest complete local validation began 2026-10-12T12:12:40.681Z: 158 Unit PASS, 0FAIL;8 Desktop/Mobile E2E PASS,0FAIL; lint/TS/build/Chromium/npm audit all exit0. Subsequent importer-hardening adds6 targeted passing checks; current expected complete count164 is confirmed by final CI/report.json. No existing original98 numeric tests removed. Actual current commands/durations/statuses in package evidence/report.json.
 
-ZIP readback uses independent Node zlib decompression, central/local header validation, per-file CRC32, size/SHA256 against manifest, exact entry count and JSON/CSV/Markdown readback. Deliberate corruption tests cover CRC, SHA and missing manifest entries.
+First expanded integration failed2 E2E and one network probe because exact Rechenmodus label included choices; fixed explicit aria-label, unchanged locator; focused rerun4/4. LoD2 attempts failed on partial status JSON and a too-small25MiB XML cap. Actual file44.38MB diagnosed, experimental XML cap explicitly changed to64MiB with retry count preserved. No numerical tolerance, source height or source-error assumption was adjusted to fit roof differences.
 
-Independent numerical crosscheck: 48 selected real-data blocker angles, maximum absolute discrepancy 4.903659700516982e-9° versus Cartesian spherical expression. Tolerance 1e-6° allows Earth-radius subtraction cancellation at near range. This checks numerical formulas only; no physical accuracy or continuous peak proof. Script and individual expected/computed values in evidence/independent-reference.json.
+Original NINA parser/grooming methods compiled and executed with limited scaffold: positive5 points; incomplete5 become6 including360. Full desktop NOT_EXECUTED. Two true browser sites times3 cache/budget cases pass their declared conditional-model checks. LoD2 has24 actual roof-edge controls and disagreement up to39.61m: agreement NOT_ACCEPTED. Files/hashes/scopes remain explicit.
 
-Real browser DGM1/DOM20 CORS probe completed at public Olympiapark: 9.765 s, Chromium 153.0.8010.12, 2 original source files, no page errors. This is one browser site, all sectors INCOMPLETE. Corresponding SHA256 file hashes match exactly; sampled angles differ by at most 5.20604004350389e-10°, not byte-identical across runtimes. See evidence/browser-real.json.
-
-First audit CI workflow was rejected before jobs: runner.temp is not valid in job-level env (run 38237203743). Corrected to relative evidence/output directories outside checkout. Failure retained in failure-history.json; no test PASS was inferred from this invalid workflow.
-
-Second audit CI (38237421626): all validation commands passed on Ubuntu / Node 24.21.0; packaging failed because shallow checkout lacked baseline 18c2cc3, and upload used the obsolete temp directory. Corrected fetch-depth: 0 and env-derived upload path. Full failure preserved in failure-history.json. This was a packaging failure, not a successful artifact publication.
-
-Third audit CI (38237689367): validation and independent ZIP readback PASS (153 entries); upload-artifact v7 rejects relative ../ patterns. Corrected absolute RUNNER_TEMP paths initialized at runtime through GITHUB_ENV; manifest and CRC checks were already successful. All packaging/upload failures remain in failure-history.json.
-
-Session progress estimate: 55–60% of full commissioned scope, not a measured completion probability. P0/P1 complete; P2–P4 functional partial; P5 initial scientific controls; P6 session archive pending final upload. Scientific release remains BLOCKED. Future status updates must include honest percentages with their basis.
+Independent closed-ZIP verifier checks local/central headers, CRC32, byte counts/SHA256 against exact manifest, JSON/CSV/Markdown readback and self-manifest exception. Final artifact is re-downloaded and verified again. ZIP PASS never grants scientific release. Earlier artifacts/report wording are preserved as history, not silently approved for new science.

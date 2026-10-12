@@ -1,0 +1,85 @@
+
+Running 8 tests using 1 worker
+
+  ok 1 [desktop] › tests\e2e\app.spec.ts:4:1 › complete deterministic sightline, sunrise, export and responsive workflow (5.1s)
+  ok 2 [desktop] › tests\e2e\app.spec.ts:77:1 › invalid input and cancellation have clear states (2.0s)
+  x  3 [desktop] › tests\e2e\horizon360.spec.ts:5:1 › 360 navigation, worker, synchronized selection, JSON, CSV and fail-closed NINA (2.0m)
+  ok 4 [desktop] › tests\e2e\horizon360.spec.ts:124:1 › 360 invalid input and cancellation (3.0s)
+  ok 5 [mobile] › tests\e2e\app.spec.ts:4:1 › complete deterministic sightline, sunrise, export and responsive workflow (5.8s)
+  ok 6 [mobile] › tests\e2e\app.spec.ts:77:1 › invalid input and cancellation have clear states (2.6s)
+  x  7 [mobile] › tests\e2e\horizon360.spec.ts:5:1 › 360 navigation, worker, synchronized selection, JSON, CSV and fail-closed NINA (2.0m)
+  ok 8 [mobile] › tests\e2e\horizon360.spec.ts:124:1 › 360 invalid input and cancellation (3.8s)
+
+
+  1) [desktop] › tests\e2e\horizon360.spec.ts:5:1 › 360 navigation, worker, synchronized selection, JSON, CSV and fail-closed NINA 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.selectOption: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByLabel('Rechenmodus', { exact: true })
+
+
+      87 |     .click();
+      88 |   expect((await png).suggestedFilename()).toBe("astro360-provisional.png");
+    > 89 |   await page.getByLabel("Rechenmodus", { exact: true }).selectOption("DETAIL");
+         |                                                         ^
+      90 |   await page.getByLabel("Gelände-Reichweite · m", { exact: true }).fill("10");
+      91 |   await page
+      92 |     .getByRole("button", { name: "360° berechnen", exact: true })
+        at <CHECKOUT>\tests\e2e\horizon360.spec.ts:89:57
+
+    Error Context: test-results\horizon360-360-navigation--7c7e4-ON-CSV-and-fail-closed-NINA-desktop\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\horizon360-360-navigation--7c7e4-ON-CSV-and-fail-closed-NINA-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\horizon360-360-navigation--7c7e4-ON-CSV-and-fail-closed-NINA-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile] › tests\e2e\horizon360.spec.ts:5:1 › 360 navigation, worker, synchronized selection, JSON, CSV and fail-closed NINA 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.selectOption: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByLabel('Rechenmodus', { exact: true })
+
+
+      87 |     .click();
+      88 |   expect((await png).suggestedFilename()).toBe("astro360-provisional.png");
+    > 89 |   await page.getByLabel("Rechenmodus", { exact: true }).selectOption("DETAIL");
+         |                                                         ^
+      90 |   await page.getByLabel("Gelände-Reichweite · m", { exact: true }).fill("10");
+      91 |   await page
+      92 |     .getByRole("button", { name: "360° berechnen", exact: true })
+        at <CHECKOUT>\tests\e2e\horizon360.spec.ts:89:57
+
+    Error Context: test-results\horizon360-360-navigation--7c7e4-ON-CSV-and-fail-closed-NINA-mobile\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\horizon360-360-navigation--7c7e4-ON-CSV-and-fail-closed-NINA-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\horizon360-360-navigation--7c7e4-ON-CSV-and-fail-closed-NINA-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › tests\e2e\horizon360.spec.ts:5:1 › 360 navigation, worker, synchronized selection, JSON, CSV and fail-closed NINA 
+    [mobile] › tests\e2e\horizon360.spec.ts:5:1 › 360 navigation, worker, synchronized selection, JSON, CSV and fail-closed NINA 
+  6 passed (4.5m)
+npm notice run horizon-sunrise-analyzer@0.9.1 test:e2e
+npm notice run playwright test
+[WebServer] (node:11556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:22816) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:5060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56156) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2844) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
