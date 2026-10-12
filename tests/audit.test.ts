@@ -59,3 +59,10 @@ test("Pages deployment steps gate main and approved events", () => {
   });
   expect(text).not.toContain("github.event_name != 'pull_request'");
 });
+
+test("audit CI has baseline history and uploads the actual packaging directory", () => {
+  const text = readFileSync(".github/workflows/astro-360-audit.yml", "utf8");
+  expect(text).toContain("fetch-depth: 0");
+  expect(text).toContain("path: ${{ env.ASTRO_AUDIT_OUTPUT }}/*");
+  expect(text).not.toContain("runner.temp");
+});

@@ -11,3 +11,5 @@ Independent numerical crosscheck: 48 selected real-data blocker angles, maximum 
 Real browser DGM1/DOM20 CORS probe completed at public Olympiapark: 9.765 s, Chromium 153.0.8010.12, 2 original source files, no page errors. This is one browser site, all sectors INCOMPLETE. Corresponding SHA256 file hashes match exactly; sampled angles differ by at most 5.20604004350389e-10°, not byte-identical across runtimes. See evidence/browser-real.json.
 
 First audit CI workflow was rejected before jobs: runner.temp is not valid in job-level env (run 38237203743). Corrected to relative evidence/output directories outside checkout. Failure retained in failure-history.json; no test PASS was inferred from this invalid workflow.
+
+Second audit CI (38237421626): all validation commands passed on Ubuntu / Node 24.21.0; packaging failed because shallow checkout lacked baseline 18c2cc3, and upload used the obsolete temp directory. Corrected fetch-depth: 0 and env-derived upload path. Full failure preserved in failure-history.json. This was a packaging failure, not a successful artifact publication.

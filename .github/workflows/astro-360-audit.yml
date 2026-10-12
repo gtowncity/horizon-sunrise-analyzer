@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
       - uses: actions/setup-node@v7
         with:
           node-version: "24"
@@ -31,6 +32,6 @@ jobs:
         if: always()
         with:
           name: ASTRO360_CODEX_AUDIT_${{ github.sha }}
-          path: ${{ runner.temp }}/astro-output/*
+          path: ${{ env.ASTRO_AUDIT_OUTPUT }}/*
           if-no-files-found: error
           retention-days: 90

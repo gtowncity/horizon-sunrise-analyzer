@@ -24,5 +24,12 @@
     "failure": "runner.temp context is not available in job-level env",
     "fix": "use relative evidence/output directories outside checkout",
     "workflowJobsExecuted": 0
+  },
+  "secondAuditCI": {
+    "runId": 38237421626,
+    "testValidation": "PASS",
+    "package": "FAIL",
+    "failure": "shallow checkout lacked 18c2cc3 baseline; upload path still referenced old runner temp location",
+    "fix": "checkout full history and derive upload path from ASTRO_AUDIT_OUTPUT"
   }
 }
