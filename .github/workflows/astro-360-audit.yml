@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      ASTRO_AUDIT_EVIDENCE: ${{ runner.temp }}/astro-evidence
-      ASTRO_AUDIT_OUTPUT: ${{ runner.temp }}/astro-output
+      ASTRO_AUDIT_EVIDENCE: ../astro-audit-evidence
+      ASTRO_AUDIT_OUTPUT: ../astro-audit-output
     steps:
       - uses: actions/checkout@v6
         with:

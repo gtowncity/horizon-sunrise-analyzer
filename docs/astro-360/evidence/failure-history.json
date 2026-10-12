@@ -1,1 +1,28 @@
-{"schema":"astro360-failure-history-1","baseline":{"command":"npm audit --audit-level=high","exitCode":1,"highVulnerabilities":1,"advisory":"GHSA-68fv-2mgg-jv7q","fix":"source-map-js 1.2.2"},"firstFeatureE2E":{"passed":6,"failed":2,"failure":"azimuth spinbutton accessible name missing; Playwright locator timeout on Desktop/Mobile","fix":"separate explicit aria-label on slider and numeric input; assertions kept","evidence":"tool execution output and error-context inspection; complete first feature-run stdout was not preserved separately"},"rerun":{"passed":8,"failed":0}}
+{
+  "schema": "astro360-failure-history-1",
+  "baseline": {
+    "command": "npm audit --audit-level=high",
+    "exitCode": 1,
+    "highVulnerabilities": 1,
+    "advisory": "GHSA-68fv-2mgg-jv7q",
+    "fix": "source-map-js 1.2.2"
+  },
+  "firstFeatureE2E": {
+    "passed": 6,
+    "failed": 2,
+    "failure": "azimuth spinbutton accessible name missing; Playwright locator timeout on Desktop/Mobile",
+    "fix": "separate explicit aria-label on slider and numeric input; assertions kept",
+    "evidence": "tool execution output and error-context inspection; complete first feature-run stdout was not preserved separately"
+  },
+  "rerun": {
+    "passed": 8,
+    "failed": 0
+  },
+  "firstAuditCI": {
+    "runId": 38237203743,
+    "classification": "FAIL",
+    "failure": "runner.temp context is not available in job-level env",
+    "fix": "use relative evidence/output directories outside checkout",
+    "workflowJobsExecuted": 0
+  }
+}

@@ -9,3 +9,5 @@ ZIP readback uses independent Node zlib decompression, central/local header vali
 Independent numerical crosscheck: 48 selected real-data blocker angles, maximum absolute discrepancy 4.903659700516982e-9° versus Cartesian spherical expression. Tolerance 1e-6° allows Earth-radius subtraction cancellation at near range. This checks numerical formulas only; no physical accuracy or continuous peak proof. Script and individual expected/computed values in evidence/independent-reference.json.
 
 Real browser DGM1/DOM20 CORS probe completed at public Olympiapark: 9.765 s, Chromium 153.0.8010.12, 2 original source files, no page errors. This is one browser site, all sectors INCOMPLETE. Corresponding SHA256 file hashes match exactly; sampled angles differ by at most 5.20604004350389e-10°, not byte-identical across runtimes. See evidence/browser-real.json.
+
+First audit CI workflow was rejected before jobs: runner.temp is not valid in job-level env (run 38237203743). Corrected to relative evidence/output directories outside checkout. Failure retained in failure-history.json; no test PASS was inferred from this invalid workflow.
