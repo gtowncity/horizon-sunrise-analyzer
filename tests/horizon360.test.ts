@@ -280,18 +280,12 @@ describe("versioned scientific and NINA export", () => {
   );
   test("NINA requires explicit provisional consent", async () =>
     expect(() => exportNina(awaitableResult)).toThrow());
-  test("NINA sorted decimal columns and identical endpoint", async () => {
+  test("a complete angular lattice of sampled rays still cannot certify NINA interpolation", async () => {
     const r = await flat();
-    const txt = exportNina(r, false, true),
-      rows = txt
-        .trim()
-        .split(/\r?\n/)
-        .filter((s) => !s.startsWith("#"))
-        .map((s) => s.split(" ").map(Number));
-    expect(rows[0][0]).toBe(0);
-    expect(rows.at(-1)?.[0]).toBe(360);
-    expect(rows[0][1]).toBe(rows.at(-1)?.[1]);
-    expect(rows.every((p, n) => n === 0 || p[0] > rows[n - 1][0])).toBe(true);
+    for (const planning of [false, true])
+      expect(() => exportNina(r, planning, true)).toThrow(
+        "UNCERTIFIED_SPATIAL_COVERAGE",
+      );
   });
   test("CSV null remains empty, with units/status", async () => {
     const r = await analyzeHorizon(

@@ -40,6 +40,19 @@ export function validateHorizonInputs(i: HorizonInputs) {
     [i.maxTiles, 1, 100, "Kachelbudget"],
     [i.maxArchiveBytes, 1048576, 1073741824, "Archivbudget"],
   ];
+  for (const [key, limit] of [
+    ["opticalHorizontalMotion", 100],
+    ["opticalHeightBelow", 100],
+    ["opticalHeightAbove", 100],
+    ["terrainHeightError", 100],
+    ["surfaceHeightError", 100],
+    ["maxCells", 2000000],
+  ] as const) {
+    if (i[key] !== undefined)
+      ranges.push([i[key]!, key === "maxCells" ? 1000 : 0, limit, key]);
+  }
+  if (i.maxCells !== undefined && !Number.isInteger(i.maxCells))
+    throw new Error("Zellbudget muss ganzzahlig sein");
   if (i.absoluteEyeHeight !== undefined)
     ranges.push([i.absoluteEyeHeight, -100, 4000, "DHHN2016 Optikhöhe"]);
   for (const [v, lo, hi, name] of ranges)
@@ -262,8 +275,8 @@ export async function analyzeHorizon(
     detail: "PARTIAL: wissenschaftliche Vollständigkeit nicht nachgewiesen",
   });
   return {
-    schema: "astro360-1",
-    method: "adaptive-rays-v1",
+    schema: "astro360-2",
+    method: "adaptive-rays-v2",
     commit,
     timestamp: new Date().toISOString(),
     inputs: structuredClone(i),

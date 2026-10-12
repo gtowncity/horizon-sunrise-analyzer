@@ -11,7 +11,7 @@ import { HorizonMap } from "./Map";
 import {
   exportHorizonCSV,
   exportHorizonJSON,
-  exportNina,
+  ninaEligibility,
   importHorizonJSON,
   selectedBlocker,
 } from "./export";
@@ -30,8 +30,7 @@ export function Horizon360() {
     [progress, setProgress] = useState<Progress>(),
     [error, setError] = useState(""),
     [busy, setBusy] = useState(false),
-    [selected, setSelected] = useState(0),
-    [accept, setAccept] = useState(false);
+    [selected, setSelected] = useState(0);
   const worker = useRef<Worker | null>(null);
   useEffect(() => () => worker.current?.terminate(), []);
   const select = useCallback((a: number) => setSelected(a), []);
@@ -41,7 +40,6 @@ export function Horizon360() {
   ) => {
     setInputs((i) => ({ ...i, [key]: value }));
     setResult(undefined);
-    setAccept(false);
   };
   const field = (key: keyof HorizonInputs, label: string, step = 0.1) => (
     <label key={key}>
@@ -75,7 +73,6 @@ export function Horizon360() {
     setBusy(true);
     setError("");
     setResult(undefined);
-    setAccept(false);
     setProgress({
       stage: "Start",
       fraction: 0,
@@ -96,20 +93,6 @@ export function Horizon360() {
       w.terminate();
     };
     w.postMessage(inputs);
-  };
-  const nina = (planning: boolean) => {
-    try {
-      if (result)
-        save(
-          exportNina(result, planning, accept),
-          planning
-            ? "astro360-planning-PROVISIONAL.horizon"
-            : "astro360-physical-PROVISIONAL.horizon",
-          "text/plain",
-        );
-    } catch (e) {
-      setError((e as Error).message);
-    }
   };
   const nearest = result?.directions.reduce((best, d) =>
     Math.min(
@@ -190,11 +173,10 @@ export function Horizon360() {
                   maxSamples: detail ? 500000 : 100000,
                 }));
                 setResult(undefined);
-                setAccept(false);
               }}
             >
               <option value="FAST">Schnell / Übersicht</option>
-              <option value="DETAIL">Detail / adaptive Verfeinerung</option>
+              <option value="DETAIL">Detail / native Zellprüfung</option>
             </select>
           </label>
           {field("terrainDistance", "Gelände-Reichweite · m", 10)}
@@ -230,6 +212,21 @@ export function Horizon360() {
                 "verticalUncertainty",
                 "Angegebenes vertikales Budget · m",
               )}
+              {field(
+                "opticalHorizontalMotion",
+                "Optikbewegung horizontaler Radius · m",
+              )}
+              {field("opticalHeightBelow", "Optikbewegung nach unten · m")}
+              {field("opticalHeightAbove", "Optikbewegung nach oben · m")}
+              {field(
+                "terrainHeightError",
+                "Angenommene DGM-Höhenfehlergrenze · m",
+              )}
+              {field(
+                "surfaceHeightError",
+                "Angenommene DOM-Höhenfehlergrenze · m",
+              )}
+              {field("maxCells", "Maximale native Rasterzellen", 1000)}
               {field("radialStep", "Radialschritt · m")}
               {field("initialAzimuthStep", "Start-Azimutschritt · °")}
               {field("minimumAzimuthStep", "Minimaler Azimutschritt · °")}
@@ -285,7 +282,6 @@ export function Horizon360() {
                 setInputs(r.inputs);
                 setResult(r);
                 setError("");
-                setAccept(false);
               } catch (x) {
                 setError((x as Error).message);
               }
@@ -368,6 +364,7 @@ export function Horizon360() {
               <HorizonMap
                 observer={inputs.observer}
                 distance={inputs.terrainDistance}
+                surfaceDistance={inputs.surfaceDistance}
                 result={result}
                 selected={selected}
                 onPoint={(p) => {
@@ -426,6 +423,7 @@ export function Horizon360() {
                     method: result.method,
                     tiles: result.tiles,
                     performance: result.performance,
+                    cellMetrics: result.cellMetrics,
                   },
                   null,
                   2,
@@ -433,6 +431,71 @@ export function Horizon360() {
               </pre>
             </details>
           </section>
+          {result.spatialAudit && (
+            <section className="panel">
+              <h2>Rasterzellprüfung und Unsicherheitsintervalle</h2>
+              <p>
+                EPSG25832-Gitternord; getrennt von der geografischen Höhenkurve.
+                KONDITIONALE MODELLGRENZEN, keine vor Ort validierten Messungen.
+                Positions-/Optikradius {result.spatialAudit.observerRadius} m;
+                Augenhöhenintervall{" "}
+                {result.spatialAudit.eyeRange?.join(" … ") ?? "UNKNOWN"} m.
+              </p>
+              <ul>
+                {result.spatialAudit.errors.map((e, n) => (
+                  <li key={n}>{e}</li>
+                ))}
+              </ul>
+              {[
+                ["DGM1", result.spatialAudit.terrain],
+                ["DOM20", result.spatialAudit.surface],
+              ].map(([name, raw]) => {
+                const scan = raw as NonNullable<
+                  HorizonResult["spatialAudit"]
+                >["terrain"];
+                if (!scan) return null;
+                return (
+                  <details key={name as string}>
+                    <summary>
+                      {name as string}: {scan.evaluatedCells} native Zellen ·
+                      Traversierung{" "}
+                      {scan.completeTraversal
+                        ? "vollständig im Rastermodell"
+                        : "UNVOLLSTÄNDIG"}
+                    </summary>
+                    <div className="table-scroll">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Gitternord-Sektor °</th>
+                            <th>Bekannte Teilzellen-Obergrenze °</th>
+                            <th>Vollständige Modellobergrenze °</th>
+                            <th>Status</th>
+                            <th>Fehlende Zellen</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {scan.sectors.map((s) => (
+                            <tr key={s.start}>
+                              <td>
+                                {s.start} … {s.end}
+                              </td>
+                              <td>
+                                {s.knownCellUpper?.toFixed(6) ?? "UNKNOWN"}
+                              </td>
+                              <td>{s.modelUpper?.toFixed(6) ?? "UNKNOWN"}</td>
+                              <td>{s.status}</td>
+                              <td>{s.missing}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </details>
+                );
+              })}
+            </section>
+          )}
           <section className="panel">
             <h2>Reproduzierbare Exporte</h2>
             <button
@@ -457,25 +520,17 @@ export function Horizon360() {
             >
               360° CSV exportieren
             </button>
-            <label>
-              <input
-                type="checkbox"
-                checked={accept}
-                onChange={(e) => setAccept(e.target.checked)}
-              />{" "}
-              Ich bestätige: N.I.N.A.-Kurven sind VORLÄUFIG und garantieren
-              keinen freien Himmel.
-            </label>
-            <button disabled={!accept} onClick={() => nina(false)}>
-              N.I.N.A. physisch · VORLÄUFIG
-            </button>
-            <button disabled={!accept} onClick={() => nina(true)}>
-              N.I.N.A. Planung · VORLÄUFIG
-            </button>
+            <button disabled>N.I.N.A. physisch · GESPERRT</button>
+            <button disabled>N.I.N.A. Planung · GESPERRT</button>
             <p>
-              UNKNOWN-Korridore sperren den N.I.N.A.-Export. Ein Zielpunkt über
-              dem Horizont garantiert keine freie gesamte Kamera-Bildfläche.
+              Fehlende räumliche Nachweise können nicht durch eine Bestätigung
+              ersetzt werden. N.I.N.A. würde numerische Lücken interpolieren.
             </p>
+            <ul>
+              {ninaEligibility(result).reasons.map((reason) => (
+                <li key={reason}>{reason}</li>
+              ))}
+            </ul>
             <details>
               <summary>Richtungstabelle (vollständig)</summary>
               <div className="table-scroll">

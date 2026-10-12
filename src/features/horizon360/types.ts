@@ -1,4 +1,5 @@
 import type { Position, TileRecord, PerformanceStats } from "../../core/types";
+import type { SpatialAudit } from "./uncertainty";
 
 export type Coverage = "UNKNOWN" | "INCOMPLETE";
 export type HorizonInputs = {
@@ -22,6 +23,12 @@ export type HorizonInputs = {
   maxSamples: number;
   maxTiles: number;
   maxArchiveBytes: number;
+  opticalHorizontalMotion?: number;
+  opticalHeightBelow?: number;
+  opticalHeightAbove?: number;
+  terrainHeightError?: number;
+  surfaceHeightError?: number;
+  maxCells?: number;
 };
 export type Blocker = Position & {
   distance: number;
@@ -50,8 +57,8 @@ export type HorizonDirection = {
   nextAngularGap: number;
 };
 export type HorizonResult = {
-  schema: "astro360-1";
-  method: "adaptive-rays-v1";
+  schema: "astro360-1" | "astro360-2";
+  method: "adaptive-rays-v1" | "adaptive-rays-v2";
   commit: string;
   timestamp: string;
   inputs: HorizonInputs;
@@ -64,6 +71,12 @@ export type HorizonResult = {
   evaluatedSamples: number;
   preflight: { tileUpperBound: number; bytes: null };
   performance?: PerformanceStats;
+  spatialAudit?: SpatialAudit;
+  cellMetrics?: {
+    blocksDecoded: number;
+    peakBlockBytes: number;
+    sourceOpens: number;
+  };
 };
 export const horizonDefaults: HorizonInputs = {
   observer: { lat: 48.14, lon: 11.58 },
@@ -85,4 +98,10 @@ export const horizonDefaults: HorizonInputs = {
   maxSamples: 100000,
   maxTiles: 20,
   maxArchiveBytes: 256 * 1024 * 1024,
+  opticalHorizontalMotion: 0,
+  opticalHeightBelow: 0,
+  opticalHeightAbove: 0,
+  terrainHeightError: 0,
+  surfaceHeightError: 0,
+  maxCells: 200000,
 };

@@ -57,41 +57,64 @@ export function selectedBlocker(d: HorizonDirection) {
     b = d.surface.blocker;
   return !a ? b : !b ? a : b.angle > a.angle ? b : a;
 }
-/** Explicitly provisional: never silently interpolate UNKNOWN corridors. */
+/** Acknowledgement never grants scientific coverage. No supported result is certified yet. */
+export function ninaEligibility(r: HorizonResult): {
+  allowed: false;
+  reasons: string[];
+} {
+  const reasons: string[] = [];
+  try {
+    importHorizonJSON(exportHorizonJSON(r));
+  } catch {
+    return {
+      allowed: false,
+      reasons: ["INVALID_RESULT: ungültige oder widersprüchliche Daten"],
+    };
+  }
+  const directions = r.directions;
+  if (directions.length < 2 || directions[0].azimuth !== 0)
+    reasons.push("UNKNOWN: Nordnaht / Winkelabdeckung fehlt");
+  for (const d of directions) {
+    if (d.nextAngularGap > r.inputs.initialAzimuthStep + 1e-9)
+      reasons.push("UNKNOWN: ununtersuchter Winkelsektor");
+    for (const scan of [
+      d.terrain,
+      ...(r.inputs.surfaceDistance > 0 ? [d.surface] : []),
+    ]) {
+      if (scan.status === "UNKNOWN" || scan.blocker === null)
+        reasons.push("UNKNOWN: angefragte Quelle fehlt");
+      if (
+        scan.errors.length ||
+        scan.valid !== scan.attempted ||
+        scan.sampledTo !== scan.requestedDistance
+      )
+        reasons.push(
+          "INCOMPLETE: Radialabfragen fehlgeschlagen oder abgebrochen",
+        );
+    }
+  }
+  reasons.push(
+    "UNCERTIFIED_SPATIAL_COVERAGE: Strahlen und experimentelle Zellgrenzen belegen keinen kontinuierlichen 360°-Horizont",
+  );
+  return { allowed: false, reasons: [...new Set(reasons)] };
+}
 export function exportNina(
   r: HorizonResult,
-  planning = false,
-  acceptIncomplete = false,
-) {
-  if (!acceptIncomplete)
-    throw new Error("VORLÄUFIG-Export muss ausdrücklich bestätigt werden");
-  if (
-    r.directions.length < 2 ||
-    r.directions[0].azimuth !== 0 ||
-    r.directions.some(
-      (d) =>
-        d.actual === null ||
-        d.terrain.status === "UNKNOWN" ||
-        (r.inputs.surfaceDistance > 0 && d.surface.status === "UNKNOWN"),
-    )
-  )
-    throw new Error("UNKNOWN-Korridor: N.I.N.A.-Export gesperrt");
-  const points = r.directions.map((d) => [
-    d.azimuth,
-    planning ? d.planning : d.actual,
-  ]);
-  points.push([360, points[0][1]]);
-  return (
-    "# VORLAEUFIG INCOMPLETE - no guaranteed clear sky or full camera FOV\r\n# Az Alt\r\n" +
-    points.map(([a, h]) => `${a!.toFixed(8)} ${h!.toFixed(8)}`).join("\r\n") +
-    "\r\n"
+  _planning = false,
+  _acceptIncomplete = false,
+): never {
+  throw new Error(
+    "N.I.N.A.-Export gesperrt: " + ninaEligibility(r).reasons.join("; "),
   );
 }
 export function importHorizonJSON(text: string): HorizonResult {
   if (text.length > 32 * 1024 * 1024)
     throw new Error("Import größer als 32 MiB");
   const raw = JSON.parse(text);
-  if (raw?.schema !== "astro360-1" || raw.method !== "adaptive-rays-v1")
+  if (!(
+    (raw?.schema === "astro360-1" && raw.method === "adaptive-rays-v1") ||
+    (raw?.schema === "astro360-2" && raw.method === "adaptive-rays-v2")
+  ))
     throw new Error(
       "Nicht unterstützte Schema-/Modellversion; keine implizite Migration",
     );
@@ -192,5 +215,75 @@ export function importHorizonJSON(text: string): HorizonResult {
       !Number.isFinite(t.bytes)
     )
       throw new Error("Ungültige Provenienz");
+  if (raw.spatialAudit !== undefined) validateSpatialAudit(raw.spatialAudit);
   return raw as HorizonResult;
+}
+
+function validateSpatialAudit(raw: unknown) {
+  if (typeof raw !== "object" || raw === null)
+    throw new Error("Invalid spatial audit");
+  const a = raw as NonNullable<HorizonResult["spatialAudit"]>;
+  if (
+    a.status !== "CONDITIONAL_MODEL_ONLY" ||
+    a.physicalValidation !== "NOT_MEASURED" ||
+    !Number.isFinite(a.observerRadius) ||
+    a.observerRadius < 0 ||
+    !Array.isArray(a.errors) ||
+    !a.errors.every((e) => typeof e === "string")
+  )
+    throw new Error("Invalid spatial audit provenance");
+  for (const range of [a.eyeRange, a.groundRange])
+    if (
+      range !== null &&
+      (!Array.isArray(range) ||
+        range.length !== 2 ||
+        !range.every(Number.isFinite) ||
+        range[0] > range[1])
+    )
+      throw new Error("Invalid interval");
+  for (const s of [a.terrain, a.surface])
+    if (s !== undefined) {
+      if (
+        s.frame !== "EPSG25832_GRID_NORTH" ||
+        s.reconstruction !== "PIXEL_FOOTPRINT_CONSTANT" ||
+        s.geodesicCertification !== "NOT_CERTIFIED" ||
+        !Array.isArray(s.sectors) ||
+        s.sectors.length < 12 ||
+        s.sectors.length > 720 ||
+        !Array.isArray(s.errors) ||
+        !s.errors.every((e) => typeof e === "string") ||
+        !Number.isInteger(s.evaluatedCells) ||
+        s.evaluatedCells < 0 ||
+        typeof s.completeTraversal !== "boolean"
+      )
+        throw new Error("Invalid cell coverage");
+      if (!s.conditions || !Object.values(s.conditions).every(Number.isFinite))
+        throw new Error("Invalid interval conditions");
+      for (let n = 0; n < s.sectors.length; n++) {
+        const sector = s.sectors[n];
+        if (
+          sector.start !== (n * 360) / s.sectors.length ||
+          sector.end !== ((n + 1) * 360) / s.sectors.length ||
+          !["UNKNOWN", "CONDITIONAL_MODEL_BOUND"].includes(sector.status) ||
+          !Number.isInteger(sector.cells) ||
+          sector.cells < 0 ||
+          !Number.isInteger(sector.missing) ||
+          sector.missing < 0 ||
+          sector.missing > sector.cells
+        )
+          throw new Error("Invalid sector coverage");
+        for (const h of [sector.modelUpper, sector.knownCellUpper])
+          if (h !== null && (!Number.isFinite(h) || h < -90 || h > 90))
+            throw new Error("Invalid sector bound");
+        if (
+          sector.status === "UNKNOWN"
+            ? sector.modelUpper !== null
+            : !s.completeTraversal ||
+              sector.missing > 0 ||
+              sector.modelUpper === null ||
+              sector.modelUpper !== sector.knownCellUpper
+        )
+          throw new Error("Unproven sector bound");
+      }
+    }
 }

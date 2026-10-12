@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
 import mapWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -10,12 +10,14 @@ maplibregl.setWorkerUrl(mapWorkerUrl);
 export function HorizonMap({
   observer,
   distance,
+  surfaceDistance = 0,
   result,
   selected,
   onPoint,
 }: {
   observer: Position;
   distance: number;
+  surfaceDistance?: number;
   result?: HorizonResult;
   selected: number;
   onPoint: (p: Position) => void;
@@ -23,8 +25,23 @@ export function HorizonMap({
   const container = useRef<HTMLDivElement>(null),
     instance = useRef<maplibregl.Map | null>(null),
     refresh = useRef(() => {}),
-    latest = useRef({ observer, distance, result, selected, onPoint });
-  latest.current = { observer, distance, result, selected, onPoint };
+    latest = useRef({
+      observer,
+      distance,
+      surfaceDistance,
+      result,
+      selected,
+      onPoint,
+    });
+  const [mapError, setMapError] = useState("");
+  latest.current = {
+    observer,
+    distance,
+    surfaceDistance,
+    result,
+    selected,
+    onPoint,
+  };
   useEffect(() => {
     if (!container.current) return;
     const p = latest.current.observer;
@@ -47,6 +64,13 @@ export function HorizonMap({
       },
     });
     instance.current = map;
+    const resize = new ResizeObserver(() => map.resize());
+    resize.observe(container.current);
+    map.on("error", () =>
+      setMapError(
+        "Kartenkacheln nicht vollständig erreichbar. Die Höhenanalyse wird davon unabhängig ausgewertet.",
+      ),
+    );
     map.addControl(new maplibregl.NavigationControl());
     const marker = new maplibregl.Marker({ draggable: true })
       .setLngLat([p.lon, p.lat])
@@ -65,6 +89,7 @@ export function HorizonMap({
       const {
         observer: o,
         distance: r,
+        surfaceDistance: domRadius,
         selected: a,
         result: res,
       } = latest.current;
@@ -92,6 +117,18 @@ export function HorizonMap({
           },
         },
       ];
+      if (domRadius > 0)
+        features.push({
+          type: "Feature",
+          properties: { kind: "dom" },
+          geometry: {
+            type: "LineString",
+            coordinates: Array.from({ length: 73 }, (_, n) => {
+              const p = destination(o, n * 5, domRadius);
+              return [p.lon, p.lat];
+            }),
+          },
+        });
       const gap = (az: number) =>
         Math.min(Math.abs(az - a), 360 - Math.abs(az - a));
       const d = res?.directions.reduce((best, current) =>
@@ -113,7 +150,16 @@ export function HorizonMap({
           id: "horizon-lines",
           type: "line",
           source: "horizon",
-          paint: { "line-color": "#087f8c", "line-width": 2 },
+          paint: {
+            "line-color": [
+              "match",
+              ["get", "kind"],
+              "dom",
+              "#7c3aed",
+              "#087f8c",
+            ],
+            "line-width": 2,
+          },
         });
       }
     };
@@ -123,18 +169,26 @@ export function HorizonMap({
     });
     return () => {
       map.remove();
+      resize.disconnect();
+      refresh.current = () => {};
       instance.current = null;
     };
   }, []);
-  useEffect(() => refresh.current(), [observer, distance, result, selected]);
+  useEffect(
+    () => refresh.current(),
+    [observer, distance, surfaceDistance, result, selected],
+  );
   useEffect(() => {
     instance.current?.jumpTo({ center: [observer.lon, observer.lat] });
   }, [observer.lat, observer.lon]);
   return (
-    <div
-      ref={container}
-      className="h360-map"
-      aria-label="OSM-Karte: Beobachter, Untersuchungsradius, ausgewählte Richtung und Rasterblocker"
-    />
+    <>
+      <div
+        ref={container}
+        className="h360-map"
+        aria-label="OSM-Karte: Beobachter, Untersuchungsradius, ausgewählte Richtung und Rasterblocker"
+      />
+      {mapError && <p role="status">{mapError}</p>}
+    </>
   );
 }

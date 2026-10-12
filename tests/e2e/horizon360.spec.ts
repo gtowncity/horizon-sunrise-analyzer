@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { zipSync } from "fflate";
 import { fixtureTIFF } from "../fixtures";
 
-test("360 navigation, worker, synchronized selection, JSON, CSV and provisional NINA", async ({
+test("360 navigation, worker, synchronized selection, JSON, CSV and fail-closed NINA", async ({
   page,
   context,
 }) => {
@@ -67,18 +67,14 @@ test("360 navigation, worker, synchronized selection, JSON, CSV and provisional 
       /astro360-scientific\.(json|csv)/,
     );
   }
-  await expect(
-    page.getByRole("button", {
-      name: "N.I.N.A. physisch · VORLÄUFIG",
-      exact: true,
-    }),
-  ).toBeDisabled();
-  await page.getByRole("checkbox").check();
-  const download = page.waitForEvent("download");
-  await page
-    .getByRole("button", { name: "N.I.N.A. physisch · VORLÄUFIG", exact: true })
-    .click();
-  expect((await download).suggestedFilename()).toContain("PROVISIONAL");
+  for (const name of [
+    "N.I.N.A. physisch · GESPERRT",
+    "N.I.N.A. Planung · GESPERRT",
+  ])
+    await expect(
+      page.getByRole("button", { name, exact: true }),
+    ).toBeDisabled();
+  await expect(page.getByText(/UNCERTIFIED_SPATIAL_COVERAGE/)).toBeVisible();
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth + 1,
